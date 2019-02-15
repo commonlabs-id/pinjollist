@@ -3,7 +3,7 @@
   "alias": "pinjollist.now.sh",
   "version": 2,
   "routes": [
-    { "src": "/api", "dest": "/api/index.ts" },
+    { "src": "/api/(.*).ts", "dest": "/api/routes/$1" },
     {
       "src": "/(.*)",
       "dest": "/www/$1",
@@ -13,7 +13,7 @@
     }
   ],
   "builds": [
-    { "src": "api/**/*.ts", "use": "@now/node@canary" },
+    { "src": "api/routes/**/*.ts", "use": "@now/node@canary" },
     { "src": "www/package.json", "use": "@now/next" }
   ]
 }
