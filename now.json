@@ -1,0 +1,6 @@
+{
+  "name": "pinjollist",
+  "version": 2,
+  "routes": [{ "src": "/api", "dest": "/api/index.ts" }],
+  "builds": [{ "src": "api/**/*.ts", "use": "@now/node@canary" }]
+}
