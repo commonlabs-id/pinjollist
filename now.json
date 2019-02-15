@@ -3,13 +3,13 @@
   "alias": "pinjollist.now.sh",
   "version": 2,
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-    },
+    { "src": "/api", "dest": "/api/index.ts" },
     {
       "src": "/(.*)",
-      "dest": "/www/$1"
+      "dest": "/www/$1",
+      "headers": {
+        "x-request-path": "$1"
+      }
     }
   ],
   "builds": [
