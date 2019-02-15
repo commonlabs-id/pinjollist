@@ -11,7 +11,8 @@
     "FIREBASE_SENDER_ID": "@firebase-sender-id"
   },
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/routes/$1" },
+    { "src": "/api/companies", "dest": "/api/routes/companies.ts" },
+    { "src": "/api", "dest": "/api/routes/index.ts" },
     {
       "src": "/(.*)",
       "dest": "/www/$1",
