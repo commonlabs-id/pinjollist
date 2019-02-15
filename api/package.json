@@ -1,0 +1,16 @@
+{
+  "name": "@pinjollist/api",
+  "version": "1.0.0",
+  "description": "The Pinjollist API endpoint.",
+  "main": "N/A",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/resir014/pinjollist.git"
+  },
+  "author": "Resi Respati <resir014@gmail.com>",
+  "license": "Apache-2.0",
+  "private": true,
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {}
+}
