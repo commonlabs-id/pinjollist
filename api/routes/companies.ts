@@ -6,7 +6,7 @@ export default async function handler(_: IncomingMessage, res: ServerResponse) {
     try {
       const { docs } = await app
         .firestore()
-        .collection('lending.services')
+        .collection('lending_services')
         .get();
 
       res.writeHead(200, { 'Content-Type': 'application/json' });
