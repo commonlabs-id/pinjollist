@@ -1,5 +1,6 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { app } from '../utils/firebase';
+import buildResponse from '../utils/buildResponse';
 
 export default async function handler(_: IncomingMessage, res: ServerResponse) {
   if (app.firestore) {
@@ -12,28 +13,25 @@ export default async function handler(_: IncomingMessage, res: ServerResponse) {
       const data = docs.map(doc => doc.data());
 
       res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end(
-        JSON.stringify({
-          status: 'ok',
-          data,
-        }),
-      );
+      res.end(JSON.stringify(buildResponse('ok', data)));
     } catch (err) {
       res.writeHead(400, { 'Content-Type': 'application/json' });
       res.end(
-        JSON.stringify({
-          status: 'error',
-          message: err.message,
-        }),
+        JSON.stringify(
+          buildResponse('error', {
+            message: err.message,
+          }),
+        ),
       );
     }
   } else {
     res.writeHead(400, { 'Content-Type': 'application/json' });
     res.end(
-      JSON.stringify({
-        status: 'error',
-        message: 'Failed to connect to Firebase.',
-      }),
+      JSON.stringify(
+        buildResponse('error', {
+          message: 'Failed to connect to Firestore',
+        }),
+      ),
     );
   }
 }
