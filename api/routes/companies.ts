@@ -9,11 +9,13 @@ export default async function handler(_: IncomingMessage, res: ServerResponse) {
         .collection('lending_services')
         .get();
 
+      const data = docs.map(doc => doc.data());
+
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.end(
         JSON.stringify({
           status: 'ok',
-          data: docs,
+          data,
         }),
       );
     } catch (err) {
