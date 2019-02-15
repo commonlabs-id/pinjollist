@@ -3,7 +3,7 @@
   "alias": "pinjollist.now.sh",
   "version": 2,
   "routes": [
-    { "src": "/api/(.*).ts", "dest": "/api/routes/$1" },
+    { "src": "/api/(.*)", "dest": "/api/routes/$1" },
     {
       "src": "/(.*)",
       "dest": "/www/$1",
