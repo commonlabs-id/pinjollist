@@ -2,7 +2,6 @@
   "compilerOptions": {
     "sourceMap": true,
     "composite": true,
-    "isolatedModules": true,
     "strict": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
