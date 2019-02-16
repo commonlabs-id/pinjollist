@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { Context } from 'koa';
 
 const responseTime = () => async (ctx: Context, next: () => Promise<any>) => {
