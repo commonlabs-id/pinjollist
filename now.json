@@ -2,8 +2,17 @@
   "name": "pinjollist",
   "alias": "pinjollist.now.sh",
   "version": 2,
+  "env": {
+    "FIREBASE_API_KEY": "@firebase-api-key",
+    "FIREBASE_AUTH_DOMAIN": "@firebase-auth-domain",
+    "FIREBASE_DATABASE_URL": "@firebase-database-url",
+    "FIREBASE_PROJECT_ID": "@firebase-project-id",
+    "FIREBASE_STORAGE_BUCKET": "@firebase-storage-bucket",
+    "FIREBASE_SENDER_ID": "@firebase-sender-id"
+  },
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/routes/$1" },
+    { "src": "/api/companies", "dest": "/api/routes/companies.ts" },
+    { "src": "/api", "dest": "/api/routes/index.ts" },
     {
       "src": "/(.*)",
       "dest": "/www/$1",
