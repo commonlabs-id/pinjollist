@@ -2,6 +2,14 @@
 import css from 'styled-jsx/css';
 
 const global = css.global`
+html {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}
+
 html, body, #__next {
   width: 100%;
   height: 100%;
