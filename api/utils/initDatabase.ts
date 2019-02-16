@@ -10,4 +10,14 @@ export const config = {
   messagingSenderId: process.env.FIREBASE_SENDER_ID,
 };
 
-export const app = firebase.initializeApp(config);
+export default function initDatabase() {
+  if (!firebase.apps.length) {
+    firebase.initializeApp(config);
+  }
+
+  if (!firebase.firestore) {
+    throw new Error('Unable to connect to Firestore');
+  }
+
+  return firebase.firestore();
+}
