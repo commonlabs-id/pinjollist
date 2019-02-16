@@ -1,11 +1,13 @@
-import { IncomingMessage, ServerResponse } from 'http';
+import { Context } from 'koa';
 
-export default function handler(_: IncomingMessage, res: ServerResponse): void {
-  res.writeHead(200, { 'Content-Type': 'application/json' });
-  res.end(
-    JSON.stringify({
-      status: 'ok',
-      message: 'Hello world!',
-    }),
-  );
+import buildResponse from '../utils/buildResponse';
+import createApp from '../utils/createApp';
+
+async function handler(ctx: Context) {
+  ctx.status = 200;
+  ctx.body = buildResponse('ok', 'Hello world!');
 }
+
+export default createApp(app => {
+  app.use(handler);
+});

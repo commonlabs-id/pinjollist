@@ -1,37 +1,35 @@
-import { IncomingMessage, ServerResponse } from 'http';
-import { app } from '../utils/firebase';
-import buildResponse from '../utils/buildResponse';
+import { Context } from 'koa';
 
-export default async function handler(_: IncomingMessage, res: ServerResponse) {
-  if (app.firestore) {
+import firebase from '../utils/firebase';
+import buildResponse from '../utils/buildResponse';
+import createApp from '../utils/createApp';
+
+async function handler(ctx: Context) {
+  if (firebase.firestore) {
     try {
-      const { docs } = await app
+      const { docs } = await firebase
         .firestore()
         .collection('lending_services')
         .get();
 
       const data = docs.map(doc => doc.data());
 
-      res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify(buildResponse('ok', data)));
+      ctx.status = 200;
+      ctx.body = buildResponse('ok', data);
     } catch (err) {
-      res.writeHead(400, { 'Content-Type': 'application/json' });
-      res.end(
-        JSON.stringify(
-          buildResponse('error', {
-            message: err.message,
-          }),
-        ),
-      );
+      ctx.status = 400;
+      ctx.body = buildResponse('error', {
+        message: err.message,
+      });
     }
   } else {
-    res.writeHead(400, { 'Content-Type': 'application/json' });
-    res.end(
-      JSON.stringify(
-        buildResponse('error', {
-          message: 'Failed to connect to Firestore',
-        }),
-      ),
-    );
+    ctx.status = 400;
+    ctx.body = buildResponse('error', {
+      message: 'Failed to connect to Firestore',
+    });
   }
 }
+
+export default createApp(app => {
+  app.use(handler);
+});

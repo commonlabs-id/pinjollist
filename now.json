@@ -12,7 +12,7 @@
   },
   "routes": [
     { "src": "/api/companies", "dest": "/api/routes/companies.ts" },
-    { "src": "/api", "dest": "/api/routes/index.ts" },
+    { "src": "/api/(.*)", "dest": "/api/routes/$1" },
     {
       "src": "/(.*)",
       "dest": "/www/$1",
