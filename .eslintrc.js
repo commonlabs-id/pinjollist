@@ -36,9 +36,10 @@ module.exports = {
         project: './tsconfig.json',
       },
       rules: Object.assign(typescriptEslintRecommended.rules, typescriptEslintPrettier.rules, {
-        'no-undef': 'off',
         '@typescript-eslint/explicit-function-return-type': ['off'],
+        'no-undef': 'off',
         'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
+        'react/prop-types': 'off',
       }),
     },
   ],
