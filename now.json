@@ -22,7 +22,11 @@
     }
   ],
   "builds": [
-    { "src": "api/routes/**/*.ts", "use": "@now/node@canary" },
+    {
+      "src": "api/routes/**/*.ts",
+      "use": "@now/node@canary",
+      "config": { "maxLambdaSize": "15mb" }
+    },
     { "src": "www/package.json", "use": "@now/next" }
   ]
 }
