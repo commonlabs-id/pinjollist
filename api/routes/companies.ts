@@ -1,31 +1,21 @@
 import { Context } from 'koa';
 
-import firebase from '../utils/firebase';
+import initDatabase from '../utils/initDatabase';
 import buildResponse from '../utils/buildResponse';
 import createApp from '../utils/createApp';
 
 async function handler(ctx: Context) {
-  if (firebase.firestore) {
-    try {
-      const { docs } = await firebase
-        .firestore()
-        .collection('lending_services')
-        .get();
+  try {
+    const firestore = initDatabase();
+    const { docs } = await firestore.collection('lending_services').get();
+    const data = docs.map(doc => doc.data());
 
-      const data = docs.map(doc => doc.data());
-
-      ctx.status = 200;
-      ctx.body = buildResponse('ok', data);
-    } catch (err) {
-      ctx.status = 400;
-      ctx.body = buildResponse('error', {
-        message: err.message,
-      });
-    }
-  } else {
+    ctx.status = 200;
+    ctx.body = buildResponse('ok', data);
+  } catch (err) {
     ctx.status = 400;
     ctx.body = buildResponse('error', {
-      message: 'Failed to connect to Firestore',
+      message: err.message,
     });
   }
 }
