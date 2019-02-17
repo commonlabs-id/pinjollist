@@ -14,11 +14,8 @@ const withMDX = mdx({
 });
 
 const nextConfig = {
-  exportPathMap: () => {
-    return {
-      '/': { page: '/' },
-    };
-  },
+  // Read the `BUILD_TARGET` variable and use the passed mode
+  target: process.env.BUILD_TARGET === 'server' ? 'server' : 'serverless',
   webpack: (config, { defaultLoaders }) => {
     config.module.rules.push({
       test: /\.css$/,
