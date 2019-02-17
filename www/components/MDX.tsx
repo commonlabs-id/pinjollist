@@ -19,7 +19,7 @@ export const Heading2 = styled('h2')`
 
 export const InlineCode = styled('code')`
   color: #da304c;
-  font-family: ${fonts.sansSerif};
+  font-family: ${fonts.monospace};
   font-size: 0.9em;
   white-space: pre-wrap;
 
@@ -34,6 +34,7 @@ export const BlockCode = styled('pre')`
   padding: 1rem 1.5rem !important;
   color: #ccc;
   background-color: #2d2d2d;
+  font-family: ${fonts.monospace} !important;
 `;
 
 const mdxComponents = {
