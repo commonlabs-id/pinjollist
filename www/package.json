@@ -14,7 +14,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next export",
+    "now-build": "next build && next export"
   },
   "dependencies": {
     "@zeit/next-typescript": "^1.1.1",

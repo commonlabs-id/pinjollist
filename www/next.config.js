@@ -1,7 +1,11 @@
 const withTypescript = require('@zeit/next-typescript');
 
 const nextConfig = {
-  target: 'serverless',
+  exportPathMap: () => {
+    return {
+      '/': { page: '/' },
+    };
+  },
 };
 
 module.exports = withTypescript(nextConfig);

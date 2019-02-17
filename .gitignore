@@ -6,6 +6,7 @@
 # Build directories
 .next
 dist
+out
 
 # Logs
 logs
