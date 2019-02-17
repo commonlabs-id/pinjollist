@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import prismTheme from '../styles/prism-theme';
+import prismTheme from 'prismjs/themes/prism-tomorrow.css';
 
 const ReferenceCard: React.FC = ({ children }) => (
   <Root>

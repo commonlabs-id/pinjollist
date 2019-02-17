@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import normalize from 'normalize.css';
 
-import reset from '../styles/reset';
 import fonts from '../styles/fonts';
 import global from '../styles/global';
 import SEO from './SEO';
@@ -14,7 +14,7 @@ const Layout: React.FC = ({ children }) => (
       {fonts}
     </style>
     <style jsx global>
-      {reset}
+      {normalize}
     </style>
     <style jsx global>
       {global}
