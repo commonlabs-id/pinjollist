@@ -16,7 +16,7 @@
     {
       "src": "^/static/(.*)",
       "headers": { "Cache-Control": "public, smaxage=31536000, immutable" },
-      "dest": "/static/$1"
+      "dest": "/www/static/$1"
     },
     {
       "src": "^/(.*)",
