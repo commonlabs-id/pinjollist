@@ -15,12 +15,17 @@
     { "src": "^/api/ping", "dest": "/api/routes/ping.ts" },
     {
       "src": "^/static/(.*)",
-      "headers": { "cache-control": "s-maxage=31536000,immutable" },
+      "headers": { "Cache-Control": "public, smaxage=31536000, immutable" },
       "dest": "/static/$1"
     },
     {
       "src": "^/(.*)",
-      "dest": "/www/$1"
+      "dest": "/www/$1",
+      "headers": {
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff"
+      }
     }
   ],
   "builds": [
