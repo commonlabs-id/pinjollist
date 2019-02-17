@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import css from 'styled-jsx/css';
+import { fonts } from './variables';
 
 const global = css.global`
 html {
@@ -17,7 +18,7 @@ html, body, #__next {
 }
 
 html {
-  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: ${fonts.sansSerif};
   font-size: 16px;
   line-height: 1.5;
 }

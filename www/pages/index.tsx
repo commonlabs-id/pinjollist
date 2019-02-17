@@ -2,9 +2,17 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import Layout from '../component/Layout';
-import Page from '../component/Page';
+
+import Layout from '../components/Layout';
+import Page from '../components/Page';
+import ReferenceCard from '../components/ReferenceCard';
+import mdxComponents from '../components/MDX';
+
 import { breakpoints } from '../styles/variables';
+
+import ResponseFormat from '../../docs/response-format.md';
+import Ping from '../../docs/ping.md';
+import GetCompanies from '../../docs/companies.md';
 
 // TODO: refactor to .mdx
 const Index: React.FC = () => (
@@ -26,7 +34,15 @@ const Index: React.FC = () => (
       <Heading2>
         <span>Referensi API</span>
       </Heading2>
-      <p>[...]</p>
+      <ReferenceCard>
+        <ResponseFormat components={mdxComponents} />
+      </ReferenceCard>
+      <ReferenceCard>
+        <Ping components={mdxComponents} />
+      </ReferenceCard>
+      <ReferenceCard>
+        <GetCompanies components={mdxComponents} />
+      </ReferenceCard>
     </Page>
   </Layout>
 );
@@ -37,7 +53,7 @@ const Heading2 = styled('h2')`
   position: relative;
   font-weight: 800;
   line-height: 1.1;
-  font-size: 2rem;
+  font-size: 2.5rem;
   text-transform: lowercase;
 
   &:before {
@@ -59,7 +75,6 @@ const Heading2 = styled('h2')`
   span {
     position: relative;
     padding: 0 4px;
-    background-color: #fafafa;
     z-index: 2;
   }
 `;

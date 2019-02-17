@@ -48,7 +48,6 @@ const Title = styled('h1')`
   span {
     position: relative;
     padding: 0 4px;
-    background-color: #fafafa;
     z-index: 2;
   }
 

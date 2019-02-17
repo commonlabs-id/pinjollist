@@ -1,3 +1,9 @@
+export const fonts = {
+  sansSerif: "'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+  monospace: `Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono',
+    'Bitstream Vera Sans Mono', 'Courier New', monospace, monospace`,
+};
+
 export const breakpoints = {
   xs: 0,
   sm: 576,
