@@ -35,6 +35,7 @@ export const BlockCode = styled('pre')`
   color: #ccc;
   background-color: #2d2d2d;
   font-family: ${fonts.monospace} !important;
+  overflow: auto;
 `;
 
 const mdxComponents = {
