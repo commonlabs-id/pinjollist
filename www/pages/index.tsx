@@ -8,14 +8,11 @@ import Page from '../components/Page';
 import ReferenceCard from '../components/ReferenceCard';
 import mdxComponents from '../components/MDX';
 
-import { breakpoints } from '../styles/variables';
-
 import ResponseFormat from '../../docs/response-format.md';
 import Ping from '../../docs/ping.md';
 import GetCompanies from '../../docs/companies.md';
 import SectionHeading from '../components/SectionHeading';
 
-// TODO: refactor to .mdx
 const Index: React.FC = () => (
   <Layout>
     <Page>
@@ -26,13 +23,18 @@ const Index: React.FC = () => (
           <em>peer-to-peer (P2P) lending</em> yang terdaftar dan memiliki izin dari OJK.
         </LeadText>
         <p>
-          Di dalam industri fintech peer-to-peer (P2P) lending di Indonesia, seringkali kita melihat
-          praktek kerja dari para penagih utang perusahaan-perusaan tersebut yang sangat keji. [...]
+          Di dalam industri fintech peer-to-peer (P2P) lending di Indonesia, seringkali kita [...]
         </p>
         <p>
           Sayangnya, kami merasa bahwa OJK kurang transparan dalam menyediakan data-data perusahaan
           yang dapat diakses secara terbuka. [...]
         </p>
+        <p>[TODO: copywriting]</p>
+      </section>
+
+      <section>
+        <SectionHeading>Statistik</SectionHeading>
+        <p>[...]</p>
       </section>
 
       <SectionHeading>Referensi API</SectionHeading>
