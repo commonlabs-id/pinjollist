@@ -1,6 +1,6 @@
 # Response Format
 
-The default response format is as follows. A data can be an object of responses, or data
+The default response format is as follows. A data can be an object of responses, or any other data (e.g. string, object, etc.)
 
 ```json
 {
