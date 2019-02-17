@@ -20,6 +20,14 @@ const nextConfig = (baseConfig = {}) => {
   if (baseConfig.pageExtensions.indexOf('mdx') === -1) {
     baseConfig.pageExtensions.push('mdx');
   }
+
+  return Object.assign({}, baseConfig, {
+    exportPathMap: () => {
+      return {
+        '/': { page: '/' },
+      };
+    },
+  });
 };
 
 module.exports = withTypescript(withMDX(nextConfig));
