@@ -3,6 +3,7 @@
   "alias": "pinjollist.now.sh",
   "version": 2,
   "env": {
+    "API_URL": "@api-url",
     "FIREBASE_API_KEY": "@firebase-api-key",
     "FIREBASE_AUTH_DOMAIN": "@firebase-auth-domain",
     "FIREBASE_DATABASE_URL": "@firebase-database-url",
@@ -26,10 +27,21 @@
       }
     },
     {
-      "src": "/(.*)",
+      "src": "^/static/(.*)",
+      "headers": { "Cache-Control": "public, smaxage=31536000, immutable" },
+      "dest": "/www/static/$1"
+    },
+    {
+      "src": "^/static/images/favicon.ico",
+      "dest": "/www/static/images/favicon.ico"
+    },
+    {
+      "src": "^/(.*)",
       "dest": "/www/$1",
       "headers": {
-        "x-request-path": "$1"
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff"
       }
     }
   ],
