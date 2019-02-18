@@ -65,7 +65,7 @@ const ListedCompanies: NextFunctionComponent<ListedCompaniesProps> = ({ errors, 
     <Page>
       <section>
         <SectionHeading>Statistics</SectionHeading>
-        <DynamicComponent />
+        <DynamicComponent data={data} />
       </section>
 
       <section>
@@ -97,8 +97,8 @@ const ListedCompanies: NextFunctionComponent<ListedCompaniesProps> = ({ errors, 
 
 ListedCompanies.getInitialProps = async () => {
   try {
-    const result = await fetch('https://pinjollist.now.sh/api/companies');
-    const json: APIResponse<any[]> | ErrorAPIResponse = await result.json();
+    const res = await fetch(`${process.env.API_URL || 'https://pinjollist.now.sh'}/api/companies`);
+    const json: APIResponse<any[]> | ErrorAPIResponse = await res.json();
 
     if (json.status === 'ok') {
       return {

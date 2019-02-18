@@ -3,6 +3,7 @@
   "alias": "pinjollist.now.sh",
   "version": 2,
   "env": {
+    "API_URL": "@api-url",
     "FIREBASE_API_KEY": "@firebase-api-key",
     "FIREBASE_AUTH_DOMAIN": "@firebase-auth-domain",
     "FIREBASE_DATABASE_URL": "@firebase-database-url",

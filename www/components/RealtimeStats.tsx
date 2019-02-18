@@ -8,6 +8,10 @@ import Spinner from './Spinner';
 import { colors, breakpoints } from '../styles/variables';
 import RealtimeStatsCard from './RealtimeStatsCard';
 
+interface RealtimeStateProps {
+  data?: any[];
+}
+
 interface RealtimeStatsState {
   isLoading: boolean;
   errors?: string;
@@ -20,33 +24,43 @@ const initialState: RealtimeStatsState = {
   data: [],
 };
 
-const RealtimeStats: React.FC = () => {
+const RealtimeStats: React.FC<RealtimeStateProps> = ({ data }) => {
   const [state, setState] = React.useState<RealtimeStatsState>(initialState);
 
   const fetchData = async () => {
-    try {
-      const result = await fetch('https://pinjollist.now.sh/api/companies');
-      const json: APIResponse<any[]> | ErrorAPIResponse = await result.json();
-
-      if (json.status === 'ok') {
-        setState({
-          ...state,
-          isLoading: false,
-          data: json.data,
-        });
-      } else {
-        if (json.status === 'error' && json.data.message) {
-          throw new Error(json.data.message);
-        }
-
-        throw new Error('Failed to fetch data');
-      }
-    } catch (err) {
+    if (data) {
       setState({
         ...state,
         isLoading: false,
-        errors: err.message,
+        data,
       });
+    } else {
+      try {
+        const res = await fetch(
+          `${process.env.API_URL || 'https://pinjollist.now.sh'}/api/companies`,
+        );
+        const json: APIResponse<any[]> | ErrorAPIResponse = await res.json();
+
+        if (json.status === 'ok') {
+          setState({
+            ...state,
+            isLoading: false,
+            data: json.data,
+          });
+        } else {
+          if (json.status === 'error' && json.data.message) {
+            throw new Error(json.data.message);
+          }
+
+          throw new Error('Failed to fetch data');
+        }
+      } catch (err) {
+        setState({
+          ...state,
+          isLoading: false,
+          errors: err.message,
+        });
+      }
     }
   };
 
