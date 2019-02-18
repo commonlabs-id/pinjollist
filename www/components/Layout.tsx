@@ -6,6 +6,7 @@ import fonts from '../styles/fonts';
 import global from '../styles/global';
 import SEO from './SEO';
 import Header from './Header';
+import Footer from './Footer';
 
 const Layout: React.FC = ({ children }) => (
   <Root>
@@ -21,6 +22,7 @@ const Layout: React.FC = ({ children }) => (
     </style>
     <Header />
     {children}
+    <Footer />
   </Root>
 );
 

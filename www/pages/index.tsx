@@ -78,11 +78,11 @@ const LeadText = styled('p')`
 
 const ButtonWrapper = styled('div')`
   margin-top: 1.5rem;
-  padding: 1.5rem 0;
   text-align: center;
 `;
 
 const Button = styled('a')`
+  display: inline-block;
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
   text-transform: uppercase;
