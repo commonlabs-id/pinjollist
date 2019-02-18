@@ -11,8 +11,20 @@
     "FIREBASE_SENDER_ID": "@firebase-sender-id"
   },
   "routes": [
-    { "src": "/api/companies", "dest": "/api/routes/companies.ts" },
-    { "src": "/api/ping", "dest": "/api/routes/ping.ts" },
+    {
+      "src": "/api/companies",
+      "dest": "/api/routes/companies.ts",
+      "headers": {
+        "Access-Control-Allow-Origin": "*"
+      }
+    },
+    {
+      "src": "/api/ping",
+      "dest": "/api/routes/ping.ts",
+      "headers": {
+        "Access-Control-Allow-Origin": "*"
+      }
+    },
     {
       "src": "/(.*)",
       "dest": "/www/$1",
