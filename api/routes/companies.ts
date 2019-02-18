@@ -1,25 +1,24 @@
-import { Context } from 'koa';
+import { send, RequestHandler } from 'micro';
 
 import initDatabase from '../utils/initDatabase';
 import buildResponse from '../utils/buildResponse';
-import createApp from '../utils/createApp';
 
-async function handler(ctx: Context) {
+const handler: RequestHandler = async (_, res) => {
   try {
     const firestore = initDatabase();
     const { docs } = await firestore.collection('lending_services').get();
     const data = docs.map(doc => doc.data());
 
-    ctx.status = 200;
-    ctx.body = buildResponse('ok', data);
+    send(res, 200, buildResponse('ok', data));
   } catch (err) {
-    ctx.status = 400;
-    ctx.body = buildResponse('error', {
-      message: err.message,
-    });
+    send(
+      res,
+      400,
+      buildResponse('error', {
+        message: err.message,
+      }),
+    );
   }
-}
+};
 
-export default createApp(app => {
-  app.use(handler);
-});
+export default handler;
