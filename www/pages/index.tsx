@@ -9,9 +9,9 @@ import Page from '../components/Page';
 import ReferenceCard from '../components/ReferenceCard';
 import mdxComponents from '../components/MDX';
 
-import ResponseFormat from '../../docs/response-format.md';
-import Ping from '../../docs/ping.md';
-import GetCompanies from '../../docs/companies.md';
+import ResponseFormat from '../docs/response-format.md';
+import Ping from '../docs/ping.md';
+import GetCompanies from '../docs/companies.md';
 import SectionHeading from '../components/SectionHeading';
 
 // @ts-ignore types for dynamic() loader broken - fix in progress:
