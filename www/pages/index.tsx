@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 
 import React from 'react';
+import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 
 import Layout from '../components/Layout';
@@ -12,6 +13,10 @@ import ResponseFormat from '../../docs/response-format.md';
 import Ping from '../../docs/ping.md';
 import GetCompanies from '../../docs/companies.md';
 import SectionHeading from '../components/SectionHeading';
+
+// @ts-ignore types for dynamic() loader broken - fix in progress:
+// https://github.com/DefinitelyTyped/DefinitelyTyped/pull/33163
+const DynamicComponent = dynamic(() => import('../components/RealtimeStats'));
 
 const Index: React.FC = () => (
   <Layout>
@@ -34,7 +39,7 @@ const Index: React.FC = () => (
 
       <section>
         <SectionHeading>Statistik</SectionHeading>
-        <p>[...]</p>
+        <DynamicComponent />
       </section>
 
       <SectionHeading>Referensi API</SectionHeading>
