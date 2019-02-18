@@ -1,13 +1,8 @@
-import { Context } from 'koa';
-
+import { send, RequestHandler } from 'micro';
 import buildResponse from '../utils/buildResponse';
-import createApp from '../utils/createApp';
 
-async function handler(ctx: Context) {
-  ctx.status = 200;
-  ctx.body = buildResponse('ok', 'Pong!');
-}
+const handler: RequestHandler = async (_, res) => {
+  send(res, 200, buildResponse('ok', 'Pong!'));
+};
 
-export default createApp(app => {
-  app.use(handler);
-});
+export default handler;
