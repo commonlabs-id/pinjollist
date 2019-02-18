@@ -26,11 +26,19 @@ const Index: React.FC = () => (
           Pinjollist merupakan layanan penyedia repositori data terbuka (
           <em>open data repository</em>) perusahaan-perusahaan <em>fintech</em>{' '}
           <em>peer-to-peer (P2P) lending</em> yang beroperasi di Indonesia, serta terdaftar dan
-          memiliki lisensi dari OJK.
+          memiliki lisensi dari{' '}
+          <a href="https://www.ojk.go.id/" target="_blank" rel="noopener noreferrer">
+            Otoritas Jasa Keuangan (OJK)
+          </a>
+          .
         </LeadText>
         <p>
           Pinjollist is an open data repository of Indonesian peer-to-peer (P2P) lending companies
-          registered and licensed by OJK.
+          registered and licensed by the{' '}
+          <a href="https://www.ojk.go.id/" target="_blank" rel="noopener noreferrer">
+            Otoritas Jasa Keuangan (OJK)
+          </a>
+          .
         </p>
       </section>
 

@@ -44,7 +44,6 @@ const Text = styled('p')`
   margin-bottom: 0;
   font-size: 0.9rem;
   letter-spacing: 0.1em;
-  color: ${colors.blue};
   text-transform: uppercase;
   line-height: 1;
 `;

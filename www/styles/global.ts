@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import css from 'styled-jsx/css';
-import { fonts } from './variables';
+import { fonts, colors } from './variables';
 
 const global = css.global`
 html {
@@ -24,8 +24,21 @@ html {
 }
 
 body {
-  color: #000;
-  background-color: #fafafa;
+  color: ${colors.black};
+  background-color: ${colors.background};
+}
+
+a {
+  text-decoration: none;
+  color: ${colors.black};
+  border-bottom: 2px solid ${colors.black};
+  border-top: 2px solid transparent;
+}
+
+a:hover, a:focus {
+  background-color: ${colors.black};
+  color: ${colors.white};
+  border-top-color: ${colors.black};
 }
 `;
 
