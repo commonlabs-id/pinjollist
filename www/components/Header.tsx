@@ -1,7 +1,8 @@
-/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable react/jsx-one-expression-per-line, jsx-a11y/anchor-is-valid */
 
 import React from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 import Container from './Container';
 import { breakpoints } from '../styles/variables';
@@ -9,18 +10,31 @@ import { breakpoints } from '../styles/variables';
 const Header: React.FC = () => (
   <Root>
     <Container>
-      <Title>
-        <span>pinjollist.</span>
-      </Title>
-      <Subtitle>
-        (<span className="abbrev">pinj</span>aman <span className="abbrev">o</span>n
-        <span className="abbrev">l</span>ine <span className="abbrev">list</span>)
-      </Subtitle>
+      <Link href="/" passHref>
+        <Anchor>
+          <Title>
+            <span>pinjollist.</span>
+          </Title>
+          <Subtitle>
+            (<span className="abbrev">pinj</span>aman <span className="abbrev">o</span>n
+            <span className="abbrev">l</span>ine <span className="abbrev">list</span>)
+          </Subtitle>
+        </Anchor>
+      </Link>
     </Container>
   </Root>
 );
 
 export default Header;
+
+const Anchor = styled('a')`
+  border: none !important;
+
+  &:hover,
+  &:focus {
+    color: inherit;
+  }
+`;
 
 const Title = styled('h1')`
   position: relative;

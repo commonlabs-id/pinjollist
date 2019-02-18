@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 
 import React from 'react';
+import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 
@@ -8,11 +9,12 @@ import Layout from '../components/Layout';
 import Page from '../components/Page';
 import ReferenceCard from '../components/ReferenceCard';
 import mdxComponents from '../components/MDX';
+import SectionHeading from '../components/SectionHeading';
 
 import ResponseFormat from '../docs/response-format.md';
 import Ping from '../docs/ping.md';
 import GetCompanies from '../docs/companies.md';
-import SectionHeading from '../components/SectionHeading';
+import { colors } from '../styles/variables';
 
 // @ts-ignore types for dynamic() loader broken - fix in progress:
 // https://github.com/DefinitelyTyped/DefinitelyTyped/pull/33163
@@ -45,6 +47,11 @@ const Index: React.FC = () => (
       <section>
         <SectionHeading>Statistics</SectionHeading>
         <DynamicComponent />
+        <ButtonWrapper>
+          <Link href="/listed-companies" passHref>
+            <Button>View All Data</Button>
+          </Link>
+        </ButtonWrapper>
       </section>
 
       <SectionHeading>API Reference</SectionHeading>
@@ -67,4 +74,27 @@ export default Index;
 const LeadText = styled('p')`
   font-size: 1.5rem;
   font-weight: 300;
+`;
+
+const ButtonWrapper = styled('div')`
+  margin-top: 1.5rem;
+  padding: 1.5rem 0;
+  text-align: center;
+`;
+
+const Button = styled('a')`
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  background-color: ${colors.black};
+  color: ${colors.white};
+  border: 1px solid transparent !important;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
+  transition: box-shadow 0.3s ease;
+
+  &:hover,
+  &:focus {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 16px;
+  }
 `;
