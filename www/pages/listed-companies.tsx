@@ -45,7 +45,7 @@ const renderData = (props: ListedCompaniesProps) => {
           </a>
         </td>
         <td>{item.company_name}</td>
-        <td>{format(new Date(item.registered_at.seconds), 'DD MMM YYYY')}</td>
+        <td>{format(new Date(item.registered_at.seconds * 1000), 'DD MMM YYYY')}</td>
         <td>{item.registration_type}</td>
       </tr>
     ));
