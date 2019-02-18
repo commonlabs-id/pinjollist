@@ -25,24 +25,21 @@ const Index: React.FC = () => (
         <LeadText>
           Pinjollist merupakan layanan penyedia repositori data terbuka (
           <em>open data repository</em>) perusahaan-perusahaan <em>fintech</em>{' '}
-          <em>peer-to-peer (P2P) lending</em> yang terdaftar dan memiliki izin dari OJK.
+          <em>peer-to-peer (P2P) lending</em> yang beroperasi di Indonesia, serta terdaftar dan
+          memiliki lisensi dari OJK.
         </LeadText>
         <p>
-          Di dalam industri fintech peer-to-peer (P2P) lending di Indonesia, seringkali kita [...]
+          Pinjollist is an open data repository of Indonesian peer-to-peer (P2P) lending companies
+          registered and licensed by OJK.
         </p>
-        <p>
-          Sayangnya, kami merasa bahwa OJK kurang transparan dalam menyediakan data-data perusahaan
-          yang dapat diakses secara terbuka. [...]
-        </p>
-        <p>[TODO: copywriting]</p>
       </section>
 
       <section>
-        <SectionHeading>Statistik</SectionHeading>
+        <SectionHeading>Statistics</SectionHeading>
         <DynamicComponent />
       </section>
 
-      <SectionHeading>Referensi API</SectionHeading>
+      <SectionHeading>API Reference</SectionHeading>
 
       <ReferenceCard>
         <ResponseFormat components={mdxComponents} />

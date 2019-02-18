@@ -1,3 +1,11 @@
+export const colors = {
+  black: '#000',
+  white: '#fff',
+  background: '#fafafa',
+  red: '#da304c',
+  blue: '#0076ff',
+};
+
 export const fonts = {
   sansSerif: "'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif",
   monospace: `Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono',

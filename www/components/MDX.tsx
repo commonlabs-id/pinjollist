@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import styled from 'styled-components';
-import { fonts } from '../styles/variables';
+import { fonts, colors } from '../styles/variables';
 
 export const Heading1 = styled('h1')`
   margin-top: 0;
@@ -18,7 +18,7 @@ export const Heading2 = styled('h2')`
 `;
 
 export const InlineCode = styled('code')`
-  color: #da304c;
+  color: ${colors.red};
   font-family: ${fonts.monospace};
   font-size: 0.9em;
   white-space: pre-wrap;

@@ -1,27 +1,52 @@
-import React from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
-interface FetchedData {
-  [key: string]: any;
-}
+import React from 'react';
+import styled from 'styled-components';
+
+import { APIResponse, ErrorAPIResponse } from '../types/common';
+import Spinner from './Spinner';
+import { colors, breakpoints } from '../styles/variables';
+import RealtimeStatsCard from './RealtimeStatsCard';
 
 interface RealtimeStatsState {
-  data: FetchedData;
+  isLoading: boolean;
   errors?: string;
+  data: any[];
 }
 
+const initialState: RealtimeStatsState = {
+  isLoading: true,
+  errors: undefined,
+  data: [],
+};
+
 const RealtimeStats: React.FC = () => {
-  const [data, setData] = React.useState<RealtimeStatsState['data']>({});
-  const [errors, setErrors] = React.useState<RealtimeStatsState['errors']>(undefined);
+  const [state, setState] = React.useState<RealtimeStatsState>(initialState);
 
   const fetchData = async () => {
     try {
       const result = await fetch('https://pinjollist.now.sh/api/companies');
-      const json = await result.json();
-      console.log(json);
+      const json: APIResponse<any[]> | ErrorAPIResponse = await result.json();
 
-      setData(json);
+      if (json.status === 'ok') {
+        setState({
+          ...state,
+          isLoading: false,
+          data: json.data,
+        });
+      } else {
+        if (json.status === 'error' && json.data.message) {
+          throw new Error(json.data.message);
+        }
+
+        throw new Error('Failed to fetch data');
+      }
     } catch (err) {
-      setErrors(err.message);
+      setState({
+        ...state,
+        isLoading: false,
+        errors: err.message,
+      });
     }
   };
 
@@ -29,11 +54,52 @@ const RealtimeStats: React.FC = () => {
     fetchData();
   }, []);
 
-  if (errors) {
-    return <div>{errors}</div>;
+  if (state.isLoading) {
+    return (
+      <Root>
+        <Spinner selfCenter />
+      </Root>
+    );
   }
 
-  return <pre>{JSON.stringify(data, null, 2)}</pre>;
+  if (state.errors) {
+    return (
+      <Root>
+        <ErrorText>{state.errors}</ErrorText>
+      </Root>
+    );
+  }
+
+  return (
+    <Root>
+      <RealtimeStatsCard number={state.data.length} text="Companies listed" />
+      <RealtimeStatsCard number={6} text="Recently removed" />
+      <RealtimeStatsCard number={1} text="Recently re-listed" />
+    </Root>
+  );
 };
 
 export default RealtimeStats;
+
+const Root = styled('div')`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 200px;
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+
+  @media (min-width: ${breakpoints.md}px) {
+    flex-direction: row;
+    justify-content: center;
+  }
+`;
+
+const ErrorText = styled('p')`
+  align-self: center;
+  justify-self: center;
+  width: 100%;
+  margin: 0;
+  color: ${colors.red};
+  text-align: center;
+`;
