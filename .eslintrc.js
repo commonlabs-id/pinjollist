@@ -10,7 +10,7 @@ module.exports = {
     jest: true,
   },
   extends: ['airbnb', 'prettier', 'plugin:prettier/recommended'],
-  plugins: ['prettier'],
+  plugins: ['@typescript-eslint', 'prettier'],
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
@@ -30,7 +30,6 @@ module.exports = {
   overrides: [
     {
       files: ['**/*.ts', '**/*.tsx'],
-      plugins: ['@typescript-eslint', 'prettier'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         project: './tsconfig.json',
