@@ -9,15 +9,15 @@ const Footer: React.FC = () => (
   <Root>
     <Container>
       <p>
-        Data retrieved from the{' '}
+        Data diperoleh dari{' '}
         <a
           href="https://ojk.go.id/id/berita-dan-kegiatan/publikasi/Pages/Penyelenggara-Fintech-Terdaftar-di-OJK-per-Februari-2019.aspx"
           target="_blank"
           rel="noopener noreferrer"
         >
-          OJK website
+          situs OJK
         </a>
-        . Last updated: February 2019. Source code available on{' '}
+        . Pembaruan terakhir: Februari 2019. Kode sumber tersedia di{' '}
         <a
           href="https://github.com/pinjollist/pinjollist"
           target="_blank"
@@ -25,13 +25,13 @@ const Footer: React.FC = () => (
         >
           GitHub
         </a>{' '}
-        under the{' '}
+        dalam lisensi{' '}
         <a
           href="https://github.com/pinjollist/pinjollist/blob/master/LICENSE"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Apache License.
+          Apache License 2.0.
         </a>
       </p>
     </Container>
