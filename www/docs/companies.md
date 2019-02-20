@@ -1,6 +1,6 @@
 # /companies
 
-Gets a list of all P2P lending companies approved by the Otoritas Jasa Keuangan (OJK).
+Mendapatkan daftar perusahaan _P2P lending_ yang terdaftar dan berizin oleh OJK.
 
 ## Request
 

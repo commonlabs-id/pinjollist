@@ -86,9 +86,9 @@ const RealtimeStats: React.FC<RealtimeStateProps> = ({ data }) => {
 
   return (
     <Root>
-      <RealtimeStatsCard number={state.data.length} text="Companies listed" />
-      <RealtimeStatsCard number={6} text="Recently removed" />
-      <RealtimeStatsCard number={1} text="Recently re-listed" />
+      <RealtimeStatsCard number={state.data.length} text="Terdaftar" />
+      <RealtimeStatsCard number={6} text="Dihapus" />
+      <RealtimeStatsCard number={1} text="Terdaftar ulang" />
     </Root>
   );
 };

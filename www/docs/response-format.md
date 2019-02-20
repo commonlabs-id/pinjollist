@@ -1,6 +1,6 @@
-# Response Format
+# Format Response
 
-The default response format is as follows. A data can be an object of responses, or any other data (e.g. string, object, etc.).
+Format response data diberikan dalam format JSON berikut. Properti `data` berisi data yang dikembalikan dari API, dan dapat memiliki tipe apapun (cth: string, object, array, dll.)
 
 ```json
 {
@@ -9,7 +9,7 @@ The default response format is as follows. A data can be an object of responses,
 }
 ```
 
-If there's an error in the request, the response will generate a HTTP 400 error, return a status of `error`, and display the error message as follows:
+Apabila ada error dalam request API, status dalam respons akan berubah menjadi `error`, serta status HTTP 400 akan dikembalikan. Pesan error dari API juga akan dikembalikan dalam format berikut:
 
 ```json
 {

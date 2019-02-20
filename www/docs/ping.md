@@ -1,6 +1,6 @@
 # /ping
 
-Checks if the service is running.
+Untuk memeriksa apakah layanan sedang aktif.
 
 ## Request
 
