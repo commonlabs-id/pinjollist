@@ -1,6 +1,11 @@
-import { useState } from "react";
-import { formatDistance } from "date-fns";
-import id from "date-fns/locale/id";
+/* eslint-disable jsx-a11y/label-has-for */
+/* eslint-disable jsx-a11y/accessible-emoji */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import React, { useState } from 'react';
+import { formatDistance } from 'date-fns';
+import id from 'date-fns/locale/id';
 
 const ResultCard = ({ result }) => {
   const [showRelative, setShowRelative] = useState(true);
@@ -8,7 +13,7 @@ const ResultCard = ({ result }) => {
   return (
     <>
       <div>
-        {typeof result === "string" ? (
+        {typeof result === 'string' ? (
           <>
             <h1>{result}</h1>
             <h2>Tidak ditemukan</h2>
@@ -16,16 +21,16 @@ const ResultCard = ({ result }) => {
         ) : (
           <>
             <label>
-              <b>{result["registration"]}</b> ·{"  "}
+              <b>{result['registration']}</b> ·{'  '}
               <time>
                 {showRelative
                   ? `Terdaftar ${formatDistance(
-                      new Date(result["registered_at"].seconds * 1000),
+                      new Date(result['registered_at'].seconds * 1000),
                       new Date(),
-                      { locale: id }
+                      { locale: id },
                     )} lalu`
                   : `Terdaftar pada ${new Date(
-                      result["registered_at"].seconds * 1000
+                      result['registered_at'].seconds * 1000,
                     ).toLocaleDateString()}`}
               </time>
               <span
@@ -33,23 +38,21 @@ const ResultCard = ({ result }) => {
                   setShowRelative(!showRelative);
                 }}
               >
-                {" "}
+                {' '}
                 ⏱(klik)
               </span>
-              {result["is_syariah"] ? (
+              {result['is_syariah'] ? (
                 <>
-                  <span>{" · "}Syariah ☪️</span>
+                  <span>{' · '}Syariah ☪️</span>
                 </>
               ) : null}
             </label>
-            <h1>
-              {typeof result === "string" ? result : result["platform_name"]}
-            </h1>
-            <h2>{result["company_name"]}</h2>
+            <h1>{typeof result === 'string' ? result : result['platform_name']}</h1>
+            <h2>{result['company_name']}</h2>
             <label className="address-label">Alamat</label>
             <address
               dangerouslySetInnerHTML={{
-                __html: `${result["alamat"] || "Alamat tidak ditemukan."}`
+                __html: `${result['alamat'] || 'Alamat tidak ditemukan.'}`,
               }}
             />
           </>

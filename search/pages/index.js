@@ -1,13 +1,15 @@
-import { useState } from "react";
-import Fuse from "fuse.js";
-import debounce from "debounce-fn";
-import fetch from "isomorphic-unfetch";
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable no-nested-ternary */
+import React, { useState } from 'react';
+import debounce from 'debounce-fn';
+import fetch from 'isomorphic-unfetch';
 
-import ResultCard from "../components/result-card";
-import SEO from "../components/seo";
-import SiteFooter from "../components/site-footer";
-import Toast from "../components/toast";
-import useSearch from "../components/useSearch";
+import ResultCard from '../components/result-card';
+import SEO from '../components/seo';
+import SiteFooter from '../components/site-footer';
+import Toast from '../components/toast';
+import useSearch from '../components/useSearch';
 
 const fuseOptions = {
   shouldSort: true,
@@ -17,7 +19,7 @@ const fuseOptions = {
   includeScore: true,
   matchAllTokens: true,
   minMatchCharLength: 2,
-  keys: ["platform_name", "company_name"]
+  keys: ['platform_name', 'company_name'],
 };
 
 const SearchSuggestionItem = ({ handler, company, platform }) => (
@@ -39,13 +41,7 @@ const SearchSuggestionItem = ({ handler, company, platform }) => (
   </>
 );
 
-const SearchWithDropdown = ({
-  setResult,
-  setIsRegistered,
-  value,
-  setSearch,
-  platforms
-}) => {
+const SearchWithDropdown = ({ setResult, setIsRegistered, value, setSearch, platforms }) => {
   const changeHandler = e => {
     setResult(undefined);
     setIsRegistered(undefined);
@@ -59,17 +55,16 @@ const SearchWithDropdown = ({
           if (!value) return;
           const hasResult = platforms.length > 0;
           const hasSubstr =
-            hasResult &&
-            platforms[0].item["platform_name"].toLowerCase().includes(value);
+            hasResult && platforms[0].item['platform_name'].toLowerCase().includes(value);
           setResult(hasSubstr ? platforms[0].item : value);
-          setSearch("");
+          setSearch('');
           setIsRegistered(hasSubstr);
         }}
       >
         <input
           value={value}
           onChange={changeHandler}
-          placeholder={"Masukkan nama aplikasi (Kredit Hiu)"}
+          placeholder="Masukkan nama aplikasi (Kredit Hiu)"
         />
         <input className="button" type="submit" value="Check" />
         <style jsx>{`
@@ -80,7 +75,7 @@ const SearchWithDropdown = ({
           }
           input {
             flex: 7;
-            font-family: "Inter";
+            font-family: 'Inter';
             font-size: 1.25rem;
             padding: 0.5rem;
             border-radius: 0.25rem;
@@ -99,7 +94,7 @@ const SearchWithDropdown = ({
             border-radius: 0.25rem;
             padding: 0.5rem;
             color: rgba(255, 255, 255, 0.9);
-            font-family: "Inter";
+            font-family: 'Inter';
             font-size: 1.25rem;
             cursor: pointer;
           }
@@ -124,48 +119,46 @@ const SearchWithDropdown = ({
             const { item, matches = [] } = r;
             if (matches.length < 1) {
               return null;
-            } else {
-              let chunks = {
-                company_name: [],
-                platform_name: []
-              };
-              matches.forEach(m => {
-                const str = item[m.key].split("");
-                let i = 0;
-                m.indices.forEach(index => {
-                  const [beginning, endMinusOne] = index;
-                  const end = endMinusOne + 1;
-                  if (i < beginning) {
-                    chunks[m.key].push(str.slice(i, beginning).join(""));
-                  }
-                  const highlighted = str.slice(beginning, end).join("");
-                  chunks[m.key].push(<b>{highlighted}</b>);
-                  i = end;
-                });
-                chunks[m.key].push(str.slice(i).join(""));
-              });
-              return (
-                <SearchSuggestionItem
-                  key={item["platform_name"]}
-                  handler={() => {
-                    const isActive = platforms.length > 0;
-                    setResult(item);
-                    setSearch("");
-                    setIsRegistered(isActive);
-                  }}
-                  company={
-                    chunks["company_name"].length > 0
-                      ? chunks["company_name"]
-                      : item["company_name"]
-                  }
-                  platform={
-                    chunks["platform_name"].length > 0
-                      ? chunks["platform_name"]
-                      : item["platform_name"]
-                  }
-                />
-              );
             }
+
+            const chunks = {
+              company_name: [],
+              platform_name: [],
+            };
+            matches.forEach(m => {
+              const str = item[m.key].split('');
+              let i = 0;
+              m.indices.forEach(index => {
+                const [beginning, endMinusOne] = index;
+                const end = endMinusOne + 1;
+                if (i < beginning) {
+                  chunks[m.key].push(str.slice(i, beginning).join(''));
+                }
+                const highlighted = str.slice(beginning, end).join('');
+                chunks[m.key].push(<b>{highlighted}</b>);
+                i = end;
+              });
+              chunks[m.key].push(str.slice(i).join(''));
+            });
+            return (
+              <SearchSuggestionItem
+                key={item['platform_name']}
+                handler={() => {
+                  const isActive = platforms.length > 0;
+                  setResult(item);
+                  setSearch('');
+                  setIsRegistered(isActive);
+                }}
+                company={
+                  chunks['company_name'].length > 0 ? chunks['company_name'] : item['company_name']
+                }
+                platform={
+                  chunks['platform_name'].length > 0
+                    ? chunks['platform_name']
+                    : item['platform_name']
+                }
+              />
+            );
           })}
           <style jsx>
             {`
@@ -184,7 +177,7 @@ const SearchWithDropdown = ({
 };
 
 const Index = ({ platformsData }) => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
   const [result, setResult] = useState(undefined);
   const [isRegistered, setIsRegistered] = useState(undefined);
 
@@ -199,21 +192,13 @@ const Index = ({ platformsData }) => {
       <SEO />
       <main>
         <h1>
-          Apakah{" "}
-          {
-            <u>
-              {value ||
-                ((result && result["platform_name"]) || result) ||
-                "_____"}
-            </u>
-          }{" "}
-          terdaftar di <b>OJK</b>?{" "}
-          {result ? (isRegistered ? "✅" : "🚫") : null}
+          Apakah {<u>{value || ((result && result['platform_name']) || result) || '_____'}</u>}{' '}
+          terdaftar di <b>OJK</b>? {result ? (isRegistered ? '✅' : '🚫') : null}
         </h1>
         {result ? (
           <h2>
-            {isRegistered ? "✅ Ya," : "🚫 Tidak,"} platform ini{" "}
-            {isRegistered ? "" : "tidak "} terdaftar di OJK.
+            {isRegistered ? '✅ Ya,' : '🚫 Tidak,'} platform ini {isRegistered ? '' : 'tidak '}{' '}
+            terdaftar di OJK.
           </h2>
         ) : null}
         {result ? <ResultCard result={result} /> : null}
@@ -229,16 +214,16 @@ const Index = ({ platformsData }) => {
       <SiteFooter />
       <style jsx global>{`
         @font-face {
-          font-family: "Inter";
+          font-family: 'Inter';
           font-style: normal;
           font-weight: 400;
-          src: url("/static/Inter-Regular.woff") format("woff");
+          src: url('/static/Inter-Regular.woff') format('woff');
         }
         @font-face {
-          font-family: "Inter";
+          font-family: 'Inter';
           font-style: normal;
           font-weight: 900;
-          src: url("/static/Inter-Black.woff") format("woff");
+          src: url('/static/Inter-Black.woff') format('woff');
         }
         html {
           box-sizing: border-box;
@@ -253,12 +238,12 @@ const Index = ({ platformsData }) => {
           min-height: 100%;
         }
         html {
-          font-family: "Inter", monospace;
+          font-family: 'Inter', monospace;
           background: #fafafa;
         }
         h1,
         h2 {
-          font-family: "Inter", monospace;
+          font-family: 'Inter', monospace;
           font-weight: 400;
         }
         h1 {
@@ -296,15 +281,12 @@ const Index = ({ platformsData }) => {
   );
 };
 
-Index.getInitialProps = async function() {
-  const res = await fetch("https://pinjollist.now.sh/api/companies");
+Index.getInitialProps = async () => {
+  const res = await fetch('https://pinjollist.now.sh/api/companies');
   const { data: platformsData } = await res.json();
-  const indexer = new Fuse(platformsData, fuseOptions);
-  // console.log(platformsData);
-  console.log(`Platforms data fetched. Count: ${platformsData.length}`);
 
   return {
-    platformsData
+    platformsData,
   };
 };
 
