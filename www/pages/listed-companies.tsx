@@ -13,8 +13,6 @@ import SectionHeading from '../components/SectionHeading';
 import { APIResponse, ErrorAPIResponse } from '../types/common';
 import { colors, breakpoints } from '../styles/variables';
 
-// @ts-ignore types for dynamic() loader broken - fix in progress:
-// https://github.com/DefinitelyTyped/DefinitelyTyped/pull/33163
 const DynamicComponent = dynamic(() => import('../components/RealtimeStats'));
 
 interface ListedCompaniesProps {
