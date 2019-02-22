@@ -1,8 +1,8 @@
-import Fuse from "fuse.js";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from 'react';
+import Fuse from 'fuse.js';
 
 function useSearch(items, config) {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [filteredItems, setItems] = useState(items);
 
   const indexer = useRef(null);
@@ -15,7 +15,7 @@ function useSearch(items, config) {
 
   // when search changes, set filtered Items
   useEffect(() => {
-    if (search === "") {
+    if (search === '') {
       setItems([]);
     } else {
       setItems(indexer.current.search(search));

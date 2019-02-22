@@ -16,8 +16,6 @@ import Ping from '../docs/ping.md';
 import GetCompanies from '../docs/companies.md';
 import { colors } from '../styles/variables';
 
-// @ts-ignore types for dynamic() loader broken - fix in progress:
-// https://github.com/DefinitelyTyped/DefinitelyTyped/pull/33163
 const DynamicComponent = dynamic(() => import('../components/RealtimeStats'));
 
 const Index: React.FC = () => (

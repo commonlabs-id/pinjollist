@@ -19,7 +19,13 @@ module.exports = {
       jsx: true,
     },
   },
-  rules: {},
+  rules: {
+    'dot-notation': 'off',
+    'react/jsx-closing-tag-location': 'off',
+    'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx', '.tsx'] }],
+    'react/jsx-one-expression-per-line': 'off',
+    'react/prop-types': 'off',
+  },
   settings: {
     'import/resolver': {
       node: {
@@ -37,8 +43,6 @@ module.exports = {
       rules: Object.assign(typescriptEslintRecommended.rules, typescriptEslintPrettier.rules, {
         '@typescript-eslint/explicit-function-return-type': ['off'],
         'no-undef': 'off',
-        'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
-        'react/prop-types': 'off',
       }),
     },
   ],

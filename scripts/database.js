@@ -4,7 +4,7 @@ const path = require('path');
 const serviceAccount = require(path.join('../', 'private-firestore.json'));
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
+  credential: admin.credential.cert(serviceAccount),
 });
 
 const db = admin.firestore();

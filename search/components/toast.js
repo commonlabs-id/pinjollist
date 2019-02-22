@@ -1,4 +1,5 @@
-import { useState } from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useState } from 'react';
 
 const Toast = () => {
   const [show, setShow] = useState(true);
@@ -6,11 +7,11 @@ const Toast = () => {
     <>
       {show ? (
         <span>
-          Anda korban Pinjol Ilegal? Hubungi{" "}
+          Anda korban Pinjol Ilegal? Hubungi{' '}
           <a href="https://www.bantuanhukum.or.id/web/formulir-pengaduan-pos-korban-pinjaman-online-pinjol/">
             LBH Jakarta
           </a>
-          !{" "}
+          !{' '}
           <a
             href="#"
             onClick={e => {
