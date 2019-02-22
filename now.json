@@ -60,6 +60,6 @@
       "use": "@now/node@canary",
       "config": { "maxLambdaSize": "15mb" }
     },
-    { "src": "www/package.json", "use": "@now/next" }
+    { "src": "api-docs/package.json", "use": "@now/next" }
   ]
 }
