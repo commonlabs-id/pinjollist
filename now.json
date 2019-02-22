@@ -36,8 +36,17 @@
       "dest": "/www/static/images/favicon.ico"
     },
     {
+      "src": "^/api/(.*)",
+      "dest": "/api-docs/$1",
+      "headers": {
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff"
+      }
+    },
+    {
       "src": "^/(.*)",
-      "dest": "/www/$1",
+      "dest": "/api-docs/$1",
       "headers": {
         "X-Frame-Options": "DENY",
         "X-XSS-Protection": "1; mode=block",
