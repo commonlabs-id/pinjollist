@@ -6,6 +6,8 @@
     "jsx": "preserve",
     "lib": ["dom", "es2017"],
     "noEmit": true,
-    "skipLibCheck": true
-  }
+    "skipLibCheck": true,
+    "allowJs": true
+  },
+  "exclude": ["next.config.js"]
 }

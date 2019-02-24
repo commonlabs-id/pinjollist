@@ -12,7 +12,7 @@
   "private": true,
   "workspaces": [
     "api",
-    "api-docs"
+    "www"
   ],
   "dependencies": {},
   "devDependencies": {

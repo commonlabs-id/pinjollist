@@ -6,7 +6,7 @@ import debounce from 'debounce-fn';
 import fetch from 'isomorphic-unfetch';
 
 import ResultCard from '../components/result-card';
-import SEO from '../components/seo';
+import SEO from '../components/SEO';
 import SiteFooter from '../components/site-footer';
 import Toast from '../components/toast';
 import useSearch from '../components/useSearch';
