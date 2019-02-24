@@ -5,10 +5,10 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 
-import Layout from '../components/Layout';
-import Page from '../components/Page';
+import Layout from '../components/layout/Layout';
+import Page from '../components/layout/Page';
 import ReferenceCard from '../components/ReferenceCard';
-import mdxComponents from '../components/MDX';
+import mdxComponents from '../components/docs/MDX';
 import SectionHeading from '../components/SectionHeading';
 
 import ResponseFormat from '../docs/response-format.md';

@@ -6,6 +6,7 @@
 import React, { useState } from 'react';
 import { formatDistance } from 'date-fns';
 import id from 'date-fns/locale/id';
+import { breakpoints } from '../../styles/variables';
 
 const ResultCard = ({ result }) => {
   const [showRelative, setShowRelative] = useState(true);
@@ -69,9 +70,14 @@ const ResultCard = ({ result }) => {
           }
           h1 {
             margin: 0.5rem 0;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
           }
           h2 {
+            margin-top: 0.5rem;
             margin-bottom: 2rem;
+            font-weight: 400;
           }
           label {
             margin: 1rem 0;
@@ -82,6 +88,12 @@ const ResultCard = ({ result }) => {
           }
           address {
             margin: 0.5rem 0;
+          }
+
+          @media (min-width: ${breakpoints.lg}px) {
+            h1 {
+              font-size: 4rem;
+            }
           }
         `}
       </style>

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 import Container from './Container';
-import { breakpoints } from '../styles/variables';
+import { breakpoints } from '../../styles/variables';
 
 const Header: React.FC = () => (
   <Root>

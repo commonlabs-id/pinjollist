@@ -26,13 +26,15 @@ const Toast = () => {
       <style jsx>
         {`
           span {
+            display: block;
             padding: 1rem;
-            margin: 1rem;
-            max-width: 46rem;
+            margin: 3rem auto;
+            max-width: 100%;
             border-radius: 0.25rem;
             font-size: 0.75rem;
             background: black;
             color: white;
+            text-align: center;
           }
           a {
             color: rgba(255, 255, 255, 0.8);

@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import normalize from 'normalize.css';
 
-import fonts from '../styles/fonts';
-import global from '../styles/global';
+import fonts from '../../styles/fonts';
+import global from '../../styles/global';
 import SEO from './SEO';
 import Header from './Header';
 import Footer from './Footer';

@@ -7,8 +7,8 @@ import dynamic from 'next/dynamic';
 import fetch from 'isomorphic-unfetch';
 import format from 'date-fns/format';
 
-import Layout from '../components/Layout';
-import Page from '../components/Page';
+import Layout from '../components/layout/Layout';
+import Page from '../components/layout/Page';
 import SectionHeading from '../components/SectionHeading';
 import { APIResponse, ErrorAPIResponse } from '../types/common';
 import { colors, breakpoints } from '../styles/variables';

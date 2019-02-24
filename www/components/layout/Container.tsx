@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import { widths, breakpoints } from '../styles/variables';
+import { widths, breakpoints } from '../../styles/variables';
 
 interface ContainerProps {
   className?: string;

@@ -51,6 +51,6 @@
       "use": "@now/node@canary",
       "config": { "maxLambdaSize": "15mb" }
     },
-    { "src": "api-docs/package.json", "use": "@now/next" }
+    { "src": "www/package.json", "use": "@now/static-build", "config": { "distDir": "out" } }
   ]
 }

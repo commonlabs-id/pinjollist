@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import styled from 'styled-components';
-import { fonts, colors } from '../styles/variables';
+import { fonts, colors } from '../../styles/variables';
 
 export const Heading1 = styled('h1')`
   margin-top: 0;

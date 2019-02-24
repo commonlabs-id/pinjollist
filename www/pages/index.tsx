@@ -5,11 +5,15 @@ import React, { useState } from 'react';
 import debounce from 'debounce-fn';
 import fetch from 'isomorphic-unfetch';
 
-import ResultCard from '../components/result-card';
-import SEO from '../components/SEO';
-import SiteFooter from '../components/site-footer';
-import Toast from '../components/toast';
-import useSearch from '../components/useSearch';
+import SEO from '../components/layout/SEO';
+import ResultCard from '../components/search/result-card';
+import SiteFooter from '../components/search/site-footer';
+import Toast from '../components/search/toast';
+import useSearch from '../components/search/useSearch';
+import Layout from '../components/layout/Layout';
+import { NextFunctionComponent } from 'next';
+import Page from '../components/layout/Page';
+import SectionHeading from '../components/SectionHeading';
 
 const fuseOptions = {
   shouldSort: true,
@@ -22,7 +26,7 @@ const fuseOptions = {
   keys: ['platform_name', 'company_name'],
 };
 
-const SearchSuggestionItem = ({ handler, company, platform }) => (
+const SearchSuggestionItem: React.FC<any> = ({ handler, company, platform }) => (
   <>
     <li onClick={handler}>
       {company} ({platform})
@@ -41,8 +45,22 @@ const SearchSuggestionItem = ({ handler, company, platform }) => (
   </>
 );
 
-const SearchWithDropdown = ({ setResult, setIsRegistered, value, setSearch, platforms }) => {
-  const changeHandler = e => {
+interface SearchWithDropdownProps {
+  setResult: React.Dispatch<React.SetStateAction<any>>;
+  setIsRegistered: React.Dispatch<React.SetStateAction<any>>;
+  value: any;
+  setSearch: React.Dispatch<React.SetStateAction<any>>;
+  platforms: any[];
+}
+
+const SearchWithDropdown: React.FC<SearchWithDropdownProps> = ({
+  setResult,
+  setIsRegistered,
+  value,
+  setSearch,
+  platforms,
+}) => {
+  const changeHandler: React.ChangeEventHandler<HTMLInputElement> = e => {
     setResult(undefined);
     setIsRegistered(undefined);
     setSearch(e.target.value);
@@ -121,14 +139,15 @@ const SearchWithDropdown = ({ setResult, setIsRegistered, value, setSearch, plat
               return null;
             }
 
-            const chunks = {
+            const chunks: any = {
               company_name: [],
               platform_name: [],
             };
-            matches.forEach(m => {
+
+            matches.forEach((m: any) => {
               const str = item[m.key].split('');
               let i = 0;
-              m.indices.forEach(index => {
+              m.indices.forEach((index: any) => {
                 const [beginning, endMinusOne] = index;
                 const end = endMinusOne + 1;
                 if (i < beginning) {
@@ -176,24 +195,30 @@ const SearchWithDropdown = ({ setResult, setIsRegistered, value, setSearch, plat
   );
 };
 
-const Index = ({ platformsData }) => {
+interface IndexPageProps {
+  platformsData: any[];
+}
+
+const Index: NextFunctionComponent<IndexPageProps> = ({ platformsData }) => {
   const [value, setValue] = useState('');
   const [result, setResult] = useState(undefined);
   const [isRegistered, setIsRegistered] = useState(undefined);
 
   const [platforms, setSearch] = useSearch(platformsData, fuseOptions);
   const debouncedSearch = debounce(setSearch, { wait: 100 });
-  const search = v => {
+
+  const search = (v: any) => {
     setValue(v);
     debouncedSearch(v);
   };
+
   return (
-    <>
+    <Layout>
       <SEO />
-      <main>
-        <h1>
+      <Page>
+        <h1 className="title">
           Apakah {<u>{value || ((result && result['platform_name']) || result) || '_____'}</u>}{' '}
-          terdaftar di <b>OJK</b>? {result ? (isRegistered ? '✅' : '🚫') : null}
+          terdaftar di <b>OJK</b>?
         </h1>
         {result ? (
           <h2>
@@ -209,64 +234,8 @@ const Index = ({ platformsData }) => {
           setIsRegistered={setIsRegistered}
           platforms={platforms}
         />
-      </main>
-      <Toast />
-      <SiteFooter />
-      <style jsx global>{`
-        @font-face {
-          font-family: 'Inter';
-          font-style: normal;
-          font-weight: 400;
-          src: url('/static/Inter-Regular.woff') format('woff');
-        }
-        @font-face {
-          font-family: 'Inter';
-          font-style: normal;
-          font-weight: 900;
-          src: url('/static/Inter-Black.woff') format('woff');
-        }
-        html {
-          box-sizing: border-box;
-        }
-        * {
-          box-sizing: inherit;
-        }
-        html,
-        body {
-          margin: 0;
-          padding: 0;
-          min-height: 100%;
-        }
-        html {
-          font-family: 'Inter', monospace;
-          background: #fafafa;
-        }
-        h1,
-        h2 {
-          font-family: 'Inter', monospace;
-          font-weight: 400;
-        }
-        h1 {
-          font-size: 2.5rem;
-          margin-bottom: 0.5rem;
-        }
-        u {
-          font-weight: 900;
-        }
-        #__next {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-          height: 100%;
-          min-height: 100vh;
-        }
-        @media (min-width: 1024px) {
-          h1 {
-            font-size: 4rem;
-          }
-        }
-      `}</style>
+        <Toast />
+      </Page>
       <style jsx>{`
         main {
           display: flex;
@@ -276,8 +245,16 @@ const Index = ({ platformsData }) => {
           padding: 1.5rem;
           flex-direction: column;
         }
+        .title {
+          font-size: 2.5rem;
+          font-weight: 400;
+        }
+        .title b,
+        .title u {
+          font-weight: 800;
+        }
       `}</style>
-    </>
+    </Layout>
   );
 };
 
