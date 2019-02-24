@@ -1,6 +1,3 @@
-const typescriptEslintRecommended = require('@typescript-eslint/eslint-plugin/lib/configs/recommended.json');
-const typescriptEslintPrettier = require('eslint-config-prettier/@typescript-eslint');
-
 module.exports = {
   root: true,
   env: {
@@ -9,7 +6,14 @@ module.exports = {
     browser: true,
     jest: true,
   },
-  extends: ['airbnb', 'prettier', 'plugin:prettier/recommended'],
+  extends: [
+    'airbnb',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
+    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended',
+  ],
+  parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'prettier'],
   parserOptions: {
     ecmaVersion: 2018,
@@ -21,6 +25,7 @@ module.exports = {
   },
   rules: {
     'dot-notation': 'off',
+    'jsx-a11y/anchor-is-valid': 'off',
     'react/jsx-closing-tag-location': 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx', '.tsx'] }],
     'react/jsx-one-expression-per-line': 'off',
@@ -36,14 +41,20 @@ module.exports = {
   overrides: [
     {
       files: ['**/*.ts', '**/*.tsx'],
-      parser: '@typescript-eslint/parser',
       parserOptions: {
         project: './tsconfig.json',
       },
-      rules: Object.assign(typescriptEslintRecommended.rules, typescriptEslintPrettier.rules, {
+      rules: {
         '@typescript-eslint/explicit-function-return-type': ['off'],
+        '@typescript-eslint/camelcase': 'off',
         'no-undef': 'off',
-      }),
+        'no-unused-vars': 'off',
+      },
+    },
+    {
+      files: ['.eslintrc.js', '*.config.js'],
+      parserOptions: { sourceType: 'script' },
+      env: { node: true },
     },
   ],
 };
