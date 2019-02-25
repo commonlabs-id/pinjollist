@@ -4,6 +4,7 @@ import NProgress from 'nprogress';
 import Router from 'next/router';
 
 import Toast from '../components/ui/Toast';
+import Portal from '../components/ui/Portal';
 
 const progress = NProgress.configure({ showSpinner: false });
 
@@ -28,7 +29,9 @@ class MyApp extends App {
     return (
       <Container>
         <Component {...pageProps} />
-    <Toast />
+        <Portal>
+          <Toast />
+        </Portal>
       </Container>
     );
   }
