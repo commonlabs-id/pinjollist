@@ -12,8 +12,8 @@ import ResultCard from '../components/search/ResultCard';
 import useSearch from '../components/search/useSearch';
 
 import { PlatformsData } from '../types/companies';
-import { breakpoints } from '../styles/variables';
 import SearchWithDropdown from '../components/search/SearchWithDropdown';
+import SectionHeading from '../components/layout/SectionHeading';
 
 const fuseOptions = {
   shouldSort: true,
@@ -26,18 +26,8 @@ const fuseOptions = {
   keys: ['platform_name', 'company_name'],
 };
 
-const Title = styled('h1')`
-  font-size: 2.25rem;
+const Result = styled('h2')`
   font-weight: 400;
-
-  b,
-  u {
-    font-weight: 800;
-  }
-
-  @media (min-width: ${breakpoints.lg}px) {
-    font-size: 3.5rem;
-  }
 `;
 
 interface IndexPageProps {
@@ -61,15 +51,12 @@ const Index: NextFunctionComponent<IndexPageProps> = ({ platformsData }) => {
     <Layout>
       <Page>
         <section>
-          <Title>
-            Apakah {<u>{value || ((result && result['platform_name']) || result) || '_____'}</u>}{' '}
-            terdaftar di <b>OJK</b>?
-          </Title>
+          <SectionHeading>Cari Perusahaan</SectionHeading>
           {result ? (
-            <h2>
+            <Result>
               {isRegistered ? '✅ Ya,' : '🚫 Tidak,'} platform ini {isRegistered ? '' : 'tidak '}{' '}
               terdaftar di OJK.
-            </h2>
+            </Result>
           ) : null}
           {result ? <ResultCard result={result} /> : null}
           <SearchWithDropdown
