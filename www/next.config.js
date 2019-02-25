@@ -1,4 +1,6 @@
-/* eslint-disable global-require, import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable global-require */
+/* eslint-disable @typescript-eslint/no-var-requires */
 
 const withPlugins = require('next-compose-plugins');
 const withTypescript = require('@zeit/next-typescript');
@@ -18,6 +20,7 @@ const nextConfig = {
   exportPathMap: () => {
     return {
       '/': { page: '/' },
+      '/search': { page: '/search' },
       '/api': { page: '/api' },
     };
   },
