@@ -48,14 +48,14 @@ const Index: NextFunctionComponent<IndexPageProps> = ({ platformsData }) => {
   };
 
   return (
-    <Layout>
+    <Layout pageTitle="Cari Perusahaan">
       <Page>
         <section>
           <SectionHeading>Cari Perusahaan</SectionHeading>
           {result ? (
             <Result>
-              {isRegistered ? '✅ Ya,' : '🚫 Tidak,'} platform ini {isRegistered ? '' : 'tidak '}{' '}
-              terdaftar di OJK.
+              {isRegistered ? '✅' : '🚫'} Platform ini {isRegistered ? '' : 'tidak '} terdaftar di
+              OJK.
             </Result>
           ) : null}
           {result ? <ResultCard result={result} /> : null}

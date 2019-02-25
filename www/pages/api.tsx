@@ -12,7 +12,7 @@ import Ping from '../docs/ping.md';
 import GetCompanies from '../docs/companies.md';
 
 const Index: React.FC = () => (
-  <Layout>
+  <Layout pageTitle="Referensi API">
     <Page>
       <SectionHeading>Referensi API</SectionHeading>
 

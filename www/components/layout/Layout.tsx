@@ -9,9 +9,13 @@ import SEO from './SEO';
 import Header from './Header';
 import Footer from './Footer';
 
-const Layout: React.FC = ({ children }) => (
+interface LayoutProps {
+  pageTitle?: string;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children, pageTitle }) => (
   <Root>
-    <SEO />
+    <SEO pageTitle={pageTitle} />
     <style jsx global>
       {fonts}
     </style>
