@@ -13,13 +13,14 @@ const SEO: React.FC<SEOProps> = ({ pageTitle }) => (
       <title>Pinjollist &middot; Database Jasa P2P Lending yang Berizin OJK</title>
     )}
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    <meta name="og:site_name" content="Pinjollist" />
-    <meta name="og:title" content={pageTitle || 'Pinjollist'} />
-    <meta name="og:url" content="https://apakah-terdaftar-di-ojk.netlify.com" />
     <meta name="description" content="Database jasa P2P Lending yang berizin OJK." />
-    <meta name="og:description" content="Database jasa P2P Lending yang berizin OJK." />
-    <meta name="og:image" content="https://pinjollist.now.sh/static/images/pinjollist-og.png" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:site_name" content="Pinjollist" />
+    <meta property="og:title" content={pageTitle || 'Pinjollist'} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://apakah-terdaftar-di-ojk.netlify.com" />
+    <meta property="og:description" content="Database jasa P2P Lending yang berizin OJK." />
+    <meta property="og:image" content="https://pinjollist.now.sh/static/images/pinjollist-og.png" />
+    <meta property="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon-16x16.png" />
     <link rel="shortcut icon" href="/static/images/favicon.ico" />
