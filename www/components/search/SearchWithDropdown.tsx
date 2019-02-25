@@ -28,7 +28,7 @@ const Form = styled('form')`
 `;
 
 const Input = styled('input')`
-  flex: 7;
+  flex: 1 1 auto;
   font-size: 1.25rem;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
@@ -37,37 +37,29 @@ const Input = styled('input')`
   align-self: center;
   max-width: 46rem;
   width: 100%;
-  height: 40px;
+  height: 50px;
 
   &:focus {
     outline: none;
     border-color: ${colors.black};
     box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.5);
   }
-
-  @media (min-width: ${breakpoints.lg}px) {
-    font-size: 1.5rem;
-    padding: 0.5rem 1rem;
-    height: 60px;
-  }
 `;
 
 const SearchButton = styled(Button)`
   margin: 0;
-  flex: 1;
+  flex: 0 1 80px;
   text-transform: none;
   padding: 0.25rem 0.5rem;
   font-size: 1.25rem;
-  height: 40px;
+  height: 50px;
 
   &:focus {
     outline: none;
   }
 
   @media (min-width: ${breakpoints.lg}px) {
-    padding: 0.5rem 1rem;
-    font-size: 1.5rem;
-    height: 60px;
+    flex: 0 1 155px;
   }
 `;
 

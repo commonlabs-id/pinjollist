@@ -27,7 +27,7 @@ const fuseOptions = {
 };
 
 const Title = styled('h1')`
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   font-weight: 400;
 
   b,
@@ -36,7 +36,7 @@ const Title = styled('h1')`
   }
 
   @media (min-width: ${breakpoints.lg}px) {
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
 `;
 
