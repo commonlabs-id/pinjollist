@@ -1,11 +1,14 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Dispatch, SetStateAction } from 'react';
 import Fuse from 'fuse.js';
 
-function useSearch(items, config) {
+function useSearch<T>(
+  items: T[],
+  config: Fuse.FuseOptions<any>,
+): [T[], Dispatch<SetStateAction<string>>] {
   const [search, setSearch] = useState('');
   const [filteredItems, setItems] = useState(items);
 
-  const indexer = useRef(null);
+  const indexer = useRef<any>(null);
 
   // on mount, instantiate indexer
   // if items change, reinstantiate

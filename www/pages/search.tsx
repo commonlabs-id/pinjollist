@@ -8,10 +8,12 @@ import SEO from '../components/layout/SEO';
 import Layout from '../components/layout/Layout';
 import Page from '../components/layout/Page';
 
-import ResultCard from '../components/search/result-card';
-import Toast from '../components/search/toast';
+import ResultCard from '../components/search/ResultCard';
+import Toast from '../components/search/Toast';
 import useSearch from '../components/search/useSearch';
 import SearchSuggestionItem from '../components/search/SearchSuggestionItem';
+
+import { PlatformsData } from '../types/companies';
 
 const fuseOptions = {
   shouldSort: true,
@@ -176,7 +178,7 @@ const SearchWithDropdown: React.FC<SearchWithDropdownProps> = ({
 };
 
 interface IndexPageProps {
-  platformsData: any[];
+  platformsData: PlatformsData[];
 }
 
 const Index: NextFunctionComponent<IndexPageProps> = ({ platformsData }) => {

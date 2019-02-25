@@ -11,7 +11,7 @@ import SectionHeading from '../components/layout/SectionHeading';
 import LeadText from '../components/layout/LeadText';
 import { LinkButton } from '../components/ui/Button';
 
-const DynamicComponent = dynamic(() => import('../components/RealtimeStats'));
+const DynamicComponent = dynamic(() => import('../components/stats/RealtimeStats'));
 
 const Index: React.FC = () => (
   <Layout>
