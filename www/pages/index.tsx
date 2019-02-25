@@ -90,8 +90,8 @@ const Index: React.FC = () => (
           <Link href="/api" passHref>
             <LinkButton>Referensi API</LinkButton>
           </Link>
-          <Link href="/listed-companies" passHref>
-            <LinkButton primary>Lihat Daftar Lengkap</LinkButton>
+          <Link href="/search" passHref>
+            <LinkButton primary>Cari Perusahaan</LinkButton>
           </Link>
         </ButtonWrapper>
       </section>
