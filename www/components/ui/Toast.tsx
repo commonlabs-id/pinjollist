@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import clsx from 'clsx';
 import styled from 'styled-components';
 import { breakpoints } from '../../styles/variables';
 

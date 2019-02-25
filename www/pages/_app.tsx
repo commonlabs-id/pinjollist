@@ -3,9 +3,6 @@ import App, { Container, NextAppContext } from 'next/app';
 import NProgress from 'nprogress';
 import Router from 'next/router';
 
-import Toast from '../components/ui/Toast';
-import Portal from '../components/ui/Portal';
-
 const progress = NProgress.configure({ showSpinner: false });
 
 Router.events.on('routeChangeStart', () => progress.start());
