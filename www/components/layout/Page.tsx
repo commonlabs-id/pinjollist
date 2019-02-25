@@ -11,5 +11,6 @@ const Page: React.FC = ({ children }) => (
 export default Page;
 
 const Root = styled('main')`
+  flex: 1;
   padding: 1.5rem;
 `;

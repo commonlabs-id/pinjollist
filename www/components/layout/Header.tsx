@@ -41,7 +41,7 @@ const Title = styled('h1')`
   margin: 0;
   font-weight: 800;
   line-height: 1.1;
-  font-size: 3rem;
+  font-size: 4rem;
 
   &:before {
     position: absolute;
@@ -76,7 +76,7 @@ const Subtitle = styled('p')`
   padding: 0 4px;
   line-height: 1.1;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.4rem;
 
   .abbrev {
     font-weight: 800;

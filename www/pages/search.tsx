@@ -9,11 +9,11 @@ import Layout from '../components/layout/Layout';
 import Page from '../components/layout/Page';
 
 import ResultCard from '../components/search/ResultCard';
-import Toast from '../components/search/Toast';
 import useSearch from '../components/search/useSearch';
 import SearchSuggestionItem from '../components/search/SearchSuggestionItem';
 
 import { PlatformsData } from '../types/companies';
+import { breakpoints } from '../styles/variables';
 
 const fuseOptions = {
   shouldSort: true,
@@ -217,7 +217,6 @@ const Index: NextFunctionComponent<IndexPageProps> = ({ platformsData }) => {
             setIsRegistered={setIsRegistered}
             platforms={platforms}
           />
-          <Toast />
         </section>
       </Page>
       <style jsx>{`
@@ -236,6 +235,11 @@ const Index: NextFunctionComponent<IndexPageProps> = ({ platformsData }) => {
         .title b,
         .title u {
           font-weight: 800;
+        }
+        @media (min-width: ${breakpoints.lg}) {
+          .title {
+            font-size: 4rem;
+          }
         }
       `}</style>
     </Layout>
