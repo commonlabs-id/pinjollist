@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { breakpoints } from '../styles/variables';
+import { breakpoints } from '../../styles/variables';
 
 const SectionHeading: React.FC = ({ children }) => (
   <Root>

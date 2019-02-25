@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { APIResponse, ErrorAPIResponse } from '../types/common';
-import Spinner from './layout/Spinner';
+import Spinner from './ui/Spinner';
 import { colors, breakpoints } from '../styles/variables';
 import RealtimeStatsCard from './RealtimeStatsCard';
 

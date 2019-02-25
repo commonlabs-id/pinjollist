@@ -10,7 +10,7 @@ Router.events.on('routeChangeComplete', () => progress.done());
 Router.events.on('routeChangeError', () => progress.done());
 
 class MyApp extends App {
-  static async getInitialProps({ Component, ctx }: NextAppContext) {
+  public static async getInitialProps({ Component, ctx }: NextAppContext) {
     let pageProps = {};
 
     if (Component.getInitialProps) {
@@ -20,7 +20,7 @@ class MyApp extends App {
     return { pageProps };
   }
 
-  render() {
+  public render() {
     const { Component, pageProps } = this.props;
 
     return (

@@ -9,7 +9,7 @@ import format from 'date-fns/format';
 
 import Layout from '../components/layout/Layout';
 import Page from '../components/layout/Page';
-import SectionHeading from '../components/SectionHeading';
+import SectionHeading from '../components/layout/SectionHeading';
 import { APIResponse, ErrorAPIResponse } from '../types/common';
 import { colors, breakpoints } from '../styles/variables';
 
