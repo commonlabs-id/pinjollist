@@ -30,6 +30,7 @@ module.exports = {
     'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx', '.tsx'] }],
     'react/jsx-one-expression-per-line': 'off',
     'react/prop-types': 'off',
+    '@typescript-eslint/camelcase': 'off',
   },
   settings: {
     'import/resolver': {
@@ -45,10 +46,9 @@ module.exports = {
         project: './tsconfig.json',
       },
       rules: {
-        '@typescript-eslint/explicit-function-return-type': ['off'],
-        '@typescript-eslint/camelcase': 'off',
         'no-undef': 'off',
         'no-unused-vars': 'off',
+        '@typescript-eslint/explicit-function-return-type': ['off'],
       },
     },
     {
