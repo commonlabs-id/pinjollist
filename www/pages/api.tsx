@@ -1,8 +1,5 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
-import Link from 'next/link';
-import dynamic from 'next/dynamic';
-import styled from 'styled-components';
 
 import Layout from '../components/layout/Layout';
 import Page from '../components/layout/Page';
@@ -17,19 +14,17 @@ import GetCompanies from '../docs/companies.md';
 const Index: React.FC = () => (
   <Layout>
     <Page>
-      <section>
-        <SectionHeading>Referensi API</SectionHeading>
+      <SectionHeading>Referensi API</SectionHeading>
 
-        <ReferenceCard>
-          <ResponseFormat components={mdxComponents} />
-        </ReferenceCard>
-        <ReferenceCard>
-          <Ping components={mdxComponents} />
-        </ReferenceCard>
-        <ReferenceCard>
-          <GetCompanies components={mdxComponents} />
-        </ReferenceCard>
-      </section>
+      <ReferenceCard>
+        <ResponseFormat components={mdxComponents} />
+      </ReferenceCard>
+      <ReferenceCard>
+        <Ping components={mdxComponents} />
+      </ReferenceCard>
+      <ReferenceCard>
+        <GetCompanies components={mdxComponents} />
+      </ReferenceCard>
     </Page>
   </Layout>
 );

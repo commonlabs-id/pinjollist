@@ -1,14 +1,12 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from 'react';
 import { NextFunctionComponent } from 'next';
-import Link from 'next/link';
 import debounce from 'debounce-fn';
 import fetch from 'isomorphic-unfetch';
 
 import SEO from '../components/layout/SEO';
 import Layout from '../components/layout/Layout';
 import Page from '../components/layout/Page';
-import LeadText from '../components/layout/LeadText';
 
 import ResultCard from '../components/search/result-card';
 import Toast from '../components/search/toast';
