@@ -4,7 +4,6 @@ import normalize from 'normalize.css';
 
 import fonts from '../../styles/fonts';
 import global from '../../styles/global';
-import Toast from '../ui/Toast';
 
 import SEO from './SEO';
 import Header from './Header';
@@ -25,7 +24,6 @@ const Layout: React.FC = ({ children }) => (
     <Header />
     {children}
     <Footer />
-    <Toast />
   </Root>
 );
 
