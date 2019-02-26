@@ -16,6 +16,9 @@ const withMDX = mdx({
 });
 
 const nextConfig = {
+  env: {
+    GOOGLE_ANALYTICS: process.env['GOOGLE_ANALYTICS'],
+  },
   // Read the `BUILD_TARGET` variable and use the passed mode
   exportPathMap: () => {
     return {
