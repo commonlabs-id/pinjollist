@@ -15,7 +15,6 @@ Router.events.on('routeChangeError', () => progress.done());
 
 class MyApp extends App {
   public static async getInitialProps({ Component, ctx }: NextAppContext) {
-    console.log({ env: process.env });
     let pageProps = {};
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
@@ -24,12 +23,10 @@ class MyApp extends App {
   }
 
   public render() {
-    console.log({ env: process.env });
-
     const { Component, pageProps } = this.props;
     return (
       <Container>
-        <h1>{process.env['GOOGLE_ANALYTICS']}</h1>
+        <h1>{process.env.GOOGLE_ANALYTICS}</h1>
         <Component {...pageProps} />
         <Portal>
           <Toast />
@@ -39,4 +36,4 @@ class MyApp extends App {
   }
 }
 
-export default withGA(process.env['GOOGLE_ANALYTICS'], Router)(MyApp);
+export default withGA(process.env.GOOGLE_ANALYTICS, Router)(MyApp);
