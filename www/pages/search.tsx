@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NextFunctionComponent } from 'next';
 import debounce from 'debounce-fn';
 import fetch from 'isomorphic-unfetch';
@@ -34,12 +34,35 @@ interface IndexPageProps {
   platformsData: PlatformsData[];
 }
 
+const fetchCompanies = async () => {
+  let platformsData = [];
+  try {
+    const res = await fetch('https://pinjollist.now.sh/api/companies');
+    const { data } = await res.json();
+    platformsData = data;
+  } catch (e) {
+    console.error(e);
+  }
+  return {
+    platformsData,
+  };
+};
+
 const Index: NextFunctionComponent<IndexPageProps> = ({ platformsData }) => {
   const [value, setValue] = useState('');
   const [result, setResult] = useState(undefined);
   const [isRegistered, setIsRegistered] = useState(undefined);
+  const [data, setData] = useState(platformsData);
+  const [platforms, setSearch] = useSearch(data, fuseOptions);
 
-  const [platforms, setSearch] = useSearch(platformsData, fuseOptions);
+  useEffect(() => {
+    if (data.length < 1) {
+      fetchCompanies().then(companies => {
+        setData(companies.platformsData);
+      });
+    }
+  }, []);
+
   const debouncedSearch = debounce(setSearch, { wait: 100 });
 
   const search = (v: any) => {
@@ -72,13 +95,6 @@ const Index: NextFunctionComponent<IndexPageProps> = ({ platformsData }) => {
   );
 };
 
-Index.getInitialProps = async () => {
-  const res = await fetch('https://pinjollist.now.sh/api/companies');
-  const { data: platformsData } = await res.json();
-
-  return {
-    platformsData,
-  };
-};
+Index.getInitialProps = fetchCompanies;
 
 export default Index;
