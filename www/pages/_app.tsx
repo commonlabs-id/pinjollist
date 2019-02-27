@@ -26,7 +26,6 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
     return (
       <Container>
-        <h1>{process.env.GOOGLE_ANALYTICS}</h1>
         <Component {...pageProps} />
         <Portal>
           <Toast />
