@@ -11,6 +11,11 @@
     "FIREBASE_STORAGE_BUCKET": "@firebase-storage-bucket",
     "FIREBASE_SENDER_ID": "@firebase-sender-id"
   },
+  "build": {
+    "env": {
+      "GOOGLE_ANALYTICS": "@google-analytics"
+    }
+  },
   "routes": [
     {
       "src": "/api/companies",

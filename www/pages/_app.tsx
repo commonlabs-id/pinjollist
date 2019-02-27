@@ -2,6 +2,7 @@ import React from 'react';
 import App, { Container, NextAppContext } from 'next/app';
 import NProgress from 'nprogress';
 import Router from 'next/router';
+import withGA from 'next-ga';
 
 import Toast from '../components/ui/Toast';
 import Portal from '../components/ui/Portal';
@@ -15,17 +16,14 @@ Router.events.on('routeChangeError', () => progress.done());
 class MyApp extends App {
   public static async getInitialProps({ Component, ctx }: NextAppContext) {
     let pageProps = {};
-
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
-
     return { pageProps };
   }
 
   public render() {
     const { Component, pageProps } = this.props;
-
     return (
       <Container>
         <Component {...pageProps} />
@@ -37,4 +35,4 @@ class MyApp extends App {
   }
 }
 
-export default MyApp;
+export default withGA(process.env.GOOGLE_ANALYTICS, Router)(MyApp);
