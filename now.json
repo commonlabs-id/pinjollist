@@ -54,8 +54,8 @@
     {
       "src": "api/routes/**/*.ts",
       "use": "@now/node@canary",
-      "config": { "maxLambdaSize": "15mb" }
+      "config": { "maxLambdaSize": "20mb" }
     },
-    { "src": "www/package.json", "use": "@now/static-build", "config": { "distDir": "out" } }
+    { "src": "www/package.json", "use": "@now/next" }
   ]
 }

@@ -38,7 +38,6 @@
     "dev": "next",
     "build": "next build",
     "export": "next export",
-    "now-build": "npm run build && npm run export",
     "start": "next start"
   }
 }
