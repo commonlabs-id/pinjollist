@@ -36,6 +36,6 @@ class MyApp extends App<WithAnalyticsState> {
 }
 
 export default withAnalytics<DefaultAppIProps & AppProps>(
-  { trackingCode: process.env.GOOGLE_ANALYTICS },
+  { trackingCode: process.env.GOOGLE_ANALYTICS, respectDNT: true },
   Router,
 )(MyApp);
