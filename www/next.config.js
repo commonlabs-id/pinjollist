@@ -4,7 +4,6 @@
 
 const withPlugins = require('next-compose-plugins');
 const withTypescript = require('@zeit/next-typescript');
-const withSourceMaps = require('@zeit/next-source-maps')();
 const mdx = require('@zeit/next-mdx');
 const rehypePrism = require('@mapbox/rehype-prism');
 
@@ -28,7 +27,6 @@ const nextConfig = {
       '/api': { page: '/api' },
     };
   },
-  target: process.env.BUILD_TARGET === 'server' ? 'server' : 'serverless',
   webpack: (config, { defaultLoaders }) => {
     config.module.rules.push({
       test: /\.css$/,
