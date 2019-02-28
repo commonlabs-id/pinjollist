@@ -24,7 +24,7 @@ const SearchSuggestionItem: React.FC<SearchSuggestionItemProps> = ({
   company,
   platform,
 }) => (
-  <tr>
+  <tr key={company}>
     <Item role="gridcell" onClick={handler}>
       {company} ({platform})
     </Item>

@@ -27,7 +27,6 @@ const nextConfig = {
       '/api': { page: '/api' },
     };
   },
-  target: process.env.BUILD_TARGET === 'server' ? 'server' : 'serverless',
   webpack: (config, { defaultLoaders }) => {
     config.module.rules.push({
       test: /\.css$/,
