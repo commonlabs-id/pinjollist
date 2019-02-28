@@ -58,7 +58,7 @@ export function withAnalytics<P extends {}>(config: WithAnalyticsConfig, Router:
           analytics = debugAnalytics;
         }
 
-        if (!isDntEnabled && !config.respectDNT) {
+        if (!isDntEnabled || !config.respectDNT) {
           // Only load analytics if we're sure DNT is not enabled AND respectDNT is enabled
           analytics = prodAnalytics;
         }
