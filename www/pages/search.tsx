@@ -11,6 +11,7 @@ import Page from '../components/layout/Page';
 import ResultCard from '../components/search/ResultCard';
 import useSearch from '../components/search/useSearch';
 
+import { WithAnalyticsState } from '../utils/analytics';
 import { PlatformsData } from '../types/companies';
 import SearchWithDropdown from '../components/search/SearchWithDropdown';
 import SectionHeading from '../components/layout/SectionHeading';
@@ -30,7 +31,7 @@ const Result = styled('h2')`
   font-weight: 400;
 `;
 
-interface IndexPageProps {
+interface IndexPageProps extends WithAnalyticsState {
   platformsData: PlatformsData[];
 }
 
@@ -48,7 +49,7 @@ const fetchCompanies = async () => {
   };
 };
 
-const Index: NextFunctionComponent<IndexPageProps> = ({ platformsData }) => {
+const Index: NextFunctionComponent<IndexPageProps> = ({ platformsData, analytics }) => {
   const [value, setValue] = useState('');
   const [result, setResult] = useState(undefined);
   const [isRegistered, setIsRegistered] = useState(undefined);
@@ -88,6 +89,7 @@ const Index: NextFunctionComponent<IndexPageProps> = ({ platformsData }) => {
             setResult={setResult}
             setIsRegistered={setIsRegistered}
             platforms={platforms}
+            analytics={analytics}
           />
         </section>
       </Page>

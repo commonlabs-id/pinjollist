@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import SearchSuggestionItem from './SearchSuggestionItem';
 import { breakpoints, colors } from '../../styles/variables';
 import { Button } from '../ui/Button';
+import { AnalyticsHelpers } from '../../utils/analytics';
 
 interface SearchWithDropdownProps {
   setResult: React.Dispatch<React.SetStateAction<any>>;
@@ -11,7 +12,14 @@ interface SearchWithDropdownProps {
   value: any;
   setSearch: React.Dispatch<React.SetStateAction<any>>;
   platforms: any[];
+  analytics?: AnalyticsHelpers;
 }
+
+const trackSearch = (analytics?: AnalyticsHelpers, value?: string) => {
+  if (analytics && value) {
+    analytics.event('CompanySearch', value);
+  }
+};
 
 const ResultsTable = styled('table')`
   width: 100%;
@@ -69,6 +77,7 @@ const SearchWithDropdown: React.FC<SearchWithDropdownProps> = ({
   value,
   setSearch,
   platforms,
+  analytics,
 }) => {
   const changeHandler: React.ChangeEventHandler<HTMLInputElement> = e => {
     setResult(undefined);
@@ -87,6 +96,7 @@ const SearchWithDropdown: React.FC<SearchWithDropdownProps> = ({
           setResult(hasSubstr ? platforms[0].item : value);
           setSearch('');
           setIsRegistered(hasSubstr);
+          trackSearch(analytics, `searched ${value}`);
         }}
       >
         <Input
@@ -100,52 +110,57 @@ const SearchWithDropdown: React.FC<SearchWithDropdownProps> = ({
       </Form>
       {platforms.length > 0 ? (
         <ResultsTable>
-          {platforms.map(r => {
-            const { item, matches = [] } = r;
-            if (matches.length < 1) {
-              return null;
-            }
+          <tbody>
+            {platforms.map(r => {
+              const { item, matches = [] } = r;
+              if (matches.length < 1) {
+                return null;
+              }
 
-            const chunks: any = {
-              company_name: [],
-              platform_name: [],
-            };
+              const chunks: any = {
+                company_name: [],
+                platform_name: [],
+              };
 
-            matches.forEach((m: any) => {
-              const str = item[m.key].split('');
-              let i = 0;
-              m.indices.forEach((index: any) => {
-                const [beginning, endMinusOne] = index;
-                const end = endMinusOne + 1;
-                if (i < beginning) {
-                  chunks[m.key].push(str.slice(i, beginning).join(''));
-                }
-                const highlighted = str.slice(beginning, end).join('');
-                chunks[m.key].push(<b>{highlighted}</b>);
-                i = end;
+              matches.forEach((m: any) => {
+                const str = item[m.key].split('');
+                let i = 0;
+                m.indices.forEach((index: any) => {
+                  const [beginning, endMinusOne] = index;
+                  const end = endMinusOne + 1;
+                  if (i < beginning) {
+                    chunks[m.key].push(str.slice(i, beginning).join(''));
+                  }
+                  const highlighted = str.slice(beginning, end).join('');
+                  chunks[m.key].push(<b key={`highlighted${i}`}>{highlighted}</b>);
+                  i = end;
+                });
+                chunks[m.key].push(str.slice(i).join(''));
               });
-              chunks[m.key].push(str.slice(i).join(''));
-            });
-            return (
-              <SearchSuggestionItem
-                key={item['platform_name']}
-                handler={() => {
-                  const isActive = platforms.length > 0;
-                  setResult(item);
-                  setSearch('');
-                  setIsRegistered(isActive);
-                }}
-                company={
-                  chunks['company_name'].length > 0 ? chunks['company_name'] : item['company_name']
-                }
-                platform={
-                  chunks['platform_name'].length > 0
-                    ? chunks['platform_name']
-                    : item['platform_name']
-                }
-              />
-            );
-          })}
+              return (
+                <SearchSuggestionItem
+                  key={item['platform_name']}
+                  handler={() => {
+                    const isActive = platforms.length > 0;
+                    setResult(item);
+                    setSearch('');
+                    setIsRegistered(isActive);
+                    trackSearch(analytics, `suggested ${item['platform_name']}`);
+                  }}
+                  company={
+                    chunks['company_name'].length > 0
+                      ? chunks['company_name']
+                      : item['company_name']
+                  }
+                  platform={
+                    chunks['platform_name'].length > 0
+                      ? chunks['platform_name']
+                      : item['platform_name']
+                  }
+                />
+              );
+            })}
+          </tbody>
         </ResultsTable>
       ) : null}
     </>
