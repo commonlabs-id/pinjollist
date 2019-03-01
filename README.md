@@ -1,5 +1,7 @@
 # pinjollist
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/pinjollist/pinjollist.svg)](https://greenkeeper.io/)
+
 > A database of P2P lending services approved by the Otoritas Jasa Keuangan (OJK)
 
 ## API Reference
