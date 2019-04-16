@@ -2,6 +2,7 @@
   "name": "pinjollist",
   "alias": "pinjollist.now.sh",
   "version": 2,
+  "regions": ["sin1"],
   "env": {
     "API_URL": "@api-url",
     "FIREBASE_API_KEY": "@firebase-api-key",
