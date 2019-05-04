@@ -10,10 +10,6 @@
   "author": "Resi Respati <resir014@gmail.com>",
   "license": "Apache-2.0",
   "private": true,
-  "workspaces": [
-    "api",
-    "www"
-  ],
   "dependencies": {},
   "devDependencies": {
     "@types/node": "^12.0.0",
@@ -27,6 +23,6 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
     "prettier": "^1.16.4",
-    "typescript": "^3.3.3"
+    "typescript": "^3.3.4000"
   }
 }

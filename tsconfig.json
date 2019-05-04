@@ -1,4 +1,10 @@
 {
-  "files": [],
-  "references": [{ "path": "api" }, { "path": "www" }]
+  "compilerOptions": {
+    "sourceMap": true,
+    "composite": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  }
 }

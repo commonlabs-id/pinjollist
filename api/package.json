@@ -17,6 +17,7 @@
     "micro": "^9.3.3"
   },
   "devDependencies": {
-    "@types/micro": "^7.3.3"
+    "@types/micro": "^7.3.3",
+    "typescript": "^3.3.4000"
   }
 }

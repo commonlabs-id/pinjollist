@@ -13,6 +13,24 @@ import { LinkButton } from '../components/ui/Button';
 
 const DynamicComponent = dynamic(() => import('../components/stats/RealtimeStats'));
 
+const ButtonWrapper = styled('footer')`
+  margin-top: 1.5rem;
+  text-align: center;
+
+  a {
+    margin-left: 8px;
+    margin-right: 8px;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+`;
+
 const Index: React.FC = () => (
   <Layout>
     <Page>
@@ -100,21 +118,3 @@ const Index: React.FC = () => (
 );
 
 export default Index;
-
-const ButtonWrapper = styled('div')`
-  margin-top: 1.5rem;
-  text-align: center;
-
-  a {
-    margin-left: 8px;
-    margin-right: 8px;
-
-    &:first-of-type {
-      margin-left: 0;
-    }
-
-    &:last-of-type {
-      margin-right: 0;
-    }
-  }
-`;
