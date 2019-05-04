@@ -1,5 +1,7 @@
 # Firebase private key
 private-firestore.json
+service-account.json
+.env.build
 
 # =========================
 # Node.js-Specific Ignores
