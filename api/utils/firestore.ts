@@ -8,7 +8,6 @@ const serviceAccount: admin.ServiceAccount = {
 
 const config = {
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: process.env.FIREBASE_DATABASE_URL,
 };
 
 export function initDatabase() {
