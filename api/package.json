@@ -12,8 +12,7 @@
   "private": true,
   "scripts": {},
   "dependencies": {
-    "@firebase/app": "^0.3.9",
-    "@firebase/firestore": "^1.0.3",
+    "firebase-admin": "^7.3.0",
     "micro": "^9.3.3"
   },
   "devDependencies": {

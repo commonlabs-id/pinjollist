@@ -1,13 +1,11 @@
 import { send, RequestHandler } from 'micro';
 
-import initDatabase from '../utils/initDatabase';
+import { getLendingServices } from '../utils/operations';
 import buildResponse from '../utils/buildResponse';
 
 const handler: RequestHandler = async (_, res) => {
   try {
-    const firestore = initDatabase();
-    const { docs } = await firestore.collection('lending_services').get();
-    const data = docs.map(doc => doc.data());
+    const data = await getLendingServices();
 
     send(res, 200, buildResponse('ok', data));
   } catch (err) {

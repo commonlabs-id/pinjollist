@@ -5,12 +5,16 @@
   "regions": ["sin1"],
   "env": {
     "API_URL": "@api-url",
-    "FIREBASE_API_KEY": "@firebase-api-key",
-    "FIREBASE_AUTH_DOMAIN": "@firebase-auth-domain",
     "FIREBASE_DATABASE_URL": "@firebase-database-url",
     "FIREBASE_PROJECT_ID": "@firebase-project-id",
-    "FIREBASE_STORAGE_BUCKET": "@firebase-storage-bucket",
-    "FIREBASE_SENDER_ID": "@firebase-sender-id"
+    "FIREBASE_PRIVATE_KEY_ID": "@firebase-private-key-id",
+    "FIREBASE_PRIVATE_KEY_BASE64": "@firebase-private-key-base64",
+    "FIREBASE_CLIENT_EMAIL": "@firebase-client-email",
+    "FIREBASE_CLIENT_ID": "@firebase-client-id",
+    "FIREBASE_AUTH_URI": "@firebase-auth-uri",
+    "FIREBASE_TOKEN_URI": "@firebase-token-uri",
+    "FIREBASE_FIREBASE_AUTH_PROVIDER_X509_CERT_URL": "@firebase-auth-provider-x509-cert-url",
+    "FIREBASE_FIREBASE_CLIENT_X509_CERT_URL": "@firebase-client-x509-cert-url"
   },
   "build": {
     "env": {
