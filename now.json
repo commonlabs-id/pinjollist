@@ -42,6 +42,10 @@
       "dest": "/www/static/images/favicon.ico"
     },
     {
+      "src": "^/favicon.ico",
+      "dest": "/www/static/images/favicon.ico"
+    },
+    {
       "src": "^/(.*)",
       "dest": "/www/$1",
       "headers": {
