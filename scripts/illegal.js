@@ -3,7 +3,7 @@ const { join } = require('path');
 
 const db = require('./database');
 
-const getRef = r => db.collection('illegal_lending_services').doc();
+const getRef = _ => db.collection('illegal_lending_services').doc();
 const mergeOne = (ref, data) => ref.set(data, { merge: true });
 
 const rawTxt = readFileSync(join(__dirname, '..', 'data', 'illegal.txt'), {

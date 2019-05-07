@@ -1,5 +1,7 @@
+/* eslint-disable no-restricted-syntax */
+
 const fetch = require('isomorphic-unfetch');
-const FieldValue = require('firebase-admin').firestore.FieldValue;
+const { FieldValue } = require('firebase-admin').firestore;
 
 const ojk2 = require('../data/ojk2.json');
 
@@ -19,7 +21,7 @@ const mergeOne = (ref, data) => ref.set(data, { merge: true });
 const main = async () => {
   const companiesFromAPI = await fetchCompaniesFromAPI();
   const oldCompanies = ojk2.map(({ raw }) => raw);
-  for (let company of companiesFromAPI) {
+  for (const company of companiesFromAPI) {
     let hasMatching = false;
     const match = oldCompanies.find(c => {
       return (
@@ -36,7 +38,7 @@ const main = async () => {
     }
     // console.log(company.platform_name, hasMatching ? 'has' : 'does not have', 'a match');
   }
-  for (let company of matches) {
+  for (const company of matches) {
     const ref = getRef(company);
     mergeOne(ref, { alamat: company.address });
     ref.update({
