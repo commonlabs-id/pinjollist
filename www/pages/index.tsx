@@ -11,7 +11,7 @@ import SectionHeading from '../components/layout/SectionHeading';
 import LeadText from '../components/layout/LeadText';
 import { LinkButton } from '../components/ui/Button';
 
-const DynamicComponent = dynamic(() => import('../components/stats/RealtimeStats'));
+const RealtimeStats = dynamic(() => import('../components/stats/RealtimeStats'));
 
 const ButtonWrapper = styled('footer')`
   margin-top: 1.5rem;
@@ -103,7 +103,7 @@ const Index: React.FC = () => (
       </section>
       <section>
         <SectionHeading>Statistik</SectionHeading>
-        <DynamicComponent />
+        <RealtimeStats />
         <ButtonWrapper>
           <Link href="/api" passHref>
             <LinkButton>Referensi API</LinkButton>
