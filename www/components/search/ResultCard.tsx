@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable no-underscore-dangle */
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { formatDistance } from 'date-fns';
@@ -67,15 +68,15 @@ const ResultCard: React.FC<ResultCardProps> = ({ result }) => {
         <>
           <Metadata>
             <b>{result['registration']}</b> ·{'  '}
-            <time dateTime={new Date(result['registered_at'].seconds * 1000).toISOString()}>
+            <time dateTime={new Date(result['registered_at']._seconds * 1000).toISOString()}>
               {showRelative
                 ? `Terdaftar ${formatDistance(
-                    new Date(result['registered_at'].seconds * 1000),
+                    new Date(result['registered_at']._seconds * 1000),
                     new Date(),
                     { locale: id },
                   )} lalu`
                 : `Terdaftar pada ${new Date(
-                    result['registered_at'].seconds * 1000,
+                    result['registered_at']._seconds * 1000,
                   ).toLocaleDateString()}`}
             </time>
             <span
