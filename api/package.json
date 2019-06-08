@@ -10,6 +10,9 @@
   "author": "Resi Respati <resir014@gmail.com>",
   "license": "Apache-2.0",
   "private": true,
+  "engines": {
+    "node": "^8.13.0 || ^10.0.0"
+  },
   "scripts": {},
   "dependencies": {
     "firebase-admin": "^7.3.0",
