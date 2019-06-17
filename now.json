@@ -16,15 +16,8 @@
   },
   "routes": [
     {
-      "src": "/api/companies",
-      "dest": "/api/routes/companies.ts",
-      "headers": {
-        "Access-Control-Allow-Origin": "*"
-      }
-    },
-    {
-      "src": "/api/ping",
-      "dest": "/api/routes/ping.ts",
+      "src": "/api/([^/]+)",
+      "dest": "/api/$1.ts",
       "headers": {
         "Access-Control-Allow-Origin": "*"
       }
@@ -54,7 +47,7 @@
   ],
   "builds": [
     {
-      "src": "api/routes/**/*.ts",
+      "src": "api/*.ts",
       "use": "@now/node@canary",
       "config": { "maxLambdaSize": "20mb" }
     },
