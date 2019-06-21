@@ -4,7 +4,6 @@
   "version": 2,
   "regions": ["sin1"],
   "env": {
-    "API_URL": "@api-url",
     "FIREBASE_PROJECT_ID": "@firebase-project-id",
     "FIREBASE_PRIVATE_KEY_BASE64": "@firebase-private-key-base64",
     "FIREBASE_CLIENT_EMAIL": "@firebase-client-email"
