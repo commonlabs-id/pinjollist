@@ -16,17 +16,10 @@ const withMDX = mdx({
 });
 
 const nextConfig = {
+  target: 'serverless',
   env: {
     API_URL: process.env['API_URL'],
     GOOGLE_ANALYTICS: process.env['GOOGLE_ANALYTICS'],
-  },
-  // Read the `BUILD_TARGET` variable and use the passed mode
-  exportPathMap: () => {
-    return {
-      '/': { page: '/' },
-      '/search': { page: '/search' },
-      '/api': { page: '/api' },
-    };
   },
   webpack: (config, { defaultLoaders }) => {
     config.module.rules.push({
