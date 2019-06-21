@@ -40,6 +40,9 @@
     "build": "next build",
     "export": "next export",
     "start": "next start",
-    "now-build": "next build && next export"
+    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\"",
+    "now-build": "next build && next export",
+    "type-check": "tsc --noEmit",
+    "validate": "yarn lint && yarn type-check"
   }
 }
