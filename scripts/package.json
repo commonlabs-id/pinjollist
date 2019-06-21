@@ -1,8 +1,12 @@
 {
-  "name": "scripts",
+  "name": "@pinjollist/scripts",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "lint": "eslint *.js",
+    "validate": "yarn lint"
+  },
   "dependencies": {
     "csv-parse": "^4.3.3",
     "firebase-admin": "^7.0.0",

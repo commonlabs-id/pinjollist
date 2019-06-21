@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import admin from 'firebase-admin';
 
 const serviceAccount: admin.ServiceAccount = {
