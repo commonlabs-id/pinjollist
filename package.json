@@ -16,6 +16,7 @@
     "www"
   ],
   "scripts": {
+    "test": "yarn validate:api && yarn validate:www",
     "validate:api": "yarn workspace @pinjollist/api run validate",
     "validate:www": "yarn workspace @pinjollist/www run validate"
   },
