@@ -1,7 +1,7 @@
 import { send, RequestHandler } from 'micro';
 
-import { getLendingServices } from './utils/operations';
-import buildResponse from './utils/buildResponse';
+import { getLendingServices } from '../utils/operations';
+import buildResponse from '../utils/buildResponse';
 
 const handler: RequestHandler = async (_, res) => {
   try {
