@@ -2,6 +2,9 @@
   "name": "pinjollist",
   "alias": "pinjollist.now.sh",
   "version": 2,
+  "engines": {
+    "node": "^10.0.0"
+  },
   "regions": ["sin1"],
   "env": {
     "API_URL": "@api-url",

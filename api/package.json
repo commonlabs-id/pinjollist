@@ -11,7 +11,7 @@
   "license": "Apache-2.0",
   "private": true,
   "engines": {
-    "node": "^8.13.0 || ^10.0.0"
+    "node": "^10.0.0"
   },
   "scripts": {},
   "dependencies": {
