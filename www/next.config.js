@@ -17,6 +17,7 @@ const withMDX = mdx({
 
 const nextConfig = {
   env: {
+    API_URL: process.env['API_URL'],
     GOOGLE_ANALYTICS: process.env['GOOGLE_ANALYTICS'],
   },
   // Read the `BUILD_TARGET` variable and use the passed mode
