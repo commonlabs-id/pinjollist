@@ -50,6 +50,6 @@
       "use": "@now/node",
       "config": { "maxLambdaSize": "20mb" }
     },
-    { "src": "www/next.config.js", "use": "@now/next", "config": { "distDir": "out" } }
+    { "src": "www/next.config.js", "use": "@now/next" }
   ]
 }
