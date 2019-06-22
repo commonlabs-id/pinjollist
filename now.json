@@ -15,8 +15,15 @@
   },
   "routes": [
     {
-      "src": "^/api/([^/]+)$",
-      "dest": "/api/routes/$1.ts",
+      "src": "^/api/companies$",
+      "dest": "/api/routes/companies.ts",
+      "headers": {
+        "Access-Control-Allow-Origin": "*"
+      }
+    },
+    {
+      "src": "^/api/ping$",
+      "dest": "/api/routes/ping.ts",
       "headers": {
         "Access-Control-Allow-Origin": "*"
       }
