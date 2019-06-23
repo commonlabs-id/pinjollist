@@ -36,7 +36,7 @@ interface IndexPageProps extends WithAnalyticsState {
 }
 
 const fetchCompanies = async () => {
-  let platformsData: any[] = [];
+  let platformsData: PlatformsData[] = [];
   try {
     const res = await fetch('https://pinjollist.now.sh/api/companies');
     const { data } = await res.json();
@@ -51,9 +51,9 @@ const fetchCompanies = async () => {
 
 const Index: NextFunctionComponent<IndexPageProps> = ({ platformsData, analytics }) => {
   const [value, setValue] = useState('');
-  const [result, setResult] = useState(undefined);
-  const [isRegistered, setIsRegistered] = useState(undefined);
-  const [data, setData] = useState(platformsData);
+  const [result, setResult] = useState<PlatformsData | undefined>(undefined);
+  const [isRegistered, setIsRegistered] = useState<boolean | undefined>(undefined);
+  const [data, setData] = useState<PlatformsData[]>(platformsData);
   const [platforms, setSearch] = useSearch(data, fuseOptions);
 
   useEffect(() => {
