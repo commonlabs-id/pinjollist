@@ -36,7 +36,7 @@ interface IndexPageProps extends WithAnalyticsState {
 }
 
 const fetchCompanies = async () => {
-  let platformsData = [];
+  let platformsData: PlatformsData[] = [];
   try {
     const res = await fetch('https://pinjollist.now.sh/api/companies');
     const { data } = await res.json();
@@ -51,9 +51,9 @@ const fetchCompanies = async () => {
 
 const Index: NextFunctionComponent<IndexPageProps> = ({ platformsData, analytics }) => {
   const [value, setValue] = useState('');
-  const [result, setResult] = useState(undefined);
-  const [isRegistered, setIsRegistered] = useState(undefined);
-  const [data, setData] = useState(platformsData);
+  const [result, setResult] = useState<PlatformsData | undefined>(undefined);
+  const [isRegistered, setIsRegistered] = useState<boolean | undefined>(undefined);
+  const [data, setData] = useState<PlatformsData[]>(platformsData);
   const [platforms, setSearch] = useSearch(data, fuseOptions);
 
   useEffect(() => {
@@ -97,6 +97,20 @@ const Index: NextFunctionComponent<IndexPageProps> = ({ platformsData, analytics
   );
 };
 
-Index.getInitialProps = fetchCompanies;
+Index.getInitialProps = async ({ res }) => {
+  const platformsData = await fetchCompanies();
+  // eslint-disable-next-line global-require
+  const etag = require('crypto')
+    .createHash('md5')
+    .update(JSON.stringify(platformsData))
+    .digest('hex');
+
+  if (res) {
+    res.setHeader('Cache-Control', 's-maxage=1, stale-while-revalidate');
+    res.setHeader('X-version', etag);
+  }
+
+  return { ...platformsData, etag };
+};
 
 export default Index;

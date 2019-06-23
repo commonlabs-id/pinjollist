@@ -4,7 +4,6 @@
   "version": 2,
   "regions": ["sin1"],
   "env": {
-    "API_URL": "@api-url",
     "FIREBASE_PROJECT_ID": "@firebase-project-id",
     "FIREBASE_PRIVATE_KEY_BASE64": "@firebase-private-key-base64",
     "FIREBASE_CLIENT_EMAIL": "@firebase-client-email"
@@ -16,8 +15,15 @@
   },
   "routes": [
     {
-      "src": "^/api/([^/]+)$",
-      "dest": "/api/routes/$1.ts",
+      "src": "^/api/companies$",
+      "dest": "/api/routes/companies.ts",
+      "headers": {
+        "Access-Control-Allow-Origin": "*"
+      }
+    },
+    {
+      "src": "^/api/ping$",
+      "dest": "/api/routes/ping.ts",
       "headers": {
         "Access-Control-Allow-Origin": "*"
       }
@@ -51,6 +57,6 @@
       "use": "@now/node",
       "config": { "maxLambdaSize": "20mb" }
     },
-    { "src": "www/package.json", "use": "@now/static-build", "config": { "distDir": "out" } }
+    { "src": "www/next.config.js", "use": "@now/next" }
   ]
 }

@@ -4,6 +4,13 @@ interface Window {
   GA_INITIALIZED?: boolean;
 }
 
+// Node.JS extensions
+declare namespace NodeJS {
+  interface Process {
+    browser?: boolean;
+  }
+}
+
 // CSS Modules
 declare module '*.css' {
   interface ClassNames {
