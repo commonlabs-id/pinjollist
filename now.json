@@ -10,6 +10,7 @@
   },
   "build": {
     "env": {
+      "API_URL": "@api-url",
       "GOOGLE_ANALYTICS": "@google-analytics"
     }
   },
