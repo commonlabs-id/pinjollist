@@ -16,7 +16,7 @@
     "validate": "yarn lint && yarn type-check"
   },
   "dependencies": {
-    "firebase-admin": "^7.3.0",
+    "firebase-admin": "^8.2.0",
     "micro": "^9.3.3"
   },
   "devDependencies": {
