@@ -3,9 +3,6 @@
   "alias": "pinjollist.now.sh",
   "version": 2,
   "regions": ["sin1"],
-  "engines": {
-    "node": "10.x"
-  },
   "env": {
     "FIREBASE_PROJECT_ID": "@firebase-project-id",
     "FIREBASE_PRIVATE_KEY_BASE64": "@firebase-private-key-base64",
