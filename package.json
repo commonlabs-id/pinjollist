@@ -15,6 +15,9 @@
     "scripts",
     "www"
   ],
+  "engines": {
+    "node": "10.x"
+  },
   "scripts": {
     "validate:api": "yarn workspace @pinjollist/api run validate",
     "validate:www": "yarn workspace @pinjollist/www run validate"
