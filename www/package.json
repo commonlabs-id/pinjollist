@@ -9,7 +9,7 @@
     "@mdx-js/mdx": "^1.0.1",
     "@zeit/next-mdx": "^1.2.0",
     "@zeit/next-typescript": "^1.1.1",
-    "babel-plugin-styled-components": "^1.10.2",
+    "babel-plugin-styled-components": "^1.10.4",
     "clsx": "^1.0.3",
     "date-fns": "^2.0.0-alpha.37",
     "debounce-fn": "^3.0.0",
