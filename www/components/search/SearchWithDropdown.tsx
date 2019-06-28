@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { AnalyticsHelpers } from '@pinjollist/next-with-analytics';
 
 import SearchSuggestionItem from './SearchSuggestionItem';
 import { breakpoints, colors } from '../../styles/variables';
@@ -11,10 +12,10 @@ interface SearchWithDropdownProps {
   value: any;
   setSearch: (value: string) => void;
   platforms: any[];
-  analytics?: any;
+  analytics?: AnalyticsHelpers;
 }
 
-const trackSearch = (analytics?: any, value?: string) => {
+const trackSearch = (analytics?: AnalyticsHelpers, value?: string) => {
   if (analytics && value) {
     analytics.event('CompanySearch', value);
   }
