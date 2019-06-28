@@ -4,6 +4,7 @@ import { NextFunctionComponent } from 'next';
 import debounce from 'debounce-fn';
 import fetch from 'isomorphic-unfetch';
 import styled from 'styled-components';
+import { WithAnalyticsState } from '@pinjollist/next-with-analytics';
 
 import Layout from '../components/layout/Layout';
 import Page from '../components/layout/Page';
@@ -11,7 +12,6 @@ import Page from '../components/layout/Page';
 import ResultCard from '../components/search/ResultCard';
 import useSearch from '../components/search/useSearch';
 
-import { WithAnalyticsState } from '../utils/analytics';
 import { PlatformsData } from '../types/companies';
 import SearchWithDropdown from '../components/search/SearchWithDropdown';
 import SectionHeading from '../components/layout/SectionHeading';

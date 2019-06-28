@@ -4,18 +4,17 @@ import styled from 'styled-components';
 import SearchSuggestionItem from './SearchSuggestionItem';
 import { breakpoints, colors } from '../../styles/variables';
 import { Button } from '../ui/Button';
-import { AnalyticsHelpers } from '../../utils/analytics';
 
 interface SearchWithDropdownProps {
   setResult: React.Dispatch<React.SetStateAction<any>>;
   setIsRegistered: React.Dispatch<React.SetStateAction<any>>;
   value: any;
-  setSearch: React.Dispatch<React.SetStateAction<any>>;
+  setSearch: (value: string) => void;
   platforms: any[];
-  analytics?: AnalyticsHelpers;
+  analytics?: any;
 }
 
-const trackSearch = (analytics?: AnalyticsHelpers, value?: string) => {
+const trackSearch = (analytics?: any, value?: string) => {
   if (analytics && value) {
     analytics.event('CompanySearch', value);
   }

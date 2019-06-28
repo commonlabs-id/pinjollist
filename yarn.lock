@@ -966,6 +966,13 @@
     hoist-non-react-statics "^2.5.5"
     prop-types "^15.6.1"
 
+"@pinjollist/next-with-analytics@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@pinjollist/next-with-analytics/-/next-with-analytics-0.2.1.tgz#0a30ea9aa8ea2e064cf7cf1eef4f5ea02480e6ca"
+  integrity sha512-Ll4GuqAKUqcIGeFpe9FlmWm8lBCWXCv7TPx9IJaeiNIBILsjY4Pnn8sEAyYijsixIdTl1HiJ9qtt+zE0ovFdEQ==
+  dependencies:
+    react-ga "^2.6.0"
+
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@protobufjs/aspromise/-/aspromise-1.1.2.tgz#9b8b0cc663d669a7d8f6f5d0893a14d348f30fbf"
