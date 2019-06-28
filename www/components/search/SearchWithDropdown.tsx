@@ -1,22 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
+import { AnalyticsHelpers } from '@pinjollist/next-with-analytics';
 
 import SearchSuggestionItem from './SearchSuggestionItem';
 import { breakpoints, colors } from '../../styles/variables';
 import { Button } from '../ui/Button';
-import { AnalyticsHelpers } from '../../utils/analytics';
 
 interface SearchWithDropdownProps {
   setResult: React.Dispatch<React.SetStateAction<any>>;
   setIsRegistered: React.Dispatch<React.SetStateAction<any>>;
   value: any;
-  setSearch: React.Dispatch<React.SetStateAction<any>>;
+  setSearch: (value: string) => void;
   platforms: any[];
-  analytics?: AnalyticsHelpers;
+  analytics?: Partial<AnalyticsHelpers>;
 }
 
-const trackSearch = (analytics?: AnalyticsHelpers, value?: string) => {
-  if (analytics && value) {
+const trackSearch = (analytics?: Partial<AnalyticsHelpers>, value?: string) => {
+  if (analytics && analytics.event && value) {
     analytics.event('CompanySearch', value);
   }
 };

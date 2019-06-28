@@ -7,6 +7,7 @@
   "dependencies": {
     "@mapbox/rehype-prism": "^0.3.1",
     "@mdx-js/mdx": "^1.0.1",
+    "@pinjollist/next-with-analytics": "^0.2.1",
     "@zeit/next-mdx": "^1.2.0",
     "@zeit/next-typescript": "^1.1.1",
     "babel-plugin-styled-components": "^1.10.2",
@@ -22,7 +23,6 @@
     "prismjs": "^1.15.0",
     "react": "16.8.6",
     "react-dom": "16.8.6",
-    "react-ga": "^2.6.0",
     "styled-components": "4.3.2"
   },
   "devDependencies": {
