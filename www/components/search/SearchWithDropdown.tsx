@@ -12,11 +12,11 @@ interface SearchWithDropdownProps {
   value: any;
   setSearch: (value: string) => void;
   platforms: any[];
-  analytics?: AnalyticsHelpers;
+  analytics?: Partial<AnalyticsHelpers>;
 }
 
-const trackSearch = (analytics?: AnalyticsHelpers, value?: string) => {
-  if (analytics && value) {
+const trackSearch = (analytics?: Partial<AnalyticsHelpers>, value?: string) => {
+  if (analytics && analytics.event && value) {
     analytics.event('CompanySearch', value);
   }
 };
