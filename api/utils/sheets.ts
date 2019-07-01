@@ -78,7 +78,7 @@ async function sanitizeSheets(rows: Row[]): Promise<Row[]> {
       platform_name,
       registration_type,
       badan_hukum,
-      is_syariah,
+      is_syariah: is_syariah === 'Syariah',
       alamat,
       registered_at: {
         _seconds: new Date(tanggal as string).getTime() / 1000,
