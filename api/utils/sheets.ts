@@ -1,6 +1,23 @@
 import GoogleSpreadsheet from 'google-spreadsheet';
 import { ServiceAccount } from '../types/common';
 
+interface GoogleSheetsDoc {
+  getInfo(callback: unknown): Promise<SheetsInfo>;
+  getRows(index: number, opts: unknown, callback: unknown): Promise<Row[]>;
+}
+
+interface SheetsInfo {
+  worksheets: Sheet[];
+}
+
+interface Sheet {
+  title: string;
+}
+
+interface Row {
+  [key: string]: unknown;
+}
+
 if (
   !process.env.SHEETS_ID ||
   !process.env.FIREBASE_CLIENT_EMAIL ||
@@ -13,51 +30,72 @@ const SHEET_TITLES = Object.freeze({
   DATA: 'Data',
 });
 
-async function getWorksheetIndexFromTitle(doc, title) {
-  const { worksheets } = await getInfo(doc);
-  return 1 + worksheets.findIndex(sheet => sheet.title === title);
-}
-
-async function getCMSData(doc) {
-  const CMS_INDEX = await getWorksheetIndexFromTitle(doc, SHEET_TITLES.DATA);
-  return new Promise(resolve => {
-    doc.getRows(
-      CMS_INDEX,
-      {
-        offset: 1,
-      },
-      (err, rows) => {
-        if (err) {
-          throw new Error('Error getting CMS data');
-        }
-
-        resolve(rows);
-      },
-    );
-  });
-}
-
-async function getInfo(doc: unknown) {
-  return new Promise((resolve, reject) =>
-    doc.getInfo((error, info) => {
+async function getInfo(doc: GoogleSheetsDoc): Promise<SheetsInfo> {
+  return new Promise(resolve =>
+    doc.getInfo((error: Error, info: SheetsInfo) => {
       if (error) {
-        return reject(error);
+        throw error;
       }
       resolve(info);
     }),
   );
 }
 
-async function getSiteDataFromSheet(
-  sheetId: string,
-  serviceAccount: ServiceAccount,
-): Promise<unknown> {
-  const doc = new GoogleSpreadsheet(sheetId);
-  await new Promise(resolve => doc.useServiceAccountAuth(serviceAccount, resolve));
-  return getCMSData(doc);
+async function getWorksheetIndexFromTitle(doc: GoogleSheetsDoc, title: string): Promise<number> {
+  const { worksheets } = await getInfo(doc);
+  return 1 + worksheets.findIndex(sheet => sheet.title === title);
 }
 
-// getSiteDataFromSheet('1vbbQG3IPSxJl9dAcGA9xmP5kWGNPF75QGlPA5gpApI0', serviceAccount)
-//   .then(console.log)
-//   .catch(console.error);
-module.exports = { getSiteDataFromSheet };
+async function getSheetsData(doc: GoogleSheetsDoc): Promise<Row[]> {
+  const CMS_INDEX = await getWorksheetIndexFromTitle(doc, SHEET_TITLES.DATA);
+  return new Promise(resolve => {
+    doc.getRows(CMS_INDEX, {}, (err: Error, rows: Row[]) => {
+      if (err) {
+        throw new Error('Error getting CMS data');
+      }
+
+      resolve(rows);
+    });
+  });
+}
+
+async function sanitizeSheets(rows: Row[]): Promise<Row[]> {
+  return rows.map(
+    ({
+      surattandaberizinterdaftar: registration,
+      namaperusahaan: company_name,
+      website,
+      namaplatform: platform_name,
+      tanggal,
+      jenis: registration_type,
+      badanhukum: badan_hukum,
+      alamat,
+      syariah: is_syariah,
+    }) => ({
+      registration,
+      company_name,
+      website,
+      platform_name,
+      registration_type,
+      badan_hukum,
+      is_syariah,
+      alamat,
+      registered_at: {
+        _seconds: new Date(tanggal as string).getTime() / 1000,
+      },
+    }),
+  );
+}
+
+export async function getSiteDataFromSheet(
+  sheetId: string,
+  serviceAccount: ServiceAccount,
+): Promise<Row[]> {
+  const doc = new GoogleSpreadsheet(sheetId);
+  await new Promise(resolve => doc.useServiceAccountAuth(serviceAccount, resolve));
+  return getSheetsData(doc).then(sanitizeSheets);
+}
+
+export default {
+  getSiteDataFromSheet,
+};

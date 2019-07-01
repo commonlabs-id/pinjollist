@@ -1,6 +1,5 @@
 import { send, RequestHandler } from 'micro';
 
-// import { getLendingServices } from '../utils/operations';
 import { getSiteDataFromSheet } from '../utils/sheets';
 import buildResponse from '../utils/buildResponse';
 
@@ -13,8 +12,7 @@ const serviceAccount = {
 
 const handler: RequestHandler = async (_, res) => {
   try {
-    const data = await getSiteDataFromSheet(process.env.SHEETS_ID, serviceAccount);
-
+    const data = await getSiteDataFromSheet(process.env.SHEETS_ID as string, serviceAccount);
     send(res, 200, buildResponse('ok', data));
   } catch (err) {
     send(
