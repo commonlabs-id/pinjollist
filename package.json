@@ -15,6 +15,9 @@
     "scripts",
     "www"
   ],
+  "engines": {
+    "node": "10.x"
+  },
   "scripts": {
     "validate:api": "yarn workspace @pinjollist/api run validate",
     "validate:www": "yarn workspace @pinjollist/www run validate"
@@ -27,11 +30,11 @@
     "eslint": "5.16.0",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-prettier": "^5.0.0",
-    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.12.4",
     "prettier": "^1.18.2",
-    "typescript": "3.4.5"
+    "typescript": "3.5.2"
   }
 }

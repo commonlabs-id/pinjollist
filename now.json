@@ -11,20 +11,14 @@
   },
   "build": {
     "env": {
+      "API_URL": "@api-url",
       "GOOGLE_ANALYTICS": "@google-analytics"
     }
   },
   "routes": [
     {
-      "src": "^/api/companies$",
-      "dest": "/api/routes/companies.ts",
-      "headers": {
-        "Access-Control-Allow-Origin": "*"
-      }
-    },
-    {
-      "src": "^/api/ping$",
-      "dest": "/api/routes/ping.ts",
+      "src": "^/api/([^/]*)$",
+      "dest": "/api/routes/$1.ts",
       "headers": {
         "Access-Control-Allow-Origin": "*"
       }
