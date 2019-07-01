@@ -1,9 +1,16 @@
 {
   "name": "@pinjollist/www",
   "version": "1.0.0",
-  "main": "index.js",
-  "author": "<muhammad.mustadi@gmail.com>",
+  "main": "N/A",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/resir014/pinjollist.git"
+  },
+  "author": "Muhammad Mustadi <muhammad.mustadi@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": "10.x"
+  },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.3.1",
     "@mdx-js/mdx": "^1.0.1",
