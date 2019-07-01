@@ -98,7 +98,8 @@ const ResultCard: React.FC<ResultCardProps> = ({ result }) => {
           <AddressLabel>Alamat</AddressLabel>
           <Address
             dangerouslySetInnerHTML={{
-              __html: `${result['alamat'] || 'Alamat tidak ditemukan.'}`,
+              __html: `${(result['alamat'] && result['alamat'].replace('/\\\\n/g', '\n')) ||
+                'Alamat tidak ditemukan.'}`,
             }}
           />
         </>
