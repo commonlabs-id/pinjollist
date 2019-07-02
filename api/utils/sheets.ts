@@ -18,11 +18,7 @@ interface Row {
   [key: string]: unknown;
 }
 
-if (
-  !process.env.SHEETS_ID ||
-  !process.env.FIREBASE_CLIENT_EMAIL ||
-  !process.env.FIREBASE_PRIVATE_KEY_BASE64
-) {
+if (!process.env.SHEETS_ID) {
   throw new Error('Missing environment variables');
 }
 

@@ -3397,7 +3397,7 @@ find-up@3.0.0, find-up@^3.0.0:
   dependencies:
     locate-path "^3.0.0"
 
-firebase-admin@^7.0.0, firebase-admin@^7.3.0:
+firebase-admin@^7.0.0:
   version "7.4.0"
   resolved "https://registry.yarnpkg.com/firebase-admin/-/firebase-admin-7.4.0.tgz#f4eef59095c7f41a24fcacade99ab92f6b6dd27f"
   integrity sha512-CMgFy9ul8P4TpUR0x9yTHBUhqa1r+Zj0h+NuhHES0bQkExUkLVg7Sf1cALe8/5pcbiveugyqPZw0oFSIhJlLCQ==
