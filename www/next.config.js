@@ -3,7 +3,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 const withPlugins = require('next-compose-plugins');
-const withTypescript = require('@zeit/next-typescript');
 const mdx = require('@zeit/next-mdx');
 const rehypePrism = require('@mapbox/rehype-prism');
 
@@ -39,4 +38,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withPlugins([[withTypescript], [withMDX]], nextConfig);
+module.exports = withPlugins([[withMDX]], nextConfig);

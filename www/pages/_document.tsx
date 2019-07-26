@@ -1,9 +1,9 @@
 import React from 'react';
-import Document, { NextDocumentContext, Head, Main, NextScript } from 'next/document';
+import Document, { DocumentContext, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 export default class MyDocument extends Document {
-  public static async getInitialProps(ctx: NextDocumentContext) {
+  public static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 

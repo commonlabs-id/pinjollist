@@ -1,5 +1,8 @@
 {
   "extends": "../.eslintrc.js",
+  "rules": {
+    "spaced-comment": ["error", "always", { "markers": ["/"] }]
+  },
   "overrides": [
     {
       "files": ["**/*.ts", "**/*.tsx"],
