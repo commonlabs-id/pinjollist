@@ -7,7 +7,7 @@
   "dependencies": {
     "@mapbox/rehype-prism": "^0.3.1",
     "@mdx-js/mdx": "^1.0.1",
-    "@pinjollist/next-with-analytics": "^0.2.1",
+    "@pinjollist/next-with-analytics": "^1.0.0-beta.0",
     "@zeit/next-mdx": "^1.2.0",
     "babel-plugin-styled-components": "^1.10.6",
     "clsx": "^1.0.3",

@@ -1,5 +1,5 @@
 import React from 'react';
-import App, { Container, AppContext } from 'next/app';
+import App, { Container } from 'next/app';
 import Router from 'next/router';
 import { withAnalytics, WithAnalyticsState } from '@pinjollist/next-with-analytics';
 import NProgress from 'nprogress';
@@ -10,14 +10,6 @@ import Portal from '../components/ui/Portal';
 const progress = NProgress.configure({ showSpinner: false });
 
 class MyApp extends App<WithAnalyticsState> {
-  public static async getInitialProps({ Component, ctx }: AppContext) {
-    let pageProps = {};
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
-    return { pageProps };
-  }
-
   public componentDidMount() {
     Router.events.on('routeChangeStart', () => progress.start());
     Router.events.on('routeChangeComplete', () => progress.done());
