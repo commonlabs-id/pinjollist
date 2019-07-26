@@ -24,10 +24,6 @@
       }
     },
     {
-      "src": "^/api$",
-      "dest": "/www/api"
-    },
-    {
       "src": "^/static/(.*)",
       "headers": { "Cache-Control": "public, max-age=31536000, immutable" },
       "dest": "/www/static/$1"
