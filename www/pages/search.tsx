@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useEffect } from 'react';
-import { NextFunctionComponent } from 'next';
+import { NextPage } from 'next';
 import debounce from 'debounce-fn';
 import fetch from 'isomorphic-unfetch';
 import styled from 'styled-components';
@@ -42,6 +42,7 @@ const fetchCompanies = async () => {
     const { data } = await res.json();
     platformsData = data;
   } catch (e) {
+    // eslint-disable-next-line no-console
     console.error(e);
   }
   return {
@@ -49,7 +50,7 @@ const fetchCompanies = async () => {
   };
 };
 
-const Index: NextFunctionComponent<IndexPageProps> = ({ platformsData, analytics }) => {
+const Index: NextPage<IndexPageProps> = ({ platformsData, analytics }) => {
   const [value, setValue] = useState('');
   const [result, setResult] = useState<PlatformsData | undefined>(undefined);
   const [isRegistered, setIsRegistered] = useState<boolean | undefined>(undefined);
@@ -66,7 +67,7 @@ const Index: NextFunctionComponent<IndexPageProps> = ({ platformsData, analytics
 
   const debouncedSearch = debounce(setSearch, { wait: 100 });
 
-  const search = (v: any) => {
+  const search = (v: string) => {
     setValue(v);
     debouncedSearch(v);
   };

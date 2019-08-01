@@ -10,6 +10,9 @@
   "author": "Resi Respati <resir014@gmail.com>",
   "license": "Apache-2.0",
   "private": true,
+  "engines": {
+    "node": "10.x"
+  },
   "scripts": {
     "lint": "eslint \"**/*.{js,ts}\"",
     "type-check": "tsc --noEmit",

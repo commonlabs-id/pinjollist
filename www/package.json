@@ -4,19 +4,21 @@
   "main": "index.js",
   "author": "<muhammad.mustadi@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": "10.x"
+  },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.3.1",
     "@mdx-js/mdx": "^1.0.1",
-    "@pinjollist/next-with-analytics": "^0.2.1",
+    "@pinjollist/next-with-analytics": "^1.0.0-rc.0",
     "@zeit/next-mdx": "^1.2.0",
-    "@zeit/next-typescript": "^1.1.1",
     "babel-plugin-styled-components": "^1.10.6",
     "clsx": "^1.0.3",
     "date-fns": "^2.0.0-beta.2",
     "debounce-fn": "^3.0.0",
     "fuse.js": "^3.4.2",
     "isomorphic-unfetch": "^3.0.0",
-    "next": "8.1.0",
+    "next": "^9.0.2",
     "next-compose-plugins": "^2.1.1",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
@@ -27,7 +29,6 @@
   },
   "devDependencies": {
     "@types/debounce-fn": "^3.0.0",
-    "@types/next": "^8.0.1",
     "@types/nprogress": "^0.2.0",
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.4",

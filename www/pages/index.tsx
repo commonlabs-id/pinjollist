@@ -74,7 +74,7 @@ const Index: React.FC = () => (
           pengembang aplikasi yang perlu memperoleh data mentah yang dapat diproses di dalam kode
           sebuah layanan/aplikasi. Inilah alasan kami dalam mengembangkan Pinjollistm dimana kami
           membuat{' '}
-          <Link href="/api">
+          <Link href="/docs">
             <a>API umum</a>
           </Link>{' '}
           yang dapat digunakan pengembang aplikasi untuk menarik data-data tersebut.
@@ -105,7 +105,7 @@ const Index: React.FC = () => (
         <SectionHeading>Statistik</SectionHeading>
         <RealtimeStats />
         <ButtonWrapper>
-          <Link href="/api" passHref>
+          <Link href="/docs" passHref>
             <LinkButton>Referensi API</LinkButton>
           </Link>
           <Link href="/search" passHref>
