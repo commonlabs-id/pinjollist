@@ -70,12 +70,12 @@ const ResultCard: React.FC<ResultCardProps> = ({ result }) => {
             <b>{result['registration']}</b> ·{'  '}
             <time dateTime={new Date(result['registered_at']._seconds * 1000).toISOString()}>
               {showRelative
-                ? `${result['registration_type'] || 'Terdaftar'} ${formatDistance(
+                ? `${result['registration_type'] || 'Terdaftar'} sejak ${formatDistance(
                     new Date(result['registered_at']._seconds * 1000),
                     new Date(),
                     { locale: id },
                   )} lalu`
-                : `${result['registration_type'] || 'Terdaftar'} pada ${new Date(
+                : `${result['registration_type'] || 'Terdaftar'} sejak ${new Date(
                     result['registered_at']._seconds * 1000,
                   ).toLocaleDateString()}`}
             </time>
