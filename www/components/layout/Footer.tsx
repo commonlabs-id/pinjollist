@@ -17,7 +17,7 @@ const Footer: React.FC = () => (
         >
           situs OJK
         </a>
-        . Pembaruan terakhir: Februari 2019. Dibuat oleh{' '}
+        . Pembaruan terakhir: Mei 2019. Dibuat oleh{' '}
         <a href="https://twitter.com/mathdroid" target="_blank" rel="noopener noreferrer">
           @mathdroid
         </a>{' '}

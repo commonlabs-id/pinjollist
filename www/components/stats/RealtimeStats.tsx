@@ -16,6 +16,7 @@ interface RealtimeStatsState {
   isLoading: boolean;
   errors?: string;
   data: any[];
+  numBerizin: number;
   numSyariah: number;
 }
 
@@ -23,6 +24,7 @@ const initialState: RealtimeStatsState = {
   isLoading: true,
   errors: undefined,
   data: [],
+  numBerizin: 0,
   numSyariah: 0,
 };
 
@@ -54,12 +56,14 @@ const RealtimeStats: React.FC<RealtimeStateProps> = ({ data }) => {
 
   const fetchData = async () => {
     if (data) {
+      const numBerizin = data.filter(item => item.registration_type === 'Berizin').length;
       const numSyariah = data.filter(item => !!item.is_syariah === true).length;
 
       setState({
         ...state,
         isLoading: false,
         data,
+        numBerizin,
         numSyariah,
       });
     } else {
@@ -70,12 +74,14 @@ const RealtimeStats: React.FC<RealtimeStateProps> = ({ data }) => {
         const json: APIResponse<any[]> | ErrorAPIResponse = await res.json();
 
         if (json.status === 'ok') {
+          const numBerizin = json.data.filter(item => item.registration_type === 'Berizin').length;
           const numSyariah = json.data.filter(item => !!item.is_syariah === true).length;
 
           setState({
             ...state,
             isLoading: false,
             data: json.data,
+            numBerizin,
             numSyariah,
           });
         } else {
@@ -118,6 +124,7 @@ const RealtimeStats: React.FC<RealtimeStateProps> = ({ data }) => {
   return (
     <Root>
       <RealtimeStatsCard number={state.data.length} text="Terdaftar" />
+      <RealtimeStatsCard number={state.numBerizin} text="Berizin" />
       <RealtimeStatsCard number={state.numSyariah} text="Syariah" />
     </Root>
   );
