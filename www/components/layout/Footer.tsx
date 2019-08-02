@@ -11,7 +11,7 @@ const Footer: React.FC = () => (
       <p>
         Data diperoleh dari{' '}
         <a
-          href="https://ojk.go.id/id/berita-dan-kegiatan/publikasi/Pages/Penyelenggara-Fintech-Terdaftar-di-OJK-per-Februari-2019.aspx"
+          href="https://www.ojk.go.id/id/berita-dan-kegiatan/publikasi/Pages/Penyelenggara-Fintech-Terdaftar-dan-Berizin-di-OJK-per-31-Mei-2019.aspx"
           target="_blank"
           rel="noopener noreferrer"
         >
