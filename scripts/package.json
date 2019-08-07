@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "csv-generate": "^3.2.3",
-    "csv-parse": "^4.3.3",
+    "csv-parse": "^4.4.4",
     "firebase-admin": "^7.0.0",
     "isomorphic-unfetch": "^3.0.0"
   }
