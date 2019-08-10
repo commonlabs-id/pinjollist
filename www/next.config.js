@@ -19,12 +19,6 @@ const nextConfig = {
   // By default next static exports create a `page.html` file, which breaks pretty routes.
   // https://github.com/zeit/next.js/issues/8119
   exportTrailingSlash: true,
-  exportPathMap: () => {
-    return {
-      '/': { page: '/' },
-      '/docs': { page: '/docs' },
-    };
-  },
   env: {
     API_URL: process.env['API_URL'],
     GOOGLE_ANALYTICS: process.env['GOOGLE_ANALYTICS'],

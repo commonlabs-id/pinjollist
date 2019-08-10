@@ -3,9 +3,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { colors, breakpoints } from '../../styles/variables';
 import { APIResponse, ErrorAPIResponse } from '../../types/common';
 import Spinner from '../ui/Spinner';
-import { colors, breakpoints } from '../../styles/variables';
 import RealtimeStatsCard from './RealtimeStatsCard';
 
 interface RealtimeStateProps {
@@ -108,7 +108,15 @@ const RealtimeStats: React.FC<RealtimeStateProps> = ({ data }) => {
   if (state.isLoading) {
     return (
       <Root>
-        <Spinner selfCenter />
+        <RealtimeStatsCard>
+          <Spinner />
+        </RealtimeStatsCard>
+        <RealtimeStatsCard>
+          <Spinner />
+        </RealtimeStatsCard>
+        <RealtimeStatsCard>
+          <Spinner />
+        </RealtimeStatsCard>
       </Root>
     );
   }

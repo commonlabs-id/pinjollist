@@ -3,16 +3,22 @@ import styled from 'styled-components';
 import { colors } from '../../styles/variables';
 
 interface RealtimeStatsCardProps {
-  number: React.ReactText;
-  text: string;
+  number?: React.ReactText;
+  text?: string;
 }
 
-const RealtimeStatsCard: React.FC<RealtimeStatsCardProps> = ({ number, text }) => (
-  <Root>
-    <Heading>{number}</Heading>
-    <Text>{text}</Text>
-  </Root>
-);
+const RealtimeStatsCard: React.FC<RealtimeStatsCardProps> = ({ number, text, children }) => {
+  if (children) {
+    return <Root>{children}</Root>;
+  }
+
+  return (
+    <Root>
+      {number && <Heading>{number}</Heading>}
+      {text && <Text>{text}</Text>}
+    </Root>
+  );
+};
 
 export default RealtimeStatsCard;
 
@@ -21,7 +27,8 @@ const Root = styled('div')`
   flex-direction: column;
   justify-content: center;
   flex: 0 1 33.33%;
-  height: 200px;
+  height: 100%;
+  min-height: 200px;
   margin-bottom: 1.5rem;
   margin-left: 0.75rem;
   margin-right: 0.75rem;

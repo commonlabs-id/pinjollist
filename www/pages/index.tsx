@@ -18,23 +18,33 @@ const ButtonWrapper = styled('footer')`
   text-align: center;
 
   a {
-    margin-left: 8px;
-    margin-right: 8px;
-
-    &:first-of-type {
-      margin-left: 0;
-    }
-
-    &:last-of-type {
-      margin-right: 0;
-    }
+    margin: 8px;
   }
+`;
+
+const RealtimeStatsSection = styled('section')`
+  margin-bottom: 2rem;
 `;
 
 function IndexPage() {
   return (
     <Layout>
       <Page>
+        <RealtimeStatsSection>
+          <SectionHeading>Statistik</SectionHeading>
+          <RealtimeStats />
+          <ButtonWrapper>
+            <Link href="/docs" passHref>
+              <LinkButton>Referensi API</LinkButton>
+            </Link>
+            <LinkButton href="https://docs.google.com/spreadsheets/d/1vbbQG3IPSxJl9dAcGA9xmP5kWGNPF75QGlPA5gpApI0/edit?usp=sharing">
+              Lihat Spreadsheet
+            </LinkButton>
+            <Link href="/search" passHref>
+              <LinkButton primary>Cari Perusahaan</LinkButton>
+            </Link>
+          </ButtonWrapper>
+        </RealtimeStatsSection>
         <section>
           <LeadText>
             Pinjollist merupakan layanan penyedia repositori data terbuka (
@@ -111,21 +121,6 @@ function IndexPage() {
             </a>
             ).
           </p>
-        </section>
-        <section>
-          <SectionHeading>Statistik</SectionHeading>
-          <RealtimeStats />
-          <ButtonWrapper>
-            <Link href="/docs" passHref>
-              <LinkButton>Referensi API</LinkButton>
-            </Link>
-            <LinkButton href="https://docs.google.com/spreadsheets/d/1vbbQG3IPSxJl9dAcGA9xmP5kWGNPF75QGlPA5gpApI0/edit?usp=sharing">
-              Lihat Spreadsheet
-            </LinkButton>
-            <Link href="/search" passHref>
-              <LinkButton primary>Cari Perusahaan</LinkButton>
-            </Link>
-          </ButtonWrapper>
         </section>
       </Page>
     </Layout>
