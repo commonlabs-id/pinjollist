@@ -30,6 +30,6 @@ const Root = styled('div')`
   background-color: #000;
   ${(props: SpinnerProps) => props.selfCenter && SelfCenterStyles}
 
-  margin: 100px auto;
+  margin: 0 auto;
   animation: ${RotatePlane} 1.2s infinite ease-in-out;
 `;
