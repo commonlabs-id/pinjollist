@@ -19,7 +19,7 @@
     "validate": "yarn lint && yarn type-check"
   },
   "dependencies": {
-    "google-spreadsheet": "^2.0.7",
+    "google-spreadsheet": "^2.0.8",
     "micro": "^9.3.3"
   },
   "devDependencies": {
