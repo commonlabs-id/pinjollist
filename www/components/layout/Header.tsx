@@ -1,97 +1,64 @@
 /* eslint-disable react/jsx-one-expression-per-line, jsx-a11y/anchor-is-valid */
 
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Link from 'next/link';
 
-import Container from './Container';
-import { breakpoints } from '../../styles/variables';
+import { widths, colors, breakpoints } from '../../styles/variables';
+
+const Root = styled('nav')`
+  display: grid;
+  grid-template-columns: 1fr 1fr minmax(auto, ${widths.xl}px) 1fr 1fr;
+  background-color: ${colors.background};
+  z-index: 50;
+  box-shadow: inset 0 -1px ${colors.accents02};
+`;
+
+const Inner = styled('ul')`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  grid-column: 3/4;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  @media (min-width: ${breakpoints.lg}px) {
+    justify-content: flex-end;
+  }
+`;
+
+interface NavItemProps {
+  isTitle?: boolean;
+}
+
+const NavItemTitle = css`
+  margin-right: auto;
+
+  @media (max-width: ${breakpoints.lg - 1}px) {
+    flex-basis: 100%;
+    text-align: center;
+  }
+`;
+
+const NavItem = styled('li')<NavItemProps>`
+  ${props => props.isTitle && NavItemTitle}
+`;
 
 const Header: React.FC = () => (
   <Root>
-    <Container>
-      <Link href="/" passHref>
-        <Anchor>
-          <Title>
-            <span>pinjollist.</span>
-          </Title>
-          <Subtitle>
-            (<span className="abbrev">pinj</span>aman <span className="abbrev">o</span>n
-            <span className="abbrev">l</span>ine <span className="abbrev">list</span>)
-          </Subtitle>
-        </Anchor>
-      </Link>
-    </Container>
+    <Inner>
+      <NavItem isTitle>
+        <Link href="/">
+          <a>pinjollist</a>
+        </Link>
+      </NavItem>
+      <NavItem>h</NavItem>
+      <NavItem>j</NavItem>
+      <NavItem>k</NavItem>
+      <NavItem>l</NavItem>
+    </Inner>
   </Root>
 );
 
 export default Header;
-
-const Anchor = styled('a')`
-  border: none !important;
-
-  &:hover,
-  &:focus {
-    color: inherit;
-  }
-`;
-
-const Title = styled('h1')`
-  position: relative;
-  margin: 0;
-  font-weight: 800;
-  line-height: 1.1;
-  font-size: 4rem;
-
-  &:before {
-    position: absolute;
-    bottom: 20%;
-    height: 10px;
-    width: 1.5rem;
-    background-color: #000;
-    left: -1.5rem;
-    z-index: 1;
-    content: '';
-
-    @media (min-width: ${breakpoints.lg}px) {
-      width: 136px;
-      left: -136px;
-    }
-  }
-
-  span {
-    position: relative;
-    padding: 0 4px;
-    z-index: 2;
-  }
-
-  @media (min-width: ${breakpoints.lg}px) {
-    font-size: 4.25rem;
-  }
-`;
-
-const Subtitle = styled('p')`
-  margin-top: 0.5rem;
-  margin-bottom: 0;
-  padding: 0 4px;
-  line-height: 1.1;
-  font-weight: 400;
-  font-size: 1.4rem;
-
-  .abbrev {
-    font-weight: 800;
-    text-decoration: underline;
-  }
-
-  @media (min-width: ${breakpoints.lg}px) {
-    font-size: 1.6rem;
-  }
-`;
-
-const Root = styled('header')`
-  padding: 1.5rem;
-
-  @media (min-width: ${breakpoints.lg}px) {
-    padding: 3rem 1.5rem;
-  }
-`;
