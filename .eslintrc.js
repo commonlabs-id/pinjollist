@@ -9,6 +9,7 @@ module.exports = {
   extends: [
     'airbnb',
     'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
     'prettier',
     'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
@@ -29,6 +30,7 @@ module.exports = {
     'react/jsx-closing-tag-location': 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx', '.tsx'] }],
     'react/jsx-one-expression-per-line': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'react/prop-types': 'off',
   },
   settings: {
