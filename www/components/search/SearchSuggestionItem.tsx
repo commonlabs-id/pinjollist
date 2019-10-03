@@ -3,18 +3,25 @@ import styled from 'styled-components';
 import { colors } from '../../styles/variables';
 
 const Item = styled('td')`
+  display: flex;
+  flex-direction: column;
   background: white;
   padding: 1rem;
+`;
+
+const SuggestionButton = styled('button')`
+  display: block;
+  margin: -1rem;
+  padding: 1rem;
+  background: none;
+  border: none;
+  text-align: left;
   cursor: pointer;
 
   &:hover {
     background-color: ${colors.black};
     color: ${colors.white};
   }
-`;
-
-const SuggestionButton = styled('button')`
-  padding: -1rem;
 `;
 
 interface SearchSuggestionItemProps {

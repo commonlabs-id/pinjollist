@@ -34,21 +34,23 @@ const SecondaryStyles = css`
 `;
 
 const SizeMedium = css`
-  padding: 10px 16px;
-  font-size: 16px;
+  padding: 0 16px;
+  font-size: 14px;
+  line-height: 38px;
   height: 38px;
+  text-transform: uppercase;
 `;
 
 const SizeLarge = css`
-  padding: 10px 16px;
+  padding: 0 16px;
   font-size: 16px;
-  line-height: 20px;
+  line-height: 38px;
   height: 38px;
 
   @media (min-width: ${breakpoints.md}px) {
-    padding: 13px 24px;
+    padding: 0 24px;
     font-size: 20px;
-    line-height: 24px;
+    line-height: 50px;
     height: 50px;
   }
 `;
