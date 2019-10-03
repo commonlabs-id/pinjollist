@@ -13,8 +13,12 @@ const Item = styled('td')`
   }
 `;
 
+const SuggestionButton = styled('button')`
+  padding: -1rem;
+`;
+
 interface SearchSuggestionItemProps {
-  handler: React.MouseEventHandler<HTMLTableDataCellElement>;
+  handler: React.MouseEventHandler;
   company: string;
   platform: string;
 }
@@ -25,8 +29,10 @@ const SearchSuggestionItem: React.FC<SearchSuggestionItemProps> = ({
   platform,
 }) => (
   <tr key={company}>
-    <Item role="gridcell" onClick={handler}>
-      {company} ({platform})
+    <Item role="gridcell">
+      <SuggestionButton onClick={handler}>
+        {company} ({platform})
+      </SuggestionButton>
     </Item>
   </tr>
 );

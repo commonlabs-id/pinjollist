@@ -15,7 +15,7 @@ import { PlatformsData } from '../../types/companies';
 const Root = styled('div')`
   background: white;
   border-radius: 0.25rem;
-  box-shadow: 0 0.5rem 100rem rgba(0, 0, 0, 0.25);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 128px;
   padding: 1rem;
   margin: 2rem 0;
 `;

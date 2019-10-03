@@ -8,6 +8,7 @@ import global from '../../styles/global';
 import SEO from './SEO';
 import Header from './Header';
 import Footer from './Footer';
+import Note from './Note';
 
 interface LayoutProps {
   pageTitle?: string;
@@ -25,6 +26,7 @@ const Layout: React.FC<LayoutProps> = ({ children, pageTitle }) => (
     <style jsx global>
       {global}
     </style>
+    <Note />
     <Header />
     {children}
     <Footer />

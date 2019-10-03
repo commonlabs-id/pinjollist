@@ -1,45 +1,65 @@
 import styled, { css } from 'styled-components';
-import { colors, fonts } from '../../styles/variables';
+import { colors, fonts, breakpoints } from '../../styles/variables';
 
 const HeadingsBase = css`
   color: inherit;
   line-height: 1.5;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+
+  &:first-child {
+    margin-top: 0;
+  }
 `;
 
 export const H1 = styled('h1')`
   ${HeadingsBase}
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: 2.25rem;
+
+  @media (min-width: ${breakpoints.md}px) {
+    font-size: 3rem;
+  }
 `;
 
 export const H2 = styled('h2')`
   ${HeadingsBase}
-  font-size: 2.25rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+
+  @media (min-width: ${breakpoints.md}px) {
+    font-size: 2.25rem;
+  }
 `;
 
 export const H3 = styled('h3')`
   ${HeadingsBase}
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+
+  @media (min-width: ${breakpoints.md}px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const H4 = styled('h4')`
   ${HeadingsBase}
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1rem;
+
+  @media (min-width: ${breakpoints.md}px) {
+    font-size: 1.25rem;
+  }
 `;
 
 export const H5 = styled('h5')`
   ${HeadingsBase}
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.875rem;
+
+  @media (min-width: ${breakpoints.md}px) {
+    font-size: 1rem;
+  }
 `;
 
 export const H6 = styled('h6')`
   ${HeadingsBase}
   font-size: 0.875rem;
-  font-weight: 600;
 `;
 
 const TextBase = css`

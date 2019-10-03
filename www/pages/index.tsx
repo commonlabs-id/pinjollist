@@ -15,6 +15,8 @@ import useSearch from '../components/search/useSearch';
 import { PlatformsData } from '../types/companies';
 import SearchWithDropdown from '../components/search/SearchWithDropdown';
 import SectionHeading from '../components/layout/SectionHeading';
+import Hero from '../components/layout/Hero';
+import Container from '../components/layout/Container';
 
 const fuseOptions = {
   shouldSort: true,
@@ -74,25 +76,27 @@ const Index: NextPage<IndexPageProps> = ({ platformsData, analytics }) => {
 
   return (
     <Layout>
-      <Page>
-        <section>
-          <SectionHeading>Cari Perusahaan</SectionHeading>
-          {result ? (
-            <Result>
-              {isRegistered ? '✅' : '🚫'} Platform ini {isRegistered ? '' : 'tidak '} terdaftar di
-              OJK.
-            </Result>
-          ) : null}
-          {result ? <ResultCard result={result} /> : null}
-          <SearchWithDropdown
-            value={value}
-            setSearch={search}
-            setResult={setResult}
-            setIsRegistered={setIsRegistered}
-            platforms={platforms}
-            analytics={analytics}
-          />
-        </section>
+      <Page noPadding>
+        <Hero>
+          <Container>
+            <SectionHeading>Cari Perusahaan</SectionHeading>
+            {result ? (
+              <Result>
+                {isRegistered ? '✅' : '🚫'} Platform ini {isRegistered ? '' : 'tidak '} terdaftar
+                di OJK.
+              </Result>
+            ) : null}
+            {result ? <ResultCard result={result} /> : null}
+            <SearchWithDropdown
+              value={value}
+              setSearch={search}
+              setResult={setResult}
+              setIsRegistered={setIsRegistered}
+              platforms={platforms}
+              analytics={analytics}
+            />
+          </Container>
+        </Hero>
       </Page>
     </Layout>
   );

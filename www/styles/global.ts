@@ -2,7 +2,7 @@
 import css from 'styled-jsx/css';
 import { fonts, colors } from './variables';
 
-const progressBarColor = '#000';
+const progressBarColor = colors.background;
 
 const global = css.global`
   html {

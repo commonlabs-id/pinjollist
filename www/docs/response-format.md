@@ -1,4 +1,4 @@
-# Format Response
+## Format Response
 
 Format response data diberikan dalam format JSON berikut. Properti `data` berisi data yang dikembalikan dari API, dan dapat memiliki tipe apapun (cth: string, object, array, dll.)
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { AnalyticsHelpers } from '@pinjollist/next-with-analytics';
 
 import SearchSuggestionItem from './SearchSuggestionItem';
@@ -24,6 +24,7 @@ const trackSearch = (analytics?: Partial<AnalyticsHelpers>, value?: string) => {
 const ResultsTable = styled('table')`
   width: 100%;
   margin: 0;
+  margin-top: 1.5;
   padding: 0;
   border-collapse: collapse;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
@@ -31,40 +32,76 @@ const ResultsTable = styled('table')`
 
 const Form = styled('form')`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
+
+  @media (min-width: ${breakpoints.md}px) {
+    flex-direction: row;
+  }
 `;
 
-const Input = styled('input')`
-  flex: 1 1 auto;
-  font-size: 1.25rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  border: 1px solid #bfbfbf;
-  margin: 1rem 1rem 1rem 0;
-  align-self: center;
-  max-width: 46rem;
+interface InputProps {
+  inputSize?: 'md' | 'lg';
+  block?: boolean;
+}
+
+const LargeInput = css`
+  padding: 10px 16px;
+  font-size: 16px;
+  line-height: 20px;
+  height: 38px;
+
+  @media (min-width: ${breakpoints.md}px) {
+    padding: 13px 16px;
+    font-size: 20px;
+    line-height: 24px;
+    height: 50px;
+  }
+`;
+
+const MediumInput = css`
+  padding: 10px 16px;
+  font-size: 16px;
+  line-height: 20px;
+  height: 38px;
+`;
+
+const Input = styled('input')<InputProps>`
+  display: ${props => (props.block ? 'block' : 'inline-block')};
   width: 100%;
-  height: 50px;
+  align-self: center;
+  flex: 1 1 auto;
+  padding: 8px 10px;
+  color: ${colors.foreground};
+  border-radius: 0.25rem;
+  border: 1px solid ${colors.accents02};
+
+  &::placeholder {
+    color: ${colors.accents03};
+  }
 
   &:focus {
     outline: none;
     border-color: ${colors.black};
     box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.5);
   }
+
+  ${props => (props.inputSize === 'lg' ? LargeInput : MediumInput)}
+`;
+
+const InputWrapper = styled('div')`
+  width: 100%;
+  flex: 1 1 auto;
+  margin-bottom: 1rem;
+
+  @media (min-width: ${breakpoints.md}px) {
+    margin-bottom: 0;
+    margin-right: 1rem;
+  }
 `;
 
 const SearchButton = styled(Button)`
   margin: 0;
-  flex: 0 1 80px;
-  text-transform: none;
-  padding: 0.25rem 0.5rem;
-  font-size: 1.25rem;
-  height: 50px;
-
-  &:focus {
-    outline: none;
-  }
 
   @media (min-width: ${breakpoints.lg}px) {
     flex: 0 1 155px;
@@ -84,6 +121,7 @@ const SearchWithDropdown: React.FC<SearchWithDropdownProps> = ({
     setIsRegistered(undefined);
     setSearch(e.target.value);
   };
+
   return (
     <>
       <Form
@@ -99,12 +137,16 @@ const SearchWithDropdown: React.FC<SearchWithDropdownProps> = ({
           trackSearch(analytics, `searched ${value}`);
         }}
       >
-        <Input
-          value={value}
-          onChange={changeHandler}
-          placeholder="Masukkan nama aplikasi (Kredit Hiu)"
-        />
-        <SearchButton primary type="submit">
+        <InputWrapper>
+          <Input
+            value={value}
+            onChange={changeHandler}
+            inputSize="lg"
+            block
+            placeholder="Masukkan nama aplikasi (Kredit Hiu)"
+          />
+        </InputWrapper>
+        <SearchButton primary block size="lg" type="submit">
           Cek
         </SearchButton>
       </Form>

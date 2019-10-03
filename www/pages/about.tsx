@@ -9,43 +9,34 @@ import Page from '../components/layout/Page';
 import SectionHeading from '../components/layout/SectionHeading';
 
 import LeadText from '../components/layout/LeadText';
-import { LinkButton } from '../components/ui/Button';
+import Container from '../components/layout/Container';
+import Hero from '../components/layout/Hero';
+import { WordmarkWithTagline } from '../components/ui/Brand';
+import { breakpoints } from '../styles/variables';
 
-const RealtimeStats = dynamic(() => import('../components/stats/RealtimeStats'));
+const CustomWordmarkStyled = styled(WordmarkWithTagline)`
+  display: block;
+  max-width: 100%;
+  height: 100%;
+  max-height: 143px;
+  margin: 0 auto;
 
-const ButtonWrapper = styled('footer')`
-  margin-top: 1.5rem;
-  text-align: center;
-
-  a {
-    margin: 8px;
+  @media (min-width: ${breakpoints.md}px) {
+    max-height: 400px;
   }
-`;
-
-const RealtimeStatsSection = styled('section')`
-  margin-bottom: 2rem;
 `;
 
 function IndexPage() {
   return (
     <Layout pageTitle="Tentang Pinjollist">
-      <Page>
-        <RealtimeStatsSection>
-          <SectionHeading>Statistik</SectionHeading>
-          <RealtimeStats />
-          <ButtonWrapper>
-            <Link href="/docs" passHref>
-              <LinkButton>Referensi API</LinkButton>
-            </Link>
-            <LinkButton href="https://docs.google.com/spreadsheets/d/1vbbQG3IPSxJl9dAcGA9xmP5kWGNPF75QGlPA5gpApI0/edit?usp=sharing">
-              Lihat Spreadsheet
-            </LinkButton>
-            <Link href="/search" passHref>
-              <LinkButton primary>Cari Perusahaan</LinkButton>
-            </Link>
-          </ButtonWrapper>
-        </RealtimeStatsSection>
-        <section>
+      <Page noPadding>
+        <Hero>
+          <Container>
+            <CustomWordmarkStyled />
+          </Container>
+        </Hero>
+        <Container>
+          <SectionHeading>Tentang Pinjollist</SectionHeading>
           <LeadText>
             Pinjollist merupakan layanan penyedia repositori data terbuka (
             <em>open data repository</em>) perusahaan-perusahaan <em>fintech</em>{' '}
@@ -121,7 +112,7 @@ function IndexPage() {
             </a>
             ).
           </p>
-        </section>
+        </Container>
       </Page>
     </Layout>
   );
