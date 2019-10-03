@@ -65,16 +65,7 @@ const global = css.global`
 
   a {
     text-decoration: none;
-    color: ${colors.black};
-    border-bottom: 2px solid ${colors.black};
-    border-top: 2px solid transparent;
-  }
-
-  a:hover,
-  a:focus {
-    background-color: ${colors.black};
-    color: ${colors.white};
-    border-top-color: ${colors.black};
+    color: inherit;
   }
 
   /* Make clicks pass-through */

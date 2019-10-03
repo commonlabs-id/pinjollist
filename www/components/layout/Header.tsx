@@ -5,6 +5,7 @@ import styled, { css } from 'styled-components';
 import Link from 'next/link';
 
 import { widths, colors, breakpoints } from '../../styles/variables';
+import { BrandIcon } from '../ui/Brand';
 
 const Root = styled('nav')`
   display: grid;
@@ -45,18 +46,34 @@ const NavItem = styled('li')<NavItemProps>`
   ${props => props.isTitle && NavItemTitle}
 `;
 
+const HomepageLink = styled('a')`
+  display: inline-block;
+
+  svg {
+    vertical-align: middle;
+  }
+`;
+
 const Header: React.FC = () => (
   <Root>
     <Inner>
       <NavItem isTitle>
-        <Link href="/">
-          <a>pinjollist</a>
+        <Link href="/" passHref>
+          <HomepageLink>
+            <BrandIcon width={80} height={80} />
+          </HomepageLink>
         </Link>
       </NavItem>
-      <NavItem>h</NavItem>
-      <NavItem>j</NavItem>
-      <NavItem>k</NavItem>
-      <NavItem>l</NavItem>
+      <NavItem>
+        <Link href="/about">
+          <a>Tentang</a>
+        </Link>
+      </NavItem>
+      <NavItem>
+        <Link href="/about">
+          <a>Referensi API</a>
+        </Link>
+      </NavItem>
     </Inner>
   </Root>
 );
