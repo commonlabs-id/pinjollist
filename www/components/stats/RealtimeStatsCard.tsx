@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors } from '../../styles/variables';
+import { breakpoints } from '../../styles/variables';
+import { H1, H4 } from '../layout/Typography';
 
 interface RealtimeStatsCardProps {
   number?: React.ReactText;
@@ -14,8 +15,8 @@ const RealtimeStatsCard: React.FC<RealtimeStatsCardProps> = ({ number, text, chi
 
   return (
     <Root>
-      {number && <Heading>{number}</Heading>}
       {text && <Text>{text}</Text>}
+      {number && <Heading as="p">{number}</Heading>}
     </Root>
   );
 };
@@ -25,32 +26,26 @@ export default RealtimeStatsCard;
 const Root = styled('div')`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  flex: 0 1 33.33%;
   height: 100%;
-  min-height: 200px;
-  margin-bottom: 1.5rem;
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
-  padding: 1rem 1.5rem;
-  background-color: ${colors.white};
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 64px;
-  border-radius: 8px;
-  text-align: center;
+  min-height: 100px;
+  padding: 1rem 0;
+
+  @media (min-width: ${breakpoints.lg}px) {
+    flex-direction: row;
+    align-items: center;
+  }
 `;
 
-const Heading = styled('h2')`
+const Heading = styled(H1)`
   margin: 0;
-  font-size: 5rem;
-  font-weight: 800;
-  line-height: 1;
 `;
 
-const Text = styled('p')`
-  margin-top: 1rem;
-  margin-bottom: 0;
-  font-size: 0.9rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  line-height: 1;
+const Text = styled(H4)`
+  margin: 0;
+  font-weight: 400;
+
+  @media (min-width: ${breakpoints.lg}px) {
+    margin-bottom: 0;
+    flex: 1 1 auto;
+  }
 `;
