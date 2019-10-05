@@ -3,6 +3,7 @@ import css from 'styled-jsx/css';
 import { fonts, colors } from './variables';
 
 const progressBarColor = colors.background;
+const progressBarColorAlternate = colors.foreground;
 
 const global = css.global`
   html {
@@ -110,17 +111,7 @@ const global = css.global`
   }
 
   #nprogress .spinner-icon {
-    width: 18px;
-    height: 18px;
-    box-sizing: border-box;
-
-    border: solid 2px transparent;
-    border-top-color: ${progressBarColor};
-    border-left-color: ${progressBarColor};
-    border-radius: 50%;
-
-    -webkit-animation: nprogress-spinner 400ms linear infinite;
-    animation: nprogress-spinner 400ms linear infinite;
+    display: none;
   }
 
   .nprogress-custom-parent {
@@ -131,6 +122,14 @@ const global = css.global`
   .nprogress-custom-parent #nprogress .spinner,
   .nprogress-custom-parent #nprogress .bar {
     position: absolute;
+  }
+
+  .is-note-hidden #nprogress .bar {
+    background: ${progressBarColorAlternate};
+  }
+
+  .is-note-hidden #nprogress .peg {
+    box-shadow: 0 0 10px ${progressBarColorAlternate}, 0 0 5px ${progressBarColorAlternate};
   }
 
   @-webkit-keyframes nprogress-spinner {

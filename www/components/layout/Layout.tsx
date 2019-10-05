@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import dynamic from 'next/dynamic';
 import normalize from 'normalize.css';
 
 import fonts from '../../styles/fonts';
@@ -8,11 +9,12 @@ import global from '../../styles/global';
 import SEO from './SEO';
 import Header from './Header';
 import Footer from './Footer';
-import Note from './Note';
 
 interface LayoutProps {
   pageTitle?: string;
 }
+
+const Note = dynamic(() => import('./Note'), { ssr: false });
 
 const Layout: React.FC<LayoutProps> = ({ children, pageTitle }) => (
   <Root>
