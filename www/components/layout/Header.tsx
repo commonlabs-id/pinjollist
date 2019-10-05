@@ -1,97 +1,115 @@
 /* eslint-disable react/jsx-one-expression-per-line, jsx-a11y/anchor-is-valid */
 
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
-import Container from './Container';
-import { breakpoints } from '../../styles/variables';
+import { widths, colors, breakpoints } from '../../styles/variables';
+import { BrandIcon } from '../ui/Brand';
 
-const Header: React.FC = () => (
-  <Root>
-    <Container>
-      <Link href="/" passHref>
-        <Anchor>
-          <Title>
-            <span>pinjollist.</span>
-          </Title>
-          <Subtitle>
-            (<span className="abbrev">pinj</span>aman <span className="abbrev">o</span>n
-            <span className="abbrev">l</span>ine <span className="abbrev">list</span>)
-          </Subtitle>
-        </Anchor>
-      </Link>
-    </Container>
-  </Root>
-);
+const Root = styled('nav')`
+  display: grid;
+  grid-template-columns: 1fr 1fr minmax(auto, ${widths.xl}px) 1fr 1fr;
+  background-color: ${colors.background};
+  z-index: 50;
+  box-shadow: inset 0 -1px ${colors.accents02};
+`;
 
-export default Header;
+const Inner = styled('ul')`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  grid-column: 3/4;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 
-const Anchor = styled('a')`
-  border: none !important;
+  @media (min-width: ${breakpoints.lg}px) {
+    justify-content: flex-start;
+  }
+`;
+
+interface NavItemProps {
+  isTitle?: boolean;
+}
+
+const NavItemTitle = css`
+  @media (max-width: ${breakpoints.lg - 1}px) {
+    flex-basis: 100%;
+    text-align: center;
+  }
+`;
+
+interface NavItemLinkProps {
+  isActive?: boolean;
+}
+
+const NavItemLink = styled('a')<NavItemLinkProps>`
+  display: inline-flex;
+  align-items: center;
+  flex: 1;
+  padding: 1rem 0 calc(1rem - 2px);
+  border-bottom: 2px solid ${props => (props.isActive ? colors.foreground : 'transparent')};
 
   &:hover,
   &:focus {
-    color: inherit;
-  }
-`;
-
-const Title = styled('h1')`
-  position: relative;
-  margin: 0;
-  font-weight: 800;
-  line-height: 1.1;
-  font-size: 4rem;
-
-  &:before {
-    position: absolute;
-    bottom: 20%;
-    height: 10px;
-    width: 1.5rem;
-    background-color: #000;
-    left: -1.5rem;
-    z-index: 1;
-    content: '';
-
-    @media (min-width: ${breakpoints.lg}px) {
-      width: 136px;
-      left: -136px;
-    }
-  }
-
-  span {
-    position: relative;
-    padding: 0 4px;
-    z-index: 2;
+    border-bottom-color: ${colors.foreground};
   }
 
   @media (min-width: ${breakpoints.lg}px) {
-    font-size: 4.25rem;
+    padding: 0.5rem 0 calc(0.5rem - 2px);
   }
 `;
 
-const Subtitle = styled('p')`
-  margin-top: 0.5rem;
-  margin-bottom: 0;
-  padding: 0 4px;
-  line-height: 1.1;
-  font-weight: 400;
-  font-size: 1.4rem;
+const NavItem = styled('li')<NavItemProps>`
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem;
 
-  .abbrev {
-    font-weight: 800;
-    text-decoration: underline;
-  }
+  ${props => props.isTitle && NavItemTitle}
+`;
 
-  @media (min-width: ${breakpoints.lg}px) {
-    font-size: 1.6rem;
+const HomepageLink = styled('a')`
+  display: inline-block;
+
+  svg {
+    vertical-align: middle;
   }
 `;
 
-const Root = styled('header')`
-  padding: 1.5rem;
+const Header: React.FC = () => {
+  const { pathname } = useRouter();
 
-  @media (min-width: ${breakpoints.lg}px) {
-    padding: 3rem 1.5rem;
-  }
-`;
+  return (
+    <Root>
+      <Inner>
+        <NavItem isTitle>
+          <Link href="/" passHref>
+            <HomepageLink>
+              <BrandIcon width={80} height={80} />
+            </HomepageLink>
+          </Link>
+        </NavItem>
+        <NavItem>
+          <Link href="/about" passHref>
+            <NavItemLink isActive={pathname === '/about'}>Tentang</NavItemLink>
+          </Link>
+        </NavItem>
+        <NavItem>
+          <Link href="/stats" passHref>
+            <NavItemLink isActive={pathname === '/stats'}>Statistik</NavItemLink>
+          </Link>
+        </NavItem>
+        <NavItem>
+          <Link href="/docs" passHref>
+            <NavItemLink isActive={pathname === '/docs'}>Referensi API</NavItemLink>
+          </Link>
+        </NavItem>
+      </Inner>
+    </Root>
+  );
+};
+
+export default Header;

@@ -1,14 +1,14 @@
-# /ping
+## /ping
 
 Untuk memeriksa apakah layanan sedang aktif.
 
-## Request
+### Request
 
 ```
 GET https://pinjollist.now.sh/api/ping
 ```
 
-## Response
+### Response
 
 ```json
 {

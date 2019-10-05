@@ -28,6 +28,7 @@ module.exports = {
     'dot-notation': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     'react/jsx-closing-tag-location': 'off',
+    'react/jsx-curly-brace-presence': 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx', '.tsx'] }],
     'react/jsx-one-expression-per-line': 'off',
     'react/jsx-props-no-spreading': 'off',

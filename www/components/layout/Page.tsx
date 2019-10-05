@@ -1,16 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import Container from './Container';
 
-const Page: React.FC = ({ children }) => (
-  <Root>
-    <Container>{children}</Container>
-  </Root>
+interface PageProps {
+  noPadding?: boolean;
+}
+
+const Page: React.FC<PageProps> = ({ children, noPadding }) => (
+  <Root noPadding={noPadding}>{children}</Root>
 );
 
 export default Page;
 
-const Root = styled('main')`
+const Root = styled('main')<PageProps>`
   flex: 1;
   padding: 1.5rem;
+  ${props => props.noPadding && 'padding-top: 0;'}
 `;

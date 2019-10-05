@@ -37,6 +37,24 @@
       "dest": "/www/static/images/favicon.ico"
     },
     {
+      "src": "^/about",
+      "dest": "/www/about.html",
+      "headers": {
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff"
+      }
+    },
+    {
+      "src": "^/stats",
+      "dest": "/www/stats.html",
+      "headers": {
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff"
+      }
+    },
+    {
       "src": "^/docs",
       "dest": "/www/docs.html",
       "headers": {

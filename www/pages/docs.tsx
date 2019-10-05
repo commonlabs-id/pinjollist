@@ -10,21 +10,24 @@ import SectionHeading from '../components/layout/SectionHeading';
 import ResponseFormat from '../docs/response-format.md';
 import Ping from '../docs/ping.md';
 import GetCompanies from '../docs/companies.md';
+import Container from '../components/layout/Container';
 
 const Index: React.FC = () => (
   <Layout pageTitle="Referensi API">
     <Page>
-      <SectionHeading>Referensi API</SectionHeading>
+      <Container>
+        <SectionHeading>Referensi API</SectionHeading>
 
-      <ReferenceCard>
-        <ResponseFormat components={mdxComponents} />
-      </ReferenceCard>
-      <ReferenceCard>
-        <Ping components={mdxComponents} />
-      </ReferenceCard>
-      <ReferenceCard>
-        <GetCompanies components={mdxComponents} />
-      </ReferenceCard>
+        <ReferenceCard>
+          <ResponseFormat components={mdxComponents} />
+        </ReferenceCard>
+        <ReferenceCard>
+          <Ping components={mdxComponents} />
+        </ReferenceCard>
+        <ReferenceCard>
+          <GetCompanies components={mdxComponents} />
+        </ReferenceCard>
+      </Container>
     </Page>
   </Layout>
 );

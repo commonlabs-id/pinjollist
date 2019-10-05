@@ -1,14 +1,14 @@
-# /companies
+## /companies
 
 Mendapatkan daftar perusahaan _P2P lending_ yang terdaftar dan berizin oleh OJK.
 
-## Request
+### Request
 
 ```
 GET https://pinjollist.now.sh/api/companies
 ```
 
-## Response
+### Response
 
 ```json
 {

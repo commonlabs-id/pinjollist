@@ -3,7 +3,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors, breakpoints } from '../../styles/variables';
+import { colors } from '../../styles/variables';
 import { APIResponse, ErrorAPIResponse } from '../../types/common';
 import Spinner from '../ui/Spinner';
 import RealtimeStatsCard from './RealtimeStatsCard';
@@ -38,17 +38,8 @@ const ErrorText = styled('p')`
 `;
 
 const Root = styled('div')`
-  display: flex;
-  flex-direction: column;
   height: 100%;
-  min-height: 200px;
-  margin-left: -0.75rem;
-  margin-right: -0.75rem;
-
-  @media (min-width: ${breakpoints.md}px) {
-    flex-direction: row;
-    justify-content: center;
-  }
+  background-color: ${colors.white};
 `;
 
 const RealtimeStats: React.FC<RealtimeStateProps> = ({ data }) => {
@@ -111,12 +102,6 @@ const RealtimeStats: React.FC<RealtimeStateProps> = ({ data }) => {
         <RealtimeStatsCard>
           <Spinner />
         </RealtimeStatsCard>
-        <RealtimeStatsCard>
-          <Spinner />
-        </RealtimeStatsCard>
-        <RealtimeStatsCard>
-          <Spinner />
-        </RealtimeStatsCard>
       </Root>
     );
   }
@@ -131,9 +116,9 @@ const RealtimeStats: React.FC<RealtimeStateProps> = ({ data }) => {
 
   return (
     <Root>
-      <RealtimeStatsCard number={state.data.length} text="Terdaftar" />
+      <RealtimeStatsCard number={state.data.length} text="Jumlah Perusahaan Terdaftar" />
       <RealtimeStatsCard number={state.numBerizin} text="Berizin" />
-      <RealtimeStatsCard number={state.numSyariah} text="Syariah" />
+      <RealtimeStatsCard number={state.numSyariah} text="Perusahaan Syariah" />
     </Root>
   );
 };

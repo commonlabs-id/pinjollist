@@ -3,8 +3,19 @@ import styled from 'styled-components';
 import { colors } from '../../styles/variables';
 
 const Item = styled('td')`
+  display: flex;
+  flex-direction: column;
   background: white;
   padding: 1rem;
+`;
+
+const SuggestionButton = styled('button')`
+  display: block;
+  margin: -1rem;
+  padding: 1rem;
+  background: none;
+  border: none;
+  text-align: left;
   cursor: pointer;
 
   &:hover {
@@ -14,7 +25,7 @@ const Item = styled('td')`
 `;
 
 interface SearchSuggestionItemProps {
-  handler: React.MouseEventHandler<HTMLTableDataCellElement>;
+  handler: React.MouseEventHandler;
   company: string;
   platform: string;
 }
@@ -25,8 +36,10 @@ const SearchSuggestionItem: React.FC<SearchSuggestionItemProps> = ({
   platform,
 }) => (
   <tr key={company}>
-    <Item role="gridcell" onClick={handler}>
-      {company} ({platform})
+    <Item role="gridcell">
+      <SuggestionButton onClick={handler}>
+        {company} ({platform})
+      </SuggestionButton>
     </Item>
   </tr>
 );
