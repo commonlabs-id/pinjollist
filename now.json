@@ -11,8 +11,8 @@
   },
   "build": {
     "env": {
-      "API_URL": "@api-url",
-      "GOOGLE_ANALYTICS": "@google-analytics"
+      "API_URL": "@pinjollist-api-url",
+      "GOOGLE_ANALYTICS": "@pinjollist-google-analytics"
     }
   },
   "builds": [
