@@ -26,5 +26,4 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: yarn validate:api
       - run: yarn validate:www

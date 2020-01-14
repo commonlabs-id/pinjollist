@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../../styles/variables';
-import { APIResponse, ErrorAPIResponse } from '../../types/common';
+import { ResponseObject } from '../../types/common';
 import Spinner from '../ui/Spinner';
 import RealtimeStatsCard from './RealtimeStatsCard';
 
@@ -62,9 +62,9 @@ const RealtimeStats: React.FC<RealtimeStateProps> = ({ data }) => {
         const res = await fetch(
           `${process.env.API_URL || 'https://pinjollist.now.sh'}/api/companies`,
         );
-        const json: APIResponse<any[]> | ErrorAPIResponse = await res.json();
+        const json: ResponseObject = await res.json();
 
-        if (json.status === 'ok') {
+        if (json.status === 'ok' && Array.isArray(json.data)) {
           const numBerizin = json.data.filter(item => item.registration_type === 'Berizin').length;
           const numSyariah = json.data.filter(item => !!item.is_syariah === true).length;
 
