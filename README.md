@@ -9,6 +9,10 @@ Pinjollist merupakan layanan penyedia repositori data terbuka _(open data reposi
 - [Referensi API](https://pinjollist.now.sh/docs)
 - [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1vbbQG3IPSxJl9dAcGA9xmP5kWGNPF75QGlPA5gpApI0/edit?usp=sharing)
 
+## Berkontribusi
+
+Kami menunggu kontribusi Anda! Silakan membaca [panduan berkontribusi](CONTRIBUTING.md) untuk memulai.
+
 ## Lisensi
 
 Dalam semangat _open data_, kami juga percaya penuh dalam keuntungan-keuntungan dari _open source_. Kami telah merilis kode sumber layanan ini - serta perlengkapan yang kami gunakan dalam memproses data-data kami - di GitHub dalam lisensi bebas ([Apache License 2.0](LICENSE)).
