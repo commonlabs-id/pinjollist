@@ -4,10 +4,7 @@
     "target": "esnext",
     "module": "esnext",
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "es2017"
-    ],
+    "lib": ["dom", "es2017"],
     "noEmit": true,
     "skipLibCheck": true,
     "allowJs": true,
@@ -15,12 +12,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "exclude": [
-    "next.config.js"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+  "typeRoots": ["@types", "../@types", "node_modules/@types", "../node_modules/@types"],
+  "exclude": ["next.config.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }
