@@ -1,84 +1,15 @@
 {
-  "name": "pinjollist",
-  "alias": "pinjollist.now.sh",
   "version": 2,
-  "regions": ["sin1"],
-  "env": {
-    "FIREBASE_PROJECT_ID": "@firebase-project-id",
-    "FIREBASE_PRIVATE_KEY_BASE64": "@firebase-private-key-base64",
-    "FIREBASE_CLIENT_EMAIL": "@firebase-client-email",
-    "SHEETS_ID": "@sheets-id"
-  },
-  "build": {
-    "env": {
-      "API_URL": "@api-url",
-      "GOOGLE_ANALYTICS": "@google-analytics"
-    }
-  },
-  "routes": [
-    {
-      "src": "^/api/([^/]*)$",
-      "dest": "/api/routes/$1.ts",
-      "headers": {
-        "Access-Control-Allow-Origin": "*"
-      }
-    },
-    {
-      "src": "^/static/(.*)",
-      "headers": { "Cache-Control": "public, max-age=31536000, immutable" },
-      "dest": "/www/static/$1"
-    },
-    {
-      "src": "^/static/images/favicon.ico",
-      "dest": "/www/static/images/favicon.ico"
-    },
-    {
-      "src": "^/favicon.ico",
-      "dest": "/www/static/images/favicon.ico"
-    },
-    {
-      "src": "^/about",
-      "dest": "/www/about.html",
-      "headers": {
-        "X-Frame-Options": "DENY",
-        "X-XSS-Protection": "1; mode=block",
-        "X-Content-Type-Options": "nosniff"
-      }
-    },
-    {
-      "src": "^/stats",
-      "dest": "/www/stats.html",
-      "headers": {
-        "X-Frame-Options": "DENY",
-        "X-XSS-Protection": "1; mode=block",
-        "X-Content-Type-Options": "nosniff"
-      }
-    },
-    {
-      "src": "^/docs",
-      "dest": "/www/docs.html",
-      "headers": {
-        "X-Frame-Options": "DENY",
-        "X-XSS-Protection": "1; mode=block",
-        "X-Content-Type-Options": "nosniff"
-      }
-    },
-    {
-      "src": "^/(.*)",
-      "dest": "/www/$1",
-      "headers": {
-        "X-Frame-Options": "DENY",
-        "X-XSS-Protection": "1; mode=block",
-        "X-Content-Type-Options": "nosniff"
-      }
-    }
-  ],
   "builds": [
     {
-      "src": "api/routes/*.ts",
-      "use": "@now/node",
-      "config": { "maxLambdaSize": "20mb" }
-    },
-    { "src": "www/next.config.js", "use": "@now/next" }
+      "src": "www/next.config.js",
+      "use": "@now/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/www/$1"
+    }
   ]
 }

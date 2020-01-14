@@ -1,7 +1,7 @@
 import { send, RequestHandler } from 'micro';
 
-import { getSiteDataFromSheet } from '../utils/sheets';
-import buildResponse from '../utils/buildResponse';
+import { getSiteDataFromSheet } from '../../utils/sheets';
+import buildResponse from '../../utils/buildResponse';
 
 const serviceAccount = {
   client_email: process.env.FIREBASE_CLIENT_EMAIL as string,

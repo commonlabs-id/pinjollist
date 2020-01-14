@@ -12,7 +12,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "typeRoots": ["@types", "../@types", "node_modules/@types"],
+  "typeRoots": ["@types", "../@types", "node_modules/@types", "../node_modules/@types"],
   "exclude": ["next.config.js"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }
