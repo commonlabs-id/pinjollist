@@ -25,8 +25,8 @@ const Footer: React.FC = () => (
         dan{' '}
         <A href="https://twitter.com/resir014" target="_blank" rel="noopener noreferrer">
           @resir014
-        </A>{' '}
-        Kode sumber tersedia di{' '}
+        </A>
+        . Kode sumber tersedia di{' '}
         <A
           href="https://github.com/pinjollist/pinjollist"
           target="_blank"
