@@ -4,10 +4,10 @@
   "version": 2,
   "regions": ["sin1"],
   "env": {
-    "FIREBASE_PROJECT_ID": "@firebase-project-id",
-    "FIREBASE_PRIVATE_KEY_BASE64": "@firebase-private-key-base64",
-    "FIREBASE_CLIENT_EMAIL": "@firebase-client-email",
-    "SHEETS_ID": "@sheets-id"
+    "FIREBASE_PROJECT_ID": "@pinjollist-firebase-project-id",
+    "FIREBASE_PRIVATE_KEY_BASE64": "@pinjollist-firebase-private-key-base64",
+    "FIREBASE_CLIENT_EMAIL": "@pinjollist-firebase-client-email",
+    "SHEETS_ID": "@pinjollist-sheets-id"
   },
   "build": {
     "env": {
