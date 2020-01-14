@@ -1,5 +1,20 @@
 {
+  "name": "pinjollist",
+  "alias": "pinjollist.now.sh",
   "version": 2,
+  "regions": ["sin1"],
+  "env": {
+    "FIREBASE_PROJECT_ID": "@firebase-project-id",
+    "FIREBASE_PRIVATE_KEY_BASE64": "@firebase-private-key-base64",
+    "FIREBASE_CLIENT_EMAIL": "@firebase-client-email",
+    "SHEETS_ID": "@sheets-id"
+  },
+  "build": {
+    "env": {
+      "API_URL": "@api-url",
+      "GOOGLE_ANALYTICS": "@google-analytics"
+    }
+  },
   "builds": [
     {
       "src": "www/next.config.js",
