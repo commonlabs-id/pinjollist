@@ -80,9 +80,9 @@ export default function Note() {
     return (
       <Root>
         <Small>
-          Anda korban Pinjol Ilegal? Hubungi{' '}
-          <a href="https://www.bantuanhukum.or.id/web/formulir-pengaduan-pos-korban-pinjaman-online-pinjol/">
-            LBH Jakarta
+          Anda korban Pinjol Ilegal? Laporkan ke{' '}
+          <a href="https://lapor.go.id/instansi/otoritas-jasa-keuangan">
+            lapor.go.id
           </a>
           !
         </Small>{' '}
