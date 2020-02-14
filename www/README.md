@@ -1,19 +1,17 @@
-# Apakah _____ Terdaftar di OJK?
+# Pinjollist
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/21633cb6-8bcb-4e80-98a2-fbbf3729ada5/deploy-status)](https://app.netlify.com/sites/apakah-terdaftar-di-ojk/deploys)
+<!-- [![Netlify Status](https://api.netlify.com/api/v1/badges/21633cb6-8bcb-4e80-98a2-fbbf3729ada5/deploy-status)](https://app.netlify.com/sites/apakah-terdaftar-di-ojk/deploys) -->
 
-[Kunjungi Aplikasi](https://apakah-terdaftar-di-ojk.netlify.com/)
+Kode sumber situs web Pinjollist. Kunjungi situs [disini](https://pinjollist.now.sh/)!
 
-Cari perusahan-perusahaan pinjaman online yang memiliki lisensi dari Otoritas Jasa Keuangan (OJK) dalam situs ini. Data diperoleh dari [situs OJK](https://www.ojk.go.id/id/kanal/iknb/data-dan-statistik/direktori/fintech/Default.aspx) dan diperbarui secara reguler.
-
-Apakah Anda merupakan korban pinjaman online ilegal? Hubungi [LBH Jakarta](https://www.bantuanhukum.or.id/web/formulir-pengaduan-pos-korban-pinjaman-online-pinjol/)!
+Apakah Anda merupakan korban pinjaman online ilegal? Laporkan ke [lapor.go.id](https://lapor.go.id/instansi/otoritas-jasa-keuangan)!
 
 ## Berkontribusi
 
 Kami menanti kontribusi Anda! Untuk dapat menjalankan aplikasi ini secara lokal, Anda membutuhkan:
 
-* [Node.js](https://nodejs.org/en/) (v11+)
-* [Yarn](https://yarnpkg.com/lang/en/) (v1.9+)
+- [Node.js](https://nodejs.org/en/) (v11+)
+- [Yarn](https://yarnpkg.com/lang/en/) (v1.9+)
 
 Instalasi dependensi dengan menggunakan Yarn:
 
@@ -21,9 +19,15 @@ Instalasi dependensi dengan menggunakan Yarn:
 $ yarn
 ```
 
-Kemudian jalankan situs secara lokal dengan perintah berikut. Aplikasi dapat dibuka secara lokal di `localhost:3000`.
+Kemudian jalankan situs secara lokal dengan perintah berikut.
 
 ```sh-session
 $ yarn dev
 > Ready on http://localhost:3000
 ```
+
+Aplikasi dapat dibuka secara lokal di `localhost:3000`.
+
+## Lisensi
+
+Dalam semangat _open data_, kami juga percaya penuh dalam keuntungan-keuntungan dari _open source_. Kami telah merilis kode sumber layanan ini - serta perlengkapan yang kami gunakan dalam memproses data-data kami - di GitHub dalam lisensi bebas ([Apache License 2.0](https://github.com/commonlabs-id/pinjollist/blob/master/LICENSE)).
