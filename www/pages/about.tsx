@@ -1,14 +1,12 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 
 import Layout from '../components/layout/Layout';
 import Page from '../components/layout/Page';
 import SectionHeading from '../components/layout/SectionHeading';
 
-import LeadText from '../components/layout/LeadText';
 import Container from '../components/layout/Container';
 import Hero from '../components/layout/Hero';
 import { WordmarkWithTagline } from '../components/ui/Brand';
@@ -81,7 +79,8 @@ function IndexPage() {
             <Link href="/docs" passHref>
               <A>API umum</A>
             </Link>{' '}
-            yang dapat digunakan pengembang aplikasi untuk menarik data-data tersebut. Bagi
+            yang dapat digunakan pengembang aplikasi untuk menarik data-data tersebut.
+            {/* Bagi
             masyarakat umum, kami juga menyediakan{' '}
             <A
               href="https://docs.google.com/spreadsheets/d/1vbbQG3IPSxJl9dAcGA9xmP5kWGNPF75QGlPA5gpApI0/edit?usp=sharing"
@@ -91,6 +90,8 @@ function IndexPage() {
               spreadsheet
             </A>{' '}
             yang dapat diakses secara publik.
+            // TODO: Latest database doesn't use spreadsheets anymore. This needs update!
+            */}
           </P>
           <P>
             Dalam semangat <em>open data</em>, kami juga percaya penuh dalam keuntungan-keuntungan
