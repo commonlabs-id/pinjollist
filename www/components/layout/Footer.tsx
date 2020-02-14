@@ -18,13 +18,17 @@ const Footer: React.FC = () => (
         >
           situs OJK
         </A>
-        . Pembaruan terakhir: Mei 2019. Dibuat oleh{' '}
-        <A href="https://twitter.com/mathdroid" target="_blank" rel="noopener noreferrer">
-          @mathdroid
+        . Pembaruan terakhir: Mei 2019. Dikembangkan oleh{' '}
+        <A href="https://twitter.com/commonlabsID" target="_blank" rel="noopener noreferrer">
+          @commonlabsID
         </A>{' '}
-        dan{' '}
-        <A href="https://twitter.com/resir014" target="_blank" rel="noopener noreferrer">
-          @resir014
+        bersama dengan{' '}
+        <A
+          href="https://github.com/commonlabs-id/pinjollist/graphs/contributors"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          kontributor
         </A>
         . Kode sumber tersedia di{' '}
         <A
