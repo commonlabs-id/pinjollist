@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint *.js",
+    "lint": "eslint \"*.js\"",
     "validate": "yarn lint"
   },
   "dependencies": {

@@ -6,9 +6,9 @@ data
   .sort((a, b) => {
     if (a.registered_at._seconds !== b.registered_at._seconds) {
       return a.registered_at._seconds - b.registered_at._seconds;
-    } else {
-      return a.registration > b.registration ? 1 : -1;
     }
+
+    return a.registration > b.registration ? 1 : -1;
   })
   .forEach(row => {
     const string = `\n${row.registration},${row.platform_name},"${row.website.join(', ')}",${

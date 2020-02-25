@@ -17,7 +17,7 @@ const linesWithWords = rawTxt
 
 const illegalCompanies = linesWithWords.map(line => {
   const [front, developer_name] = line.split(' dengan perusahaan developer ');
-  const [_, platform_name] = front.split('. ');
+  const [, platform_name] = front.split('. ');
   return { platform_name, developer_name };
 });
 

@@ -6,16 +6,7 @@ module.exports = {
     browser: true,
     jest: true,
   },
-  extends: [
-    'airbnb',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'prettier',
-    'prettier/@typescript-eslint',
-    'plugin:prettier/recommended',
-  ],
-  parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'prettier'],
+  extends: ['airbnb', 'prettier', 'prettier/@typescript-eslint', 'plugin:prettier/recommended'],
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
@@ -39,11 +30,14 @@ module.exports = {
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
+      typescript: {},
     },
+    'import/extensions': ['.js', '.mjs', '.jsx', '.ts', '.tsx'],
   },
   overrides: [
     {
       files: ['**/*.ts', '**/*.tsx'],
+      parser: '@typescript-eslint/parser',
       parserOptions: {
         ecmaVersion: 2018,
         sourceType: 'module',
@@ -51,9 +45,25 @@ module.exports = {
         // typescript-eslint specific options
         warnOnUnsupportedTypeScriptVersion: true,
       },
+      plugins: ['@typescript-eslint', 'prettier'],
+      extends: [
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/eslint-recommended',
+      ],
       rules: {
         'no-undef': 'off',
         'no-unused-vars': 'off',
+        'import/extensions': [
+          'error',
+          'ignorePackages',
+          {
+            js: 'never',
+            mjs: 'never',
+            jsx: 'never',
+            ts: 'never',
+            tsx: 'never',
+          },
+        ],
         '@typescript-eslint/camelcase': 'off',
         '@typescript-eslint/explicit-function-return-type': ['off'],
         '@typescript-eslint/no-unused-vars': [

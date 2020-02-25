@@ -43,10 +43,7 @@ const Toast = () => {
       {show ? (
         <Root>
           Anda korban Pinjol Ilegal? Laporkan ke{' '}
-          <a href="https://lapor.go.id/instansi/otoritas-jasa-keuangan/">
-            lapor.go.id
-          </a>
-          !{' '}
+          <a href="https://lapor.go.id/instansi/otoritas-jasa-keuangan/">lapor.go.id</a>!{' '}
           <a
             href="#"
             onClick={e => {
