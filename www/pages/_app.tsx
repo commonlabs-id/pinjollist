@@ -6,6 +6,7 @@ import { initAnalytics, WithAnalyticsState } from '@pinjollist/next-with-analyti
 
 import 'typeface-inter';
 import 'normalize.css';
+import 'prismjs/themes/prism-tomorrow.css';
 
 const progress = NProgress.configure({ showSpinner: false });
 
