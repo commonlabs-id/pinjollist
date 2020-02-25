@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable no-sequences */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-var-requires */
@@ -5,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 const parse = require('csv-parse/lib/sync');
 
-const db = require('./database');
+// const db = require('./database');
 
 const csv = fs.readFileSync(path.join('../', 'data', 'feb2019.csv'));
 const opts = {
@@ -54,8 +56,8 @@ const sanitize = r => {
 const records = parse(csv, opts).map(sanitize);
 const oldRecords = require('../data/ojk2.json');
 
-const getRef = r => db.collection('lending_services').doc(r['platform_name']);
-const pushOne = (ref, data) => ref.set(data);
+// const getRef = r => db.collection('lending_services').doc(r['platform_name']);
+// const pushOne = (ref, data) => ref.set(data);
 
 console.log('Old length', oldRecords.length);
 console.log('New length', records.length);

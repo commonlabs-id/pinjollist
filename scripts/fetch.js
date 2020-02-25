@@ -22,7 +22,7 @@ const main = async () => {
   const companiesFromAPI = await fetchCompaniesFromAPI();
   const oldCompanies = ojk2.map(({ raw }) => raw);
   for (const company of companiesFromAPI) {
-    let hasMatching = false;
+    let _hasMatching = false;
     const match = oldCompanies.find(c => {
       return (
         c['Nama Platform'] === company.platform_name ||
@@ -30,7 +30,7 @@ const main = async () => {
       );
     });
     if (match) {
-      hasMatching = true;
+      _hasMatching = true;
       matches.push({
         ...company,
         address: match['Alamat'],

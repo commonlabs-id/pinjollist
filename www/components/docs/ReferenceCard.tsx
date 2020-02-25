@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import prismTheme from 'prismjs/themes/prism-tomorrow.css';
 
 const Root = styled('section')`
   margin: 1.5rem 0px;
@@ -18,13 +17,6 @@ const Root = styled('section')`
   }
 `;
 
-const ReferenceCard: React.FC = ({ children }) => (
-  <Root>
-    {children}
-    <style jsx global>
-      {prismTheme}
-    </style>
-  </Root>
-);
+const ReferenceCard: React.FC = ({ children }) => <Root>{children}</Root>;
 
 export default ReferenceCard;

@@ -4,6 +4,10 @@ import Router from 'next/router';
 import NProgress from 'nprogress';
 import { initAnalytics, WithAnalyticsState } from '@pinjollist/next-with-analytics';
 
+import 'typeface-inter';
+import 'normalize.css';
+import 'prismjs/themes/prism-tomorrow.css';
+
 const progress = NProgress.configure({ showSpinner: false });
 
 const config = {
