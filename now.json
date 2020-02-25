@@ -23,8 +23,23 @@
   ],
   "routes": [
     {
+      "src": "^/_next/static/(.*)",
+      "headers": { "Cache-Control": "public, max-age=31536000, immutable" },
+      "dest": "/www/_next/static/$1"
+    },
+    {
+      "src": "^/static/(.*)",
+      "headers": { "Cache-Control": "public, max-age=31536000, immutable" },
+      "dest": "/www/static/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/www/$1"
+      "dest": "/www/$1",
+      "headers": {
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff"
+      }
     }
   ]
 }
