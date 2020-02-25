@@ -23,22 +23,6 @@ const nextConfig = {
     API_URL: process.env['API_URL'],
     GOOGLE_ANALYTICS: process.env['GOOGLE_ANALYTICS'],
   },
-  webpack: (config, { defaultLoaders }) => {
-    config.module.rules.push({
-      test: /\.css$/,
-      use: [
-        defaultLoaders.babel,
-        {
-          loader: require('styled-jsx/webpack').loader,
-          options: {
-            type: fileName => (fileName.includes('node_modules') ? 'global' : 'scoped'),
-          },
-        },
-      ],
-    });
-
-    return config;
-  },
 };
 
 module.exports = withPlugins([[withMDX]], nextConfig);
