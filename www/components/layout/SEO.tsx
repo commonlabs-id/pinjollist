@@ -32,9 +32,9 @@ const SEO: React.FC<SEOProps> = ({ pageTitle }) => {
       />
       <meta property="twitter:card" content="summary_large_image" />
       <link rel="canonical" href={`https://pinjollist.now.sh${router ? router.pathname : '/'}`} />
-      <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon-32x32.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon-16x16.png" />
-      <link rel="shortcut icon" href="/static/images/favicon.ico" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link rel="shortcut icon" href="/favicon.ico" />
     </Head>
   );
 };
