@@ -20,7 +20,7 @@
     "google-spreadsheet": "^2.0.8",
     "isomorphic-unfetch": "^3.0.0",
     "micro": "^9.3.4",
-    "next": "^9.2.2",
+    "next": "^9.3.2",
     "next-compose-plugins": "^2.1.1",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
