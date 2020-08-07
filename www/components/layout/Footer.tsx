@@ -18,7 +18,7 @@ const Footer: React.FC = () => (
         >
           situs OJK
         </A>
-        . Pembaruan terakhir: Mei 2019. Dikembangkan oleh{' '}
+        . Pembaruan terakhir: Agustus 2019. Dikembangkan oleh{' '}
         <A href="https://twitter.com/commonlabsID" target="_blank" rel="noopener noreferrer">
           @commonlabsID
         </A>{' '}
